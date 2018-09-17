@@ -21,3 +21,4 @@
 /nbdist/
 /.nb-gradle/
 application.properties
+pom.xml
