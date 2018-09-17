@@ -22,6 +22,12 @@ public class Score {
     public Score() {
     }
 
+    public Score(long score, String dateOfGame, User user){
+        this.score = score;
+        this.dateOfGame = dateOfGame;
+        this.user = user;
+    }
+
     public Score(long id, long score, String dateOfGame, User user) {
         this.id = id;
         this.score = score;
