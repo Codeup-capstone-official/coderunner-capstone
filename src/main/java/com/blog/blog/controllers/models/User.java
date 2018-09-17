@@ -16,8 +16,7 @@ public class User {
     private String email;
     private String password;
 
-    @ColumnDefault("junior")
-    private String rank;
+    private String rank = "junior";
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Score> scores;
