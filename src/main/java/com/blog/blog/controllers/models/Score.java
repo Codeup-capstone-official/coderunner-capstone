@@ -1,14 +1,13 @@
 package com.blog.blog.controllers.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "scores")
 public class Score {
 
+    @Id
+    @GeneratedValue
     private long id;
     private long score;
     private String dateOfGame;
@@ -21,6 +20,12 @@ public class Score {
 
 
     public Score() {
+    }
+
+    public Score(long score, String dateOfGame, User user){
+        this.score = score;
+        this.dateOfGame = dateOfGame;
+        this.user = user;
     }
 
     public Score(long id, long score, String dateOfGame, User user) {
