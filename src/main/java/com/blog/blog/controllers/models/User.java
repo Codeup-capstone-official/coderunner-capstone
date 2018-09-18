@@ -3,19 +3,24 @@ package com.blog.blog.controllers.models;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
     private long id;
-    private String username;
-    private String email;
-    private String password;
 
+    @Column(nullable = false, length = 100, unique = true)
+    private String username;
+    @Column(nullable = false, length = 100, unique = true)
+    private String email;
+    @Column(nullable = false)
+    private String password;
+    @Column(nullable = false)
     private String rank = "junior";
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")

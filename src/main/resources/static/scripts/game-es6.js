@@ -121,7 +121,22 @@ class MovableGameObject extends GameObject {
 class Coin extends GameObject {
   constructor() {
     super(new lib.CoinGraphic());
+
+      this.velocity.y = -30;
+      this.directionY = -1;
+      this.speed = 0.5;
+      this.offsetY = 10;
+      this.maxOffset = 15;
+
+      this.on('tick', this.move);
   }
+    move() {
+        this.velocity.y = this.speed * this.directionY;
+        this.offsetY += this.velocity.y;
+        if (Math.abs(this.offsetY) > this.maxOffset) {
+            this.directionY *= -1;
+        }
+    }
 }
 
 class Enemy extends MovableGameObject {
@@ -210,7 +225,7 @@ class World extends createjs.Container {
     if (hitCoin !== false) {
       this.eatCoin(hitCoin);
       this.scoreCalculator.increaseScore(this.currentLevel);
-      console.log(this.scoreCalculator.score);
+      this.hero.velocity.x = 5;
       sceneManager.setGameScore(this.scoreCalculator.score);
     }
 
