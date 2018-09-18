@@ -21,7 +21,9 @@ var SceneManager = function () {
     this.startButton = document.getElementById('start-game-button');
     this.restartButton = document.getElementById('restart-game-button');
     this.exitButton = document.getElementById('exit-button');
-
+    this.gameOverCounter = true;
+    this.startGameMusic = true;
+    this.startGameSound = new Audio("/Sounds/random silly chip song.ogg");
     this.handlePlayerClick();
   }
 
@@ -30,8 +32,17 @@ var SceneManager = function () {
     value: function startGame() {
       this.menuScene.classList.remove('active');
       this.gameOverScene.classList.remove('active');
+      this.startGameMusic = true;
+      while(this.startGameMusic){
+        console.log("startGameMusic");
+          this.startGameSound.play();
+        this.startGameMusic = false;
+      }
+
+            // this.gameOverCounter = false;
       this.showHud();
       this.setGameScore(0);
+
     }
   }, {
     key: 'showMenu',
@@ -57,6 +68,14 @@ var SceneManager = function () {
   }, {
     key: 'gameOver',
     value: function gameOver() {
+      this.startGameSound.pause();
+      this.startGameMusic = false;
+        while(this.gameOverCounter) {
+            var gameOverSound = new Audio("/Sounds/gameover.wav");
+            gameOverSound.play();
+            this.gameOverCounter = false;
+
+        }
       this.gameOverScene.classList.add('active');
       this.hideHud();
     }
@@ -231,6 +250,8 @@ var Hero = function (_MovableGameObject2) {
     key: 'jump',
     value: function jump() {
       if (this.isOnGround) {
+          var jumpSound = new Audio("/Sounds/jump_07.wav");
+          jumpSound.play();
         this.velocity.y = -20;
         this.graphic.gotoAndPlay('jump');
         this.isOnGround = false;
@@ -436,6 +457,8 @@ var World = function (_createjs$Container2) {
     value: function eatCoin(coin) {
       for (var i = 0; i < this.coins.length; i++) {
         if (coin === this.coins[i]) {
+            var coinSound = new Audio("/Sounds/pickup_item.wav");
+            coinSound.play();
           this.coins.splice(i, 1);
         }
       }
