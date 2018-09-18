@@ -12,11 +12,13 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
+    @Column(nullable = false, length = 100, unique = true)
     private String username;
+    @Column(nullable = false, length = 100, unique = true)
     private String email;
     private String password;
 
-    private String rank = "junior";
+    private String ranking = "junior";
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Score> scores;
@@ -30,7 +32,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.rank = rank;
+        this.ranking = rank;
         this.scores = scores;
     }
 
@@ -67,11 +69,11 @@ public class User {
     }
 
     public String getRank() {
-        return rank;
+        return ranking;
     }
 
     public void setRank(String rank) {
-        this.rank = rank;
+        this.ranking = rank;
     }
 
     public List<Score> getScores() {
