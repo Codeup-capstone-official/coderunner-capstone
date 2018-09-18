@@ -1,14 +1,11 @@
 package com.blog.blog.controllers.models;
 
-import org.hibernate.annotations.ColumnDefault;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class User {
 
     @Id
     @GeneratedValue
@@ -21,7 +18,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
     @Column(nullable = false)
-    private String rank = "junior";
+    private String ranking = "junior";
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Score> scores;
@@ -35,7 +32,7 @@ public class User implements Serializable {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.rank = rank;
+        this.ranking = rank;
         this.scores = scores;
     }
 
@@ -72,11 +69,11 @@ public class User implements Serializable {
     }
 
     public String getRank() {
-        return rank;
+        return ranking;
     }
 
     public void setRank(String rank) {
-        this.rank = rank;
+        this.ranking = rank;
     }
 
     public List<Score> getScores() {
