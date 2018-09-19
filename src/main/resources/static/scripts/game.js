@@ -37,6 +37,7 @@ var SceneManager = function () {
             this.gameOverCounter = true;
             while(this.startGameMusic){
                 console.log("startGameMusic");
+                this.startGameSound.loop = true;
                 this.startGameSound.play();
                 this.startGameMusic = false;
             }
