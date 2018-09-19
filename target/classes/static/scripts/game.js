@@ -33,6 +33,7 @@ var SceneManager = function () {
       this.menuScene.classList.remove('active');
       this.gameOverScene.classList.remove('active');
       this.startGameMusic = true;
+      this.gameOverCounter = true;
       while(this.startGameMusic){
         console.log("startGameMusic");
           this.startGameSound.play();
