@@ -19,7 +19,6 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-
     public String viewOwnProfile(Model model) {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String highscore = userRepo.highscore(user.getUsername());
@@ -27,6 +26,7 @@ public class ProfileController {
         model.addAttribute("last10Games", last10Games);
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
+        model.addAttribute("notValid", false);
         return "profile";
     }
 
