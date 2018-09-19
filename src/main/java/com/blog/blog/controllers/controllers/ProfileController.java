@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -19,11 +20,15 @@ public class ProfileController {
     }
 
     @GetMapping("/profile")
-    public String viewOwnProfile() {
-       User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(user.getUsername());
-        return "/profile";
 
+    public String viewOwnProfile(Model model) {
+       User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String highscore = userRepo.highscore(user.getUsername());
+        List<Object[]> last10Games = userRepo.latest10Games(user.getUsername());
+        model.addAttribute("last10Games", last10Games);
+        model.addAttribute("highscore", highscore);
+        model.addAttribute("user", user);
+        return "profile";
     }
 
     @GetMapping("/profile/{username}")
