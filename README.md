@@ -2,6 +2,7 @@
 
 
 Feature List/TODO:
+
 1-Music/sound for game.
 
 2-Items to increase score/increase difficulty.
