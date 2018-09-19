@@ -37,4 +37,11 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT username FROM scores JOIN users u on scores.user_id = u.id GROUP BY user_id ORDER BY sum(score) DESC  LIMIT 10;", nativeQuery = true)
     List<String> findTop10PlayersUsernames();
 
+    @Query(value = "SELECT AVG(score) FROM scores JOIN users u on scores.user_id = u.id WHERE username = ?1 GROUP BY user_id;", nativeQuery = true)
+    String getAveragePointsByUsername(String username);
+
+    @Query(value = "SELECT SUM(score) FROM scores JOIN users u on scores.user_id = u.id WHERE username = ?1 GROUP BY user_id;", nativeQuery = true)
+    String getTotalPointsByUsername(String username);
+
+
 }
