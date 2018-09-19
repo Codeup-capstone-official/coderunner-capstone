@@ -22,25 +22,25 @@ public class GameController {
         return "index";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-//    @PostMapping("/login")
+//    @GetMapping("/login")
 //    public String login() {
 //        return "login";
 //    }
-
-    @GetMapping("/register")
-    public String showRegister(Model model) {
-        model.addAttribute("user", new User());
-        return "register";
-    }
-
-    @PostMapping("/save")
-    public String saveUser(@ModelAttribute User user) {
-        users.save(user);
-        return "redirect:/login";
-    }
+//
+////    @PostMapping("/login")
+////    public String login() {
+////        return "login";
+////    }
+//
+//    @GetMapping("/register")
+//    public String showRegister(Model model) {
+//        model.addAttribute("user", new User());
+//        return "register";
+//    }
+//
+//    @PostMapping("/save")
+//    public String saveUser(@ModelAttribute User user) {
+//        users.save(user);
+//        return "redirect:/login";
+//    }
 }

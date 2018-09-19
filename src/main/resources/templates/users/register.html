@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="../manifest.json" />
     <link rel="apple-touch-icon" href="icons/Icon.png.png" />
     <link rel="apple-touch-icon" sizes="76x76" href="icons/Icon-76.png" />
     <link rel="apple-touch-icon" sizes="120x120" href="icons/Icon-60@2x.png" />
@@ -62,7 +62,7 @@
         <h1>Register</h1>
         <div class="row">
             <div class="col-md-7">
-            <form th:action="'/save'" th:method="POST" th:object="${user}">
+            <form th:action="@{/register}" th:method="POST" th:object="${user}">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input id="username" type="text" class="form-control" th:field="*{username}" />
