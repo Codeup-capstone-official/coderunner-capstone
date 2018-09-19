@@ -5,10 +5,9 @@ import com.blog.blog.controllers.repositories.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 
 @Controller
@@ -38,6 +37,7 @@ public class ProfileController {
         String highscore = userRepo.highscore(username);
         String topPlayer = userRepo.getTopPlayer();
         List<Object[]> last10Games = userRepo.latest10Games(username);
+        model.addAttribute("notValid", false);
         model.addAttribute("topPlayer", topPlayer);
         model.addAttribute("last10Games", last10Games);
         model.addAttribute("highscore", highscore);
@@ -46,5 +46,17 @@ public class ProfileController {
         return "/profile";
     }
 
+    @PostMapping("/search")
+    public String searchUser(@RequestParam(name = "username") String username, Model model) {
+        try {
+            User user = userRepo.findByUsername(username);
+            System.out.println(user.getUsername());
+            return "redirect:/profile/" + username;
+        } catch (NullPointerException e) {
+            model.addAttribute("notValid", true);
+            return "/profile";
+        }
+
+    }
 
 }

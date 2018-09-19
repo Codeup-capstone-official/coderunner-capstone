@@ -5,22 +5,27 @@
     <title>Title</title>
 </head>
 <body>
-    <h1>Now viewing <span th:text="${user.username}"></span> profile</h1>
-    <th:block th:if="${topPlayer == user.username}">
-        <h1 style="color: red;">#1 Ranked In The World!</h1>
+    <th:block th:if="${notValid == true}">
+        <h1>No results were found</h1>
     </th:block>
-    <div th:each="username : ${top10Usernames}">
-        <th:block th:if="${username == user.username}">
-            <h1 style="color: blue;">Top 10 Player</h1>
+    <th:block th:if="${notValid == false}">
+        <h1>Now viewing <span th:text="${user.username}"></span> profile</h1>
+        <th:block th:if="${topPlayer == user.username}">
+            <h1 style="color: red;">#1 Ranked In The World!</h1>
         </th:block>
-    </div>
+        <div th:each="username : ${top10Usernames}">
+            <th:block th:if="${username == user.username}">
+                <h1 style="color: blue;">Top 10 Player</h1>
+            </th:block>
+        </div>
 
-    <h3>Email: <span th:text="${user.email}"></span></h3>
-    <h3>Ranking: <span th:text="${user.rank}"></span></h3>
-    <h3>High Score: <span th:text="${highscore}"></span></h3>
-    <h4>Last 10 games played</h4>
-    <div th:each="game : ${last10Games}">
-        <h5>Date Played: <span th:text="${game[0]}"></span>, Score: <span th:text="${game[1]}"></span></h5>
-    </div>
+        <h3>Email: <span th:text="${user.email}"></span></h3>
+        <h3>Ranking: <span th:text="${user.rank}"></span></h3>
+        <h3>High Score: <span th:text="${highscore}"></span></h3>
+        <h4>Last 10 games played</h4>
+        <div th:each="game : ${last10Games}">
+            <h5>Date Played: <span th:text="${game[0]}"></span>, Score: <span th:text="${game[1]}"></span></h5>
+        </div>
+    </th:block>
 </body>
 </html>
