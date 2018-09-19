@@ -6,6 +6,15 @@
 </head>
 <body>
     <h1>Now viewing <span th:text="${user.username}"></span> profile!</h1>
+    <th:block th:if="${topPlayer == user.username}">
+        <h1 style="color: red;">Top Player</h1>
+    </th:block>
+    <div th:each="username : ${top10Usernames}">
+        <th:block th:if="${username == user.username}">
+            <h1 style="color: blue;">Top 10 Player</h1>
+        </th:block>
+    </div>
+
     <h3>Email: <span th:text="${user.email}"></span></h3>
     <h3>Ranking: <span th:text="${user.rank}"></span></h3>
     <h3>High Score: <span th:text="${highscore}"></span></h3>
@@ -13,6 +22,5 @@
     <div th:each="game : ${last10Games}">
         <h5>Date Played: <span th:text="${game[0]}"></span>, Score: <span th:text="${game[1]}"></span></h5>
     </div>
-
 </body>
 </html>

@@ -33,12 +33,16 @@ public class ProfileController {
 
     @GetMapping("/profile/{username}")
     public String viewProfile(@PathVariable String username, Model model) {
+        List<String> top10Usernames = userRepo.findTop10PlayersUsernames();
         User user = userRepo.findByUsername(username);
         String highscore = userRepo.highscore(username);
+        String topPlayer = userRepo.getTopPlayer();
         List<Object[]> last10Games = userRepo.latest10Games(username);
+        model.addAttribute("topPlayer", topPlayer);
         model.addAttribute("last10Games", last10Games);
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
+        model.addAttribute("top10Usernames", top10Usernames);
         return "/profile";
     }
 
