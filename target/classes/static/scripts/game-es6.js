@@ -66,11 +66,11 @@ class SceneManager {
 class LevelData {
   constructor() {
     this.levels = [
-      {gapX:0, gapY:30, widthDiff: 0, total: 5, coinChance: 0.4, enemyChance: 0.2},
-      {gapX:10, gapY:30, widthDiff: 30, total: 10, coinChance: 0.6, enemyChance: 0.3},
-      {gapX:20, gapY:30, widthDiff: 30, total: 10, coinChance: 0.6, enemyChance: 0.2},
-      {gapX:40, gapY:40, widthDiff: 100, total: 50, coinChance: 0.8, enemyChance: 0},
-      {gapX:20, gapY:30, widthDiff: 30, total: 100, coinChance: 0.6, enemyChance: 0.4},
+      {gapX:0, gapY:0, widthDiff: 0, total: 10, coinChance: 0.4, enemyChance: 0.2},
+      {gapX:40, gapY:0, widthDiff: 0, total: 15, coinChance: 0.6, enemyChance: 0.3},
+      {gapX:20, gapY:30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.2},
+      {gapX:40, gapY:40, widthDiff: 50, total: 50, coinChance: 0.8, enemyChance: 0},
+      {gapX:20, gapY:30, widthDiff: 100, total: 100, coinChance: 0.6, enemyChance: 0.4},
     ];
   }
 }
@@ -118,10 +118,25 @@ class MovableGameObject extends GameObject {
   }
 }
 
-class Coin extends GameObject {
-  constructor() {
-    super(new lib.CoinGraphic());
-  }
+class Coin extends MovableGameObject {
+    constructor() {
+        super(new lib.CoinGraphic());
+
+        this.velocity.y = -30;
+        this.directionY = -1;
+        this.speed = 0.5;
+        this.offsetY = 10;
+        this.maxOffset = 15;
+
+        this.on('tick', this.move);
+    }
+    move() {
+        this.velocity.y = this.speed * this.directionY;
+        this.offsetY += this.velocity.y;
+        if (Math.abs(this.offsetY) > this.maxOffset) {
+            this.directionY *= -1;
+        }
+    }
 }
 
 class Enemy extends MovableGameObject {
@@ -210,7 +225,7 @@ class World extends createjs.Container {
     if (hitCoin !== false) {
       this.eatCoin(hitCoin);
       this.scoreCalculator.increaseScore(this.currentLevel);
-      console.log(this.scoreCalculator.score);
+      this.hero.velocity.x = 10;
       sceneManager.setGameScore(this.scoreCalculator.score);
     }
 
@@ -225,13 +240,13 @@ class World extends createjs.Container {
   addHero() {
     var hero = new Hero();
     this.addChild(hero);
-    hero.x = 500;
-    hero.y = 700;
+    hero.x = 100;
+    hero.y = 100;
     this.hero = hero;
   }
   generatePlatforms() {
-    var nextX = 1100;
-    var nextY = 1000;
+    var nextX = 100;
+    var nextY = 200;
 
     var levelNumber = 0;
     for (var level of this.levelData.levels) {
@@ -296,7 +311,7 @@ class World extends createjs.Container {
     coin.parent.removeChild(coin);
   }
   applyGravity() {
-    var gravity = 3;
+    var gravity = 1;
     var terminalVelocity = 5;
     // TODO: loop all movable game objects
     var object = this.hero;
