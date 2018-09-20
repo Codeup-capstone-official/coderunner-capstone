@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+<th:block th:if="${userExists == true}">
+    <h1 style="color: green">Friend request sent!</h1>
+</th:block>
+<th:block th:if="${userExists == false}">
+    <h1 style="color: red">No user found by that username</h1>
+</th:block>
+
+</body>
+</html>
