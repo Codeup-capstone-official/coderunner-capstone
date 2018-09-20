@@ -28,8 +28,11 @@ public class UserController {
     @PostMapping("/register")
     public String saveUser(@ModelAttribute User user){
         String hash = passwordEncoder.encode(user.getPassword());
+        String currentDate = users.currentDate();
         user.setPassword(hash);
         users.save(user);
+        long userId = users.getRegisterUserId();
+        users.insertDefaultScore(currentDate, userId);
         return "redirect:/login";
     }
 }

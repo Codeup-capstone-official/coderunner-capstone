@@ -77,4 +77,7 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT users.username FROM users JOIN relationships ON user_two_id = users.id WHERE user_one_id = ?1 AND status = 1", nativeQuery = true)
     List<String> getFriendsThatYouAdded(long currentUserId);
 
+    @Query(value = "SELECT MAX(id) FROM users", nativeQuery = true)
+    long getRegisterUserId();
+
 }

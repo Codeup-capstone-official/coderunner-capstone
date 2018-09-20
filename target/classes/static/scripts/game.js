@@ -114,7 +114,7 @@ var SceneManager = function () {
 var LevelData = function LevelData() {
     _classCallCheck(this, LevelData);
 
-    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 0 }, { gapX: 30, gapY: 0, widthDiff: 0, total: 15, coinChance: 0.4, enemyChance: 0.2 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
+    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 0 }, { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
 };
 
 var ScoreCalculator = function () {
@@ -710,7 +710,7 @@ var Game = function () {
             this.stage2.removeAllChildren();
             this.stage2.update();
             // background
-            var BG1 = new lib.BackgroundGraphic2();
+            var BG1 = new lib.BackgroundGraphic1();
             var BG2 = new lib.BackgroundGraphic3();
             this.stage2.addChild(BG1);
 
