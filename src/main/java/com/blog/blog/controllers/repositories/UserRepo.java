@@ -53,6 +53,11 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "INSERT INTO relationships (user_one_id, user_two_id, action_user, status) VALUES (?1, ?2, ?3, 0) ", nativeQuery = true)
     void sendRequest(long userOne, long userTwo, long actionUser);
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO scores (date_of_game, score, user_id) VALUES (?1, 0, ?2) ", nativeQuery = true)
+    void insertDefaultScore(String dateOfGame, long userId);
+
     @Query(value = "SELECT username, status, action_user, relationships.id FROM users JOIN relationships ON user_one_id = users.id WHERE user_two_id = ?1 AND status = 0", nativeQuery = true)
     List<Object[]> getFriendRequests(long currentUserId);
 
