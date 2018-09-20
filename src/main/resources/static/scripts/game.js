@@ -114,7 +114,7 @@ var SceneManager = function () {
 var LevelData = function LevelData() {
     _classCallCheck(this, LevelData);
 
-    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 10, coinChance: 0.3, enemyChance: 0 }, { gapX: 0, gapY: 0, widthDiff: 0, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
+    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 0 }, { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
 };
 
 var ScoreCalculator = function () {
@@ -223,12 +223,12 @@ var Enemy = function (_MovableGameObject2) {
     function Enemy() {
         _classCallCheck(this, Enemy);
 
-        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic()));
+        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic4()));
 
         _this4.directionX = -1;
         _this4.speed = 1;
         _this4.offsetX = 0;
-        _this4.maxOffset = 10;
+        _this4.maxOffset = 1;
 
         _this4.on('tick', _this4.move);
         return _this4;
@@ -288,7 +288,7 @@ var Platform = function (_GameObject2) {
     function Platform() {
         _classCallCheck(this, Platform);
 
-        return _possibleConstructorReturn(this, (Platform.__proto__ || Object.getPrototypeOf(Platform)).call(this, new lib.PlatformGraphic()));
+        return _possibleConstructorReturn(this, (Platform.__proto__ || Object.getPrototypeOf(Platform)).call(this, new lib.PlatformGraphic1()));
     }
 
     _createClass(Platform, [{
@@ -346,7 +346,6 @@ var World = function (_createjs$Container2) {
             if (hitCoin !== false) {
                 this.eatCoin(hitCoin);
                 this.scoreCalculator.increaseScore(this.currentLevel);
-                this.hero.velocity.x = 10;
                 sceneManager.setGameScore(this.scoreCalculator.score);
             }
 
@@ -712,7 +711,7 @@ var Game = function () {
             this.stage2.update();
             // background
             var BG1 = new lib.BackgroundGraphic1();
-            var BG2 = new lib.BackgroundGraphic2();
+            var BG2 = new lib.BackgroundGraphic3();
             this.stage2.addChild(BG1);
 
             this.world = new World();
