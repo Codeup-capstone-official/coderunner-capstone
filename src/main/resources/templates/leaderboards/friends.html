@@ -5,8 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-    <div th:each="friend: ${friends}">
-        <p th:text="${friend}"></p>
-    </div>
+<h1>Friend Ranking</h1>
+    <ol>
+        <div th:each="player: ${players}">
+            <div th:each="friend : ${friends}">
+                <li th:if="${player == friend}">
+                        <a th:href="@{'/profile/' + ${player}}" th:text="${player}"></a>
+                </li>
+            </div>
+        </div>
+    </ol>
+
+
 </body>
 </html>

@@ -8,7 +8,7 @@
 <h1>Friends list</h1>
 <hr />
 <div th:each="friend : ${friends}">
-    <h4 th:text="${friend}"></h4>
+    <h4><a th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h4>
 </div>
 </body>
 </html>
