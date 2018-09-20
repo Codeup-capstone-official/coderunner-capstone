@@ -67,8 +67,8 @@ class SceneManager {
 class LevelData {
     constructor() {
         this.levels = [
-            {gapX:0, gapY:0, widthDiff: 0, total: 10, coinChance: 0.3, enemyChance: 0.2},
-            {gapX:40, gapY:0, widthDiff: 0, total: 15, coinChance: 0.4, enemyChance: 0.3},
+            {gapX:0, gapY:0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 0.2},
+            {gapX:40, gapY:0, widthDiff: 0, total: 12, coinChance: 0.4, enemyChance: 0.3},
             {gapX:20, gapY:30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3},
             {gapX:40, gapY:40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4},
             {gapX:50, gapY:50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4},
