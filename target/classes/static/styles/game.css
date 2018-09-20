@@ -61,6 +61,8 @@ body {
   background: url(../images/landscape.png) top center repeat-x;
   border-top: 5px solid #008894;
 }
+
+
 header h1{
  display: none;
 }
@@ -77,6 +79,11 @@ header h1 {
   border-left-color: #977E5A;
   border-right-color: #977E5A;
   border-bottom-color: #7C6749;
+
+
+
+  z-index: 99;
+  top: 62px;
 }
 
 #menu {
@@ -107,6 +114,32 @@ ul.how-to-play {
 .hr hr {
   display: none;
 }
+
+
+
+body.home {
+  text-align: center;
+}
+.game-container {
+  display:inline-block;
+  width:590px;
+  height:800px;
+  margin: 0 auto;
+  /*background: black;*/
+  position:relative;
+  /*border:5px solid black;*/
+  /*border-radius: 10px;*/
+  /*box-shadow: 0 5px 50px #333;*/
+}
+.game-boi {
+  position:absolute;
+  z-index:1;
+  /*box-shadow: 0 5px 50px #333;*/
+
+  right: -8px;
+}
+
+
 
 footer {
   text-align: center;

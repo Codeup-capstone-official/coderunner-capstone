@@ -14,26 +14,34 @@
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="styles/game.css" />
   </head>
-  <body>
+
+  <body class="home">
   <div th:replace="fragments/navbar :: navbar"></div>
     <header>
       <h1>Code-Runner</h1>
     </header>
-    <div id="game">
-      <canvas id="game-canvas" class="active scene" width="480" height="320">
-        This is an interactive game.
-      </canvas>
-      <div id="menu" class="active scene">
-        <a href="#game-canvas" id="start-game-button">Start Game</a>
-      </div>
-      <div id="gameover" class="scene">
-        <a href="#game-canvas" id="restart-game-button">Restart Game</a>
-        <a href="#menu" id="exit-button">Exit to Menu</a>
-      </div>
-      <div id="hud" class="scene">
-        <p>Score: <span id="score-text">0</span></p>
-      </div>
+
+    <div class="game-container">
+
+        <img class="game-boi" src="/images/gboy2.1.png" alt="Game console" />
+
+        <div id="game">
+          <canvas id="game-canvas" class="active scene" width="480" height="320">
+            This is an interactive game.
+          </canvas>
+          <div id="menu" class="active scene">
+            <a href="#game-canvas" id="start-game-button">Start Game</a>
+          </div>
+          <div id="gameover" class="scene">
+            <a href="#game-canvas" id="restart-game-button">Restart Game</a>
+            <a href="#menu" id="exit-button">Exit to Menu</a>
+          </div>
+          <div id="hud" class="scene">
+            <p>Score: <span id="score-text">0</span></p>
+          </div>
+        </div>
     </div>
+
     <div class='hr'>
       <hr />
     </div>
