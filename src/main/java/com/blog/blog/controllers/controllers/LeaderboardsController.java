@@ -38,6 +38,7 @@ public class LeaderboardsController {
         List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
         friends.addAll(moreFriends);
         List<String> playerRankings = userRepo.getAllPlayersRanking();
+        model.addAttribute("currentUsername", user.getUsername());
         model.addAttribute("players", playerRankings);
         model.addAttribute("friends", friends);
         return "/leaderboards/friends";

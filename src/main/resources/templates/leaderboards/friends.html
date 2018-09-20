@@ -9,7 +9,7 @@
     <ol>
         <div th:each="player: ${players}">
             <div th:each="friend : ${friends}">
-                <li th:if="${player == friend}">
+                <li th:if="${player == friend || player == currentUsername}">
                         <a th:href="@{'/profile/' + ${player}}" th:text="${player}"></a>
                 </li>
             </div>
