@@ -14,6 +14,7 @@ var SceneManager = function () {
 
         this.menuScene = document.getElementById('menu');
         this.gameScene = document.getElementById('game-canvas');
+        this.gameScene2 = document.getElementById('game-canvas2');
         this.gameOverScene = document.getElementById('gameover');
         this.hud = document.getElementById('hud');
 
@@ -253,7 +254,7 @@ var Hero = function (_MovableGameObject3) {
     function Hero() {
         _classCallCheck(this, Hero);
 
-        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, new lib.HeroGraphic()));
+        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, new lib.HeroGraphic2()));
     }
 
     _createClass(Hero, [{
@@ -704,9 +705,12 @@ var Game = function () {
     }, {
         key: 'restartGame',
         value: function restartGame() {
-
-            // background
             var test = this;
+            this.stage.removeAllChildren();
+            this.stage.update();
+            this.stage2.removeAllChildren();
+            this.stage2.update();
+            // background
             var BG1 = new lib.BackgroundGraphic1();
             var BG2 = new lib.BackgroundGraphic2();
             this.stage2.addChild(BG1);
@@ -741,6 +745,8 @@ var Game = function () {
         value: function retinalize() {
             this.stage.width = this.canvas.width;
             this.stage.height = this.canvas.height;
+            this.stage2.width = this.canvas2.width;
+            this.stage2.height = this.canvas2.height;
 
             var ratio = window.devicePixelRatio;
             if (ratio === undefined) {
@@ -749,12 +755,17 @@ var Game = function () {
 
             this.canvas.setAttribute('width', Math.round(this.stage.width * ratio));
             this.canvas.setAttribute('height', Math.round(this.stage.height * ratio));
+            this.canvas2.setAttribute('width', Math.round(this.stage.width * ratio));
+            this.canvas2.setAttribute('height', Math.round(this.stage.height * ratio));
 
             this.stage.scaleX = this.stage.scaleY = ratio;
+            this.stage2.scaleX = this.stage2.scaleY = ratio;
 
             // Set CSS style
             this.canvas.style.width = this.stage.width + "px";
             this.canvas.style.height = this.stage.height + "px";
+            this.canvas2.style.width = this.stage2.width + "px";
+            this.canvas2.style.height = this.stage2.height + "px";
         }
     }]);
 
