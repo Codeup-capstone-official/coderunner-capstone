@@ -20,11 +20,10 @@ public class LeaderboardsController {
     @GetMapping("/leaders")
     public String goToLeaderboards(Model model) {
         String currDate = userRepo.currentDate();
-        String monthFormat = currDate.substring(5, 7) + "/%";
-        String dayFormat = "%/" + currDate.substring(8, 10) + "/%";
+        String monthFormat = currDate.substring(0, 7) + "%";
         List<Object[]> users = userRepo.usersWithScores();
         List<Object[]> top10Month = userRepo.top10OfMonth(monthFormat);
-        List<Object[]> top10OfDay = userRepo.top10OfTheDay(dayFormat);
+        List<Object[]> top10OfDay = userRepo.top10OfTheDay(currDate);
         model.addAttribute("top10OfDay", top10OfDay);
         model.addAttribute("top10Month", top10Month);
         model.addAttribute("users", users);
@@ -38,6 +37,8 @@ public class LeaderboardsController {
         List<String> friends =  userRepo.getFriendsThatAddedYou(currentUserId);
         List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
         friends.addAll(moreFriends);
+        List<String> playerRankings = userRepo.getAllPlayersRanking();
+        model.addAttribute("players", playerRankings);
         model.addAttribute("friends", friends);
         return "/leaderboards/friends";
     }
