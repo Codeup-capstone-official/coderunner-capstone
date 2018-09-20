@@ -2,6 +2,7 @@ package com.blog.blog.controllers.controllers;
 
 import com.blog.blog.controllers.models.User;
 import com.blog.blog.controllers.repositories.UserRepo;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,5 +29,16 @@ public class LeaderboardsController {
         model.addAttribute("top10Month", top10Month);
         model.addAttribute("users", users);
         return "leaderboards/index";
+    }
+
+    @GetMapping("/leaders/friends")
+    public String goToFriendLeaderboards(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long currentUserId = user.getId();
+        List<String> friends =  userRepo.getFriendsThatAddedYou(currentUserId);
+        List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
+        friends.addAll(moreFriends);
+        model.addAttribute("friends", friends);
+        return "/leaderboards/friends";
     }
 }
