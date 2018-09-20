@@ -74,7 +74,6 @@ var SceneManager = function () {
                 var gameOverSound = new Audio("/Sounds/gameover.wav");
                 gameOverSound.play();
                 this.gameOverCounter = false;
-
             }
             this.gameOverScene.classList.add('active');
             this.hideHud();
@@ -114,7 +113,7 @@ var SceneManager = function () {
 var LevelData = function LevelData() {
     _classCallCheck(this, LevelData);
 
-    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 10, coinChance: 0.4, enemyChance: 0.2 }, { gapX: 40, gapY: 0, widthDiff: 0, total: 15, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.2 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.8, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 100, total: 100, coinChance: 0.6, enemyChance: 0.4 }];
+    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 10, coinChance: 0.3, enemyChance: 0 }, { gapX: 0, gapY: 0, widthDiff: 0, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
 };
 
 var ScoreCalculator = function () {
@@ -646,6 +645,14 @@ var Game = function () {
 
         this.stage.width = this.canvas.width;
         this.stage.height = this.canvas.height;
+        this.canvas2 = document.getElementById("game-canvas2");
+        this.stage2 = new createjs.Stage(this.canvas2);
+
+        this.stage.width = this.canvas.width;
+        this.stage.height = this.canvas.height;
+
+        this.stage2.width = this.canvas2.width;
+        this.stage2.height = this.canvas2.height;
 
         // enable tap on touch device
         createjs.Touch.enable(this.stage);
@@ -657,6 +664,7 @@ var Game = function () {
 
         // keep re-drawing the stage.
         createjs.Ticker.on("tick", this.stage);
+        createjs.Ticker.on("tick", this.stage2);
 
         this.gameLoaded = false;
         this.loadGraphics();
@@ -676,8 +684,9 @@ var Game = function () {
             var loader = new createjs.LoadQueue(false);
             loader.addEventListener("fileload", handleFileLoad);
             loader.addEventListener("complete", handleComplete.bind(this));
-            loader.loadFile({ src: "images/rush_game_graphics_atlas_.json", type: "spritesheet", id: "rush_game_graphics_atlas_" }, true);
+            loader.loadFile({ src: "images/RealGame_atlas_.json", type: "spritesheet", id: "RealGame_atlas_" }, true);
             loader.loadManifest(lib.properties.manifest);
+            loader.loadFile({ src: "images/RealGame_atlas_.png", type: "spritesheet", id: "RealGame_atlas_" }, true);
 
             function handleFileLoad(evt) {
                 if (evt.item.type == "image") {
@@ -687,7 +696,7 @@ var Game = function () {
 
             function handleComplete(evt) {
                 var queue = evt.target;
-                ss["rush_game_graphics_atlas_"] = queue.getResult("rush_game_graphics_atlas_");
+                ss["RealGame_atlas_"] = queue.getResult("RealGame_atlas_");
 
                 this.gameLoaded = true;
             }
@@ -695,13 +704,27 @@ var Game = function () {
     }, {
         key: 'restartGame',
         value: function restartGame() {
-            this.stage.removeAllChildren();
 
             // background
-            this.stage.addChild(new lib.BackgroundGraphic());
+            var test = this;
+            var BG1 = new lib.BackgroundGraphic1();
+            var BG2 = new lib.BackgroundGraphic2();
+            this.stage2.addChild(BG1);
 
             this.world = new World();
+            // createjs.Ticker.on("tick", this.world);
             this.stage.addChild(this.world);
+
+            setInterval(function () {
+                console.log(test.world.currentLevel);
+
+                if (test.world.currentLevel == 1) {
+                    console.log("test for current level");
+                    test.stage2.removeChild(BG1);
+                    test.stage2.addChild(BG2);
+                    test.stage2.update();
+                }
+            }, 1000);
 
             var hero = this.world.hero;
             this.stage.on('stagemousedown', function () {
