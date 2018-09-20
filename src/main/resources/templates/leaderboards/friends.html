@@ -10,12 +10,13 @@
         <ol>
             <div th:each="player: ${players}">
                 <div th:each="friend : ${friends}">
-                    <li th:if="${player == friend}">
-                        <a th:href="@{'/profile/' + ${player}}" th:text="${player}"></a>
+                    <li th:if="${player[0] == friend}">
+                        <h3><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a>, Total Points: <span th:text="${player[1]}"></span></h3>
+
                     </li>
                 </div>
-                <li th:if="${player == currentUsername}">
-                        <a th:href="@{'/profile/' + ${player}}" th:text="${player}"></a>
+                <li th:if="${player[0] == currentUsername}">
+                    <h3><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a>, Total Points: <span th:text="${player[1]}"></span></h3>
                 </li>
             </div>
         </ol>
