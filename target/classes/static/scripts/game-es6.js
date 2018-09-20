@@ -2,6 +2,7 @@ class SceneManager {
     constructor() {
         this.menuScene = document.getElementById('menu');
         this.gameScene = document.getElementById('game-canvas');
+        this.gameScene2 = document.getElementById('game-canvas2');
         this.gameOverScene = document.getElementById('gameover');
         this.hud = document.getElementById('hud');
 
@@ -161,7 +162,7 @@ class Enemy extends MovableGameObject {
 
 class Hero extends MovableGameObject {
     constructor() {
-        super( new lib.HeroGraphic() );
+        super( new lib.HeroGraphic2() );
     }
     run() {
         if (!this.isOnGround) {
@@ -214,6 +215,8 @@ class World extends createjs.Container {
     }
     tick() {
         this.applyGravity();
+        this.scoreCalculator.increaseScore();
+        sceneManager.setGameScore(this.scoreCalculator.score);
 
         var hitEnemy = this.targetHitTestObjects(this.hero, this.enemies);
         if (hitEnemy !== false) {
@@ -461,11 +464,11 @@ class Game{
         var test = this;
         var BG1 = new lib.BackgroundGraphic1;
         var BG2 = new lib.BackgroundGraphic2;
-        this.stage2.addChild(BG1);
+        this.stage.addChild(BG1);
 
 
         this.world = new World();
-        // createjs.Ticker.on("tick", this.world);
+        createjs.Ticker.on("tick", this.world);
         this.stage.addChild(this.world);
 
 

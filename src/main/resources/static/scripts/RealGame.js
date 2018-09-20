@@ -68,7 +68,7 @@ lib.webfontAvailable = function(family) {
 
 
 
-(lib.platform = function() {
+(lib.platform1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
@@ -82,30 +82,37 @@ lib.webfontAvailable = function(family) {
 
 
 
-(lib.spike = function() {
+(lib.ScreenShot20180920at13905PM = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Wizard_0 = function() {
+(lib.spike = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Wizard_1 = function() {
+(lib.Wizard_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Wizard_2 = function() {
+(lib.Wizard_1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(11);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.Wizard_2 = function() {
+	this.spriteSheet = ss["RealGame_atlas_"];
+	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -127,13 +134,13 @@ p.nominalBounds = new cjs.Rectangle(410.5,409.5,32,32);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.platform();
-	this.instance.setTransform(0,0,0.091,0.125);
+	this.instance = new lib.platform1();
+	this.instance.setTransform(0,0,0.043,0.096);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,150,40);
+p.nominalBounds = new cjs.Rectangle(0,0,100,20);
 
 
 (lib.ObstacleGraphic = function(mode,startPosition,loop) {
@@ -147,6 +154,19 @@ p.nominalBounds = new cjs.Rectangle(0,0,150,40);
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(0,0,40,40);
+
+
+(lib.JustinGraphic = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.ScreenShot20180920at13905PM();
+	this.instance.setTransform(0,0,0.286,0.26);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,75,75);
 
 
 (lib.HeroGraphic2 = function(mode,startPosition,loop) {
@@ -221,26 +241,32 @@ p.nominalBounds = new cjs.Rectangle(0,0,450,420);
 
 
 // stage content:
-(lib.Untitled1 = function(mode,startPosition,loop) {
+(lib.initalgameFiles = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.HeroGraphic();
-	this.instance.setTransform(285,137,1,1,0,0,0,20,20);
+	this.instance = new lib.ScreenShot20180920at13905PM();
+	this.instance.setTransform(378,52,0.183,0.208);
 
-	this.instance_1 = new lib.ObstacleGraphic();
-	this.instance_1.setTransform(239,147,1,1,0,0,0,20,20);
+	this.instance_1 = new lib.platform1();
+	this.instance_1.setTransform(233,161,0.043,0.096);
 
-	this.instance_2 = new lib.PlatformGraphic();
-	this.instance_2.setTransform(285,157,1,1,0,0,0,75,20);
+	this.instance_2 = new lib.platform2();
+	this.instance_2.setTransform(403,229);
 
-	this.instance_3 = new lib.CoinGraphic();
-	this.instance_3.setTransform(331,127,1,1,0,0,0,10,10);
+	this.instance_3 = new lib.HeroGraphic();
+	this.instance_3.setTransform(285,137,1,1,0,0,0,20,20);
 
-	this.instance_4 = new lib.BackgroundGraphic1();
-	this.instance_4.setTransform(278,210,1,1,0,0,0,225,210);
+	this.instance_4 = new lib.ObstacleGraphic();
+	this.instance_4.setTransform(239,147,1,1,0,0,0,20,20);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this.instance_5 = new lib.CoinGraphic();
+	this.instance_5.setTransform(331,127,1,1,0,0,0,10,10);
+
+	this.instance_6 = new lib.BackgroundGraphic1();
+	this.instance_6.setTransform(278,210,1,1,0,0,0,225,210);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(328,200,450,420);
