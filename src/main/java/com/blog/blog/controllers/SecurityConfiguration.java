@@ -31,6 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         ;
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -52,7 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(
-                        "/profile" // only authenticated users can create ads
+                        "/profile", "/leaders/friends", "/add-friend", "/view-requests", "/view-friends"  // only authenticated users can create ads
                          // only authenticated users can edit ads
                 )
                 .authenticated()

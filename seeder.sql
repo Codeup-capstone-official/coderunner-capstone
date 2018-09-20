@@ -8,12 +8,11 @@ insert into users(username, email, password, ranking) values ("Voyageurs", "Voy@
 insert into users(username, email, password, ranking) values ("Noob", "Noob@email.com", "password", "Wizard");
 
 
-insert into scores(score, date_of_game, user_id) values (100000, '01/01/2018', 1);
-insert into scores(score, date_of_game, user_id) values (103325, '01/01/2018', 1);
-
-insert into scores(score, date_of_game, user_id) values (200000, '01/02/2018', 2);
-insert into scores(score, date_of_game, user_id) values (40000, '09/19/2018', 3);
-insert into scores(score, date_of_game, user_id) values (400000, '01/04/2018', 2);
-insert into scores(score, date_of_game, user_id) values (500000, '02/01/2018', 4);
-insert into scores(score, date_of_game, user_id) values (100000, '09/19/2018', 5);
-insert into scores(score, date_of_game, user_id) values (602330000, '09/18/2018', 5);
+insert into scores(score, date_of_game, user_id) values (100000, '2018-09-15', 1);
+insert into scores(score, date_of_game, user_id) values (103325, '2018-09-12', 2);
+insert into scores(score, date_of_game, user_id) values (200000, '2018-09-20', 3);
+insert into scores(score, date_of_game, user_id) values (40000, '2018-09-20', 10);
+insert into scores(score, date_of_game, user_id) values (400000, '2018-09-20', 5);
+insert into scores(score, date_of_game, user_id) values (500000,  '2018-09-18', 6);
+insert into scores(score, date_of_game, user_id) values (1000000000, '2018-09-20', 7);
+insert into scores(score, date_of_game, user_id) values (602330000, '2018-09-20', 8);

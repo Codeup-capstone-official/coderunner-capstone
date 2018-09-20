@@ -1,121 +1,122 @@
 class SceneManager {
-  constructor() {
-    this.menuScene = document.getElementById('menu');
-    this.gameScene = document.getElementById('game-canvas');
-    this.gameOverScene = document.getElementById('gameover');
-    this.hud = document.getElementById('hud');
+    constructor() {
+        this.menuScene = document.getElementById('menu');
+        this.gameScene = document.getElementById('game-canvas');
+        this.gameScene2 = document.getElementById('game-canvas2');
+        this.gameOverScene = document.getElementById('gameover');
+        this.hud = document.getElementById('hud');
 
-    this.scoreText = document.getElementById('score-text');
-    this.startButton = document.getElementById('start-game-button');
-    this.restartButton = document.getElementById('restart-game-button');
-    this.exitButton = document.getElementById('exit-button');
+        this.scoreText = document.getElementById('score-text');
+        this.startButton = document.getElementById('start-game-button');
+        this.restartButton = document.getElementById('restart-game-button');
+        this.exitButton = document.getElementById('exit-button');
 
 
-    this.handlePlayerClick();
-  }
-  startGame() {
-    this.menuScene.classList.remove('active');
-    this.gameOverScene.classList.remove('active');
-    this.showHud();
-    this.setGameScore(0);
-  }
-  showMenu() {
-    this.gameOverScene.classList.remove('active');
-    this.menuScene.classList.add('active');
-  }
-  showHud() {
-    this.hud.classList.add('active');
-  }
-  hideHud() {
-    this.hud.classList.remove('active');
-  }
-  setGameScore(score) {
-    this.scoreText.textContent = score;
-  }
-  gameOver() {
-    this.gameOverScene.classList.add('active');
-    this.hideHud();
-  }
-  handlePlayerClick() {
-    var manager = this;
-    this.startButton.onclick = function(e) {
-      manager.startGame();
-      game.restartGame();
-
-      e.preventDefault();
-      return false;
+        this.handlePlayerClick();
     }
-
-    this.exitButton.onclick = function(e) {
-      manager.showMenu();
-
-      e.preventDefault();
-      return false;
+    startGame() {
+        this.menuScene.classList.remove('active');
+        this.gameOverScene.classList.remove('active');
+        this.showHud();
+        this.setGameScore(0);
     }
-
-    this.restartButton.onclick = function(e) {
-      manager.startGame();
-      game.restartGame();
-
-      e.preventDefault();
-      return false;
+    showMenu() {
+        this.gameOverScene.classList.remove('active');
+        this.menuScene.classList.add('active');
     }
-  }
+    showHud() {
+        this.hud.classList.add('active');
+    }
+    hideHud() {
+        this.hud.classList.remove('active');
+    }
+    setGameScore(score) {
+        this.scoreText.textContent = score;
+    }
+    gameOver() {
+        this.gameOverScene.classList.add('active');
+        this.hideHud();
+    }
+    handlePlayerClick() {
+        var manager = this;
+        this.startButton.onclick = function(e) {
+            manager.startGame();
+            game.restartGame();
+
+            e.preventDefault();
+            return false;
+        }
+
+        this.exitButton.onclick = function(e) {
+            manager.showMenu();
+
+            e.preventDefault();
+            return false;
+        }
+
+        this.restartButton.onclick = function(e) {
+            manager.startGame();
+            game.restartGame();
+
+            e.preventDefault();
+            return false;
+        }
+    }
 }
 
 class LevelData {
-  constructor() {
-    this.levels = [
-      {gapX:0, gapY:0, widthDiff: 0, total: 10, coinChance: 0.4, enemyChance: 0.2},
-      {gapX:40, gapY:0, widthDiff: 0, total: 15, coinChance: 0.6, enemyChance: 0.3},
-      {gapX:20, gapY:30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.2},
-      {gapX:40, gapY:40, widthDiff: 50, total: 50, coinChance: 0.8, enemyChance: 0},
-      {gapX:20, gapY:30, widthDiff: 100, total: 100, coinChance: 0.6, enemyChance: 0.4},
-    ];
-  }
+    constructor() {
+        this.levels = [
+            {gapX:0, gapY:0, widthDiff: 0, total: 10, coinChance: 0.3, enemyChance: 0.2},
+            {gapX:40, gapY:0, widthDiff: 0, total: 15, coinChance: 0.4, enemyChance: 0.3},
+            {gapX:20, gapY:30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3},
+            {gapX:40, gapY:40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4},
+            {gapX:50, gapY:50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4},
+        ];
+    }
 }
 
 class ScoreCalculator {
-  constructor() {
-    this.score = 0;
-  }
-  increaseScore(level) {
-    // Note: level starts at 0. Expotential incremental.
-    this.score += (level+1) * (level+1);
-  }
+    constructor() {
+        this.score = 0;
+    }
+    increaseScore(level) {
+        // Note: level starts at 0. Expotential incremental.
+        this.score += (level+1) * (level+1);
+    }
 }
 
 
 class GameObject extends createjs.Container {
-  constructor(graphic) {
-    super();
+    constructor(graphic) {
+        super();
 
-    if (graphic !== undefined) {
-      this.graphic = graphic;
-      this.addChild(this.graphic);
+        if (graphic !== undefined) {
+            this.graphic = graphic;
+            this.addChild(this.graphic);
 
-      var b = this.graphic.nominalBounds;
-      this.setBounds(b.x, b.y, b.width, b.height);
+            var b = this.graphic.nominalBounds;
+            this.setBounds(b.x, b.y, b.width, b.height);
+        }
     }
-  }
 }
 
 class MovableGameObject extends GameObject {
-  constructor(graphic) {
-    super(graphic);
+    constructor(graphic) {
+        super(graphic);
 
-    this.isOnGround = false;
+        this.isOnGround = false;
 
-    this.velocity = {
-      x: 0,
-      y: 0
-    };
-    this.on("tick", this.tick);
-  }
-  tick() {
-    this.y += this.velocity.y;
-    this.x += this.velocity.x;
-  }
+        this.velocity = {
+            x: 0,
+            y: 0
+        };
+        this.on("tick", this.tick);
+    }
+    tick() {
+        this.y += this.velocity.y;
+        this.x += this.velocity.x;
+    }
 }
 
 class Coin extends MovableGameObject {
@@ -140,343 +141,375 @@ class Coin extends MovableGameObject {
 }
 
 class Enemy extends MovableGameObject {
-  constructor() {
-    super(new lib.ObstacleGraphic());
+    constructor() {
+        super(new lib.ObstacleGraphic());
 
-    this.directionX = -1;
-    this.speed = 1;
-    this.offsetX = 0;
-    this.maxOffset = 10;
+        this.directionX = -1;
+        this.speed = 1;
+        this.offsetX = 0;
+        this.maxOffset = 10;
 
-    this.on('tick', this.move);
-  }
-  move() {
-    this.velocity.x = this.speed * this.directionX;
-    this.offsetX += this.velocity.x;
-    if (Math.abs(this.offsetX) > this.maxOffset) {
-      this.directionX *= -1;
+        this.on('tick', this.move);
     }
-  }
+    move() {
+        this.velocity.x = this.speed * this.directionX;
+        this.offsetX += this.velocity.x;
+        if (Math.abs(this.offsetX) > this.maxOffset) {
+            this.directionX *= -1;
+        }
+    }
 }
 
 class Hero extends MovableGameObject {
-  constructor() {
-    super( new lib.HeroGraphic() );
-  }
-  run() {
-    if (!this.isOnGround) {
-      this.velocity.x = 2;
-      this.graphic.gotoAndPlay('run');
-      this.isOnGround = true;
+    constructor() {
+        super( new lib.HeroGraphic2() );
     }
-  }
-  jump() {
-    if (this.isOnGround) {
-      this.velocity.y = -13;
-      this.graphic.gotoAndPlay('jump');
-      this.isOnGround = false;
+    run() {
+        if (!this.isOnGround) {
+            this.velocity.x = 2;
+            this.graphic.gotoAndPlay('run');
+            this.isOnGround = true;
+        }
     }
-  }
+    jump() {
+        if (this.isOnGround) {
+            this.velocity.y = -13;
+            this.graphic.gotoAndPlay('jump');
+            this.isOnGround = false;
+        }
+    }
 }
 
 class Platform extends GameObject {
-  constructor() {
-    super( new lib.PlatformGraphic() );
-  }
-  setClippingWidth(width) {
-    this.graphic.instance.mask = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0,0,width,this.getBounds().height));
-    this.setBounds(this.x, this.y, width, this.getBounds().height);
-  }
+    constructor() {
+        super( new lib.PlatformGraphic() );
+    }
+    setClippingWidth(width) {
+        this.graphic.instance.mask = new createjs.Shape(new createjs.Graphics().beginFill("#000").drawRect(0,0,width,this.getBounds().height));
+        this.setBounds(this.x, this.y, width, this.getBounds().height);
+    }
 }
 
 class World extends createjs.Container {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    this.levelData = new LevelData();
-    this.scoreCalculator = new ScoreCalculator();
-    this.currentLevel = 0;
+        this.levelData = new LevelData();
+        this.scoreCalculator = new ScoreCalculator();
+        this.currentLevel = 0;
 
-    this.on("tick", this.tick);
+        this.on("tick", this.tick);
 
-    // store all platforms
-    this.platforms = [];
+        // store all platforms
+        this.platforms = [];
 
-    this.enemies = [];
-    this.coins = [];
+        this.enemies = [];
+        this.coins = [];
 
-    this.generatePlatforms();
-    this.generateEnemies();
-    this.generateCoins();
-    this.addHero();
-    this.hero.run();
+        this.generatePlatforms();
+        this.generateEnemies();
+        this.generateCoins();
+        this.addHero();
+        this.hero.run();
 
-  }
-  tick() {
-    this.applyGravity();
-
-    var hitEnemy = this.targetHitTestObjects(this.hero, this.enemies);
-    if (hitEnemy !== false) {
-      console.log('hit!', hitEnemy);
-      game.gameOver();
     }
+    tick() {
+        this.applyGravity();
+        this.scoreCalculator.increaseScore();
+        sceneManager.setGameScore(this.scoreCalculator.score);
 
-    var hitCoin = this.targetHitTestObjects(this.hero, this.coins);
-    if (hitCoin !== false) {
-      this.eatCoin(hitCoin);
-      this.scoreCalculator.increaseScore(this.currentLevel);
-      this.hero.velocity.x = 10;
-      sceneManager.setGameScore(this.scoreCalculator.score);
+        var hitEnemy = this.targetHitTestObjects(this.hero, this.enemies);
+        if (hitEnemy !== false) {
+            console.log('hit!', hitEnemy);
+            game.gameOver();
+        }
+
+        var hitCoin = this.targetHitTestObjects(this.hero, this.coins);
+        if (hitCoin !== false) {
+            this.eatCoin(hitCoin);
+            this.scoreCalculator.increaseScore(this.currentLevel);
+            this.hero.velocity.x = 10;
+            sceneManager.setGameScore(this.scoreCalculator.score);
+        }
+
+        // is hero falling outside of screen?
+        if (this.hero.y > game.stage.height) {
+            game.gameOver();
+        }
+
+        // Focus on the Hero.
+        this.x -= this.hero.velocity.x;
     }
-
-    // is hero falling outside of screen?
-    if (this.hero.y > game.stage.height) {
-      game.gameOver();
+    addHero() {
+        var hero = new Hero();
+        this.addChild(hero);
+        hero.x = 100;
+        hero.y = 100;
+        this.hero = hero;
     }
+    generatePlatforms() {
+        var nextX = 100;
+        var nextY = 200;
 
-    // Focus on the Hero.
-    this.x -= this.hero.velocity.x;
-  }
-  addHero() {
-    var hero = new Hero();
-    this.addChild(hero);
-    hero.x = 100;
-    hero.y = 100;
-    this.hero = hero;
-  }
-  generatePlatforms() {
-    var nextX = 100;
-    var nextY = 200;
+        var levelNumber = 0;
+        for (var level of this.levelData.levels) {
+            for (var i=0; i<level.total; i++) {
+                var platform = new Platform();
+                platform.x = nextX;
+                platform.y = nextY;
 
-    var levelNumber = 0;
-    for (var level of this.levelData.levels) {
-      for (var i=0; i<level.total; i++) {
-        var platform = new Platform();
-        platform.x = nextX;
-        platform.y = nextY;
+                var width = platform.getBounds().width;
+                platform.setClippingWidth( width - Math.random() * level.widthDiff );
 
-        var width = platform.getBounds().width;
-        platform.setClippingWidth( width - Math.random() * level.widthDiff );
+                platform.levelNumber = levelNumber;
 
-        platform.levelNumber = levelNumber;
+                this.platforms.push(platform);
 
-        this.platforms.push(platform);
+                nextX = platform.x + platform.getBounds().width + Math.random() * level.gapX;
+                nextY = platform.y + (Math.random() - 0.5) * level.gapY;
 
-        nextX = platform.x + platform.getBounds().width + Math.random() * level.gapX;
-        nextY = platform.y + (Math.random() - 0.5) * level.gapY;
+                this.addChild(platform);
+            }
+            levelNumber += 1;
+        }
 
-        this.addChild(platform);
-      }
-      levelNumber += 1;
     }
+    generateEnemies() {
+        // skip first 2 platforms.
+        for (var i=2; i<this.platforms.length; i++) {
+            var platform = this.platforms[i];
+            var levelNumber = platform.levelNumber;
+            var chance = this.levelData.levels[levelNumber].enemyChance;
+            // net every platform needs enemy.
+            if (Math.random() < chance) {
+                var enemy = new Enemy();
+                enemy.x = platform.x + platform.getBounds().width/2;
+                enemy.y = platform.y - enemy.getBounds().height;
 
-  }
-  generateEnemies() {
-    // skip first 2 platforms.
-    for (var i=2; i<this.platforms.length; i++) {
-      var platform = this.platforms[i];
-      var levelNumber = platform.levelNumber;
-      var chance = this.levelData.levels[levelNumber].enemyChance;
-      // net every platform needs enemy.
-      if (Math.random() < chance) {
-        var enemy = new Enemy();
-        enemy.x = platform.x + platform.getBounds().width/2;
-        enemy.y = platform.y - enemy.getBounds().height;
-
-        this.addChild(enemy);
-        this.enemies.push(enemy);
-      }
+                this.addChild(enemy);
+                this.enemies.push(enemy);
+            }
+        }
     }
-  }
-  generateCoins() {
-    for (var platform of this.platforms) {
+    generateCoins() {
+        for (var platform of this.platforms) {
 
-      var levelNumber = platform.levelNumber;
-      var chance = this.levelData.levels[levelNumber].coinChance;
-      if (Math.random() < chance) {
-        var coin = new Coin();
-        coin.x = platform.x + Math.random() * platform.getBounds().width;
-        coin.y = platform.y - coin.getBounds().height;
-        this.addChild(coin);
-        this.coins.push(coin);
-      }
+            var levelNumber = platform.levelNumber;
+            var chance = this.levelData.levels[levelNumber].coinChance;
+            if (Math.random() < chance) {
+                var coin = new Coin();
+                coin.x = platform.x + Math.random() * platform.getBounds().width;
+                coin.y = platform.y - coin.getBounds().height;
+                this.addChild(coin);
+                this.coins.push(coin);
+            }
+        }
     }
-  }
-  eatCoin(coin) {
-    for (var i=0; i<this.coins.length; i++) {
-      if (coin === this.coins[i]) {
-        this.coins.splice(i, 1);
-      }
+    eatCoin(coin) {
+        for (var i=0; i<this.coins.length; i++) {
+            if (coin === this.coins[i]) {
+                this.coins.splice(i, 1);
+            }
+        }
+        coin.parent.removeChild(coin);
     }
-    coin.parent.removeChild(coin);
-  }
-  applyGravity() {
-    var gravity = 1;
-    var terminalVelocity = 5;
-    // TODO: loop all movable game objects
-    var object = this.hero;
-    object.velocity.y += gravity;
-    object.velocity.y = Math.min(object.velocity.y, terminalVelocity);
+    applyGravity() {
+        var gravity = 1;
+        var terminalVelocity = 5;
+        // TODO: loop all movable game objects
+        var object = this.hero;
+        object.velocity.y += gravity;
+        object.velocity.y = Math.min(object.velocity.y, terminalVelocity);
 
-    if (this.willObjectOnGround(object)) {
-      object.velocity.y = 1;
+        if (this.willObjectOnGround(object)) {
+            object.velocity.y = 1;
+        }
+        var platform = this.isObjectOnGround(object);
+        if (platform !== false && object.velocity.y > 0) {
+            this.currentLevel = platform.levelNumber;
+            object.velocity.y = 0;
+            object.run();
+        }
+
     }
-    var platform = this.isObjectOnGround(object);
-    if (platform !== false && object.velocity.y > 0) {
-      this.currentLevel = platform.levelNumber;
-      object.velocity.y = 0;
-      object.run();
+    targetHitTestObjects(target, objects) {
+        for (var object of objects) {
+            if (this.objectsHitTest(target, object)) {
+                return object;
+            }
+        }
+        return false;
     }
+    objectsHitTest(object1, object2) {
+        var x1 = object1.x;
+        var y1 = object1.y;
+        var w1 = object1.getBounds().width;
+        var h1 = object1.getBounds().height;
 
-  }
-  targetHitTestObjects(target, objects) {
-    for (var object of objects) {
-      if (this.objectsHitTest(target, object)) {
-        return object;
-      }
+        var x2 = object2.x;
+        var y2 = object2.y;
+        var w2 = object2.getBounds().width;
+        var h2 = object2.getBounds().height;
+
+
+        return (Math.abs(x1 - x2) * 2 < (w1 + w2)) &&
+            (Math.abs(y1 - y2) * 2 < (h1 + h2));
     }
-    return false;
-  }
-  objectsHitTest(object1, object2) {
-    var x1 = object1.x;
-    var y1 = object1.y;
-    var w1 = object1.getBounds().width;
-    var h1 = object1.getBounds().height;
+    isObjectOnGround(object) {
+        var objectWidth = object.getBounds().width;
+        var objectHeight = object.getBounds().height;
 
-    var x2 = object2.x;
-    var y2 = object2.y;
-    var w2 = object2.getBounds().width;
-    var h2 = object2.getBounds().height;
+        for (var platform of this.platforms) {
+            var platformWidth = platform.getBounds().width;
+            var platformHeight = platform.getBounds().height;
 
-
-    return (Math.abs(x1 - x2) * 2 < (w1 + w2)) &&
-           (Math.abs(y1 - y2) * 2 < (h1 + h2));
-  }
-  isObjectOnGround(object) {
-    var objectWidth = object.getBounds().width;
-    var objectHeight = object.getBounds().height;
-
-    for (var platform of this.platforms) {
-      var platformWidth = platform.getBounds().width;
-      var platformHeight = platform.getBounds().height;
-
-      if (object.x >= platform.x &&
-          object.x < platform.x + platformWidth &&
-          object.y + objectHeight >= platform.y &&
-          object.y + objectHeight <= platform.y + platformHeight
-      ) {
-        return platform;
-      }
+            if (object.x >= platform.x &&
+                object.x < platform.x + platformWidth &&
+                object.y + objectHeight >= platform.y &&
+                object.y + objectHeight <= platform.y + platformHeight
+            ) {
+                return platform;
+            }
+        }
+        return false;
     }
-    return false;
-  }
-  willObjectOnGround(object) {
-    var objectWidth = object.getBounds().width;
-    var objectHeight = object.getBounds().height;
-    var objectNextY = object.y + objectHeight + object.velocity.y;
+    willObjectOnGround(object) {
+        var objectWidth = object.getBounds().width;
+        var objectHeight = object.getBounds().height;
+        var objectNextY = object.y + objectHeight + object.velocity.y;
 
-    for (var platform of this.platforms) {
-      var platformWidth = platform.getBounds().width;
-      var platformHeight = platform.getBounds().height;
+        for (var platform of this.platforms) {
+            var platformWidth = platform.getBounds().width;
+            var platformHeight = platform.getBounds().height;
 
-      if (object.x >= platform.x &&
-          object.x < platform.x + platformWidth &&
-          objectNextY >= platform.y &&
-          objectNextY <= platform.y + platformHeight
-      ) {
-        return true;
-      }
+            if (object.x >= platform.x &&
+                object.x < platform.x + platformWidth &&
+                objectNextY >= platform.y &&
+                objectNextY <= platform.y + platformHeight
+            ) {
+                return true;
+            }
+        }
+        return false;
     }
-    return false;
-  }
 }
 
 class Game{
-  constructor() {
-    console.log(`Welcome to the game. Version ${this.version()}`);
+    constructor() {
+        console.log(`Welcome to the game. Version ${this.version()}`);
 
-    this.loadSound();
+        this.loadSound();
 
-    this.canvas = document.getElementById("game-canvas");
-    this.stage = new createjs.Stage(this.canvas);
+        this.canvas = document.getElementById("game-canvas");
+        this.stage = new createjs.Stage(this.canvas);
 
-    this.stage.width = this.canvas.width;
-    this.stage.height = this.canvas.height;
+        this.stage.width = this.canvas.width;
+        this.stage.height = this.canvas.height;
+        this.canvas2 = document.getElementById("game-canvas2");
+        this.stage2 = new createjs.Stage(this.canvas2);
 
-    // enable tap on touch device
-    createjs.Touch.enable(this.stage);
+        this.stage.width = this.canvas.width;
+        this.stage.height = this.canvas.height;
 
-    // enable retina screen
-    this.retinalize();
+        this.stage2.width = this.canvas2.width;
+        this.stage2.height = this.canvas2.height;
 
-    createjs.Ticker.setFPS(60);
 
-    // keep re-drawing the stage.
-    createjs.Ticker.on("tick", this.stage);
 
-    this.gameLoaded = false;
-    this.loadGraphics();
-  }
-  version(){
-    return '1.0.0';
-  }
-  loadSound() {
 
-  }
-  loadGraphics() {
-    var loader = new createjs.LoadQueue(false);
-  	loader.addEventListener("fileload", handleFileLoad);
-  	loader.addEventListener("complete", handleComplete.bind(this));
-  	loader.loadFile({src:"images/rush_game_graphics_atlas_.json", type:"spritesheet", id:"rush_game_graphics_atlas_"}, true);
-  	loader.loadManifest(lib.properties.manifest);
+        // enable tap on touch device
+        createjs.Touch.enable(this.stage);
 
-    function handleFileLoad(evt) {
-    	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+        // enable retina screen
+        this.retinalize();
+
+        createjs.Ticker.setFPS(60);
+
+        // keep re-drawing the stage.
+        createjs.Ticker.on("tick", this.stage);
+        createjs.Ticker.on("tick", this.stage2);
+
+
+        this.gameLoaded = false;
+        this.loadGraphics();
+    }
+    version(){
+        return '1.0.0';
+    }
+    loadSound() {
+
+    }
+    loadGraphics() {
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", handleFileLoad);
+        loader.addEventListener("complete", handleComplete.bind(this));
+        loader.loadFile({src:"images/RealGame_atlas_.json", type:"spritesheet", id:"RealGame_atlas_"}, true);
+        loader.loadManifest(lib.properties.manifest);
+        loader.loadFile({src:"images/RealGame_atlas_.png", type:"spritesheet", id:"RealGame_atlas_"}, true);
+
+        function handleFileLoad(evt) {
+            if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+        }
+
+        function handleComplete(evt) {
+            var queue = evt.target;
+            ss["RealGame_atlas_"] = queue.getResult("RealGame_atlas_");
+
+            this.gameLoaded = true;
+        }
+    }
+    restartGame() {
+
+        // background
+        var test = this;
+        var BG1 = new lib.BackgroundGraphic1;
+        var BG2 = new lib.BackgroundGraphic2;
+        this.stage.addChild(BG1);
+
+
+        this.world = new World();
+        createjs.Ticker.on("tick", this.world);
+        this.stage.addChild(this.world);
+
+
+        setInterval(function(){
+            console.log(test.world.currentLevel);
+
+            if(test.world.currentLevel == 1){
+                console.log("test for current level");
+                test.stage2.removeChild(BG1);
+                test.stage2.addChild(BG2);
+                test.stage2.update();
+            }
+        }, 1000);
+
+        var hero = this.world.hero;
+        this.stage.on('stagemousedown', function(){
+            hero.jump();
+        });
+    }
+    gameOver() {
+        sceneManager.gameOver();
     }
 
-    function handleComplete(evt) {
-    	var queue = evt.target;
-    	ss["rush_game_graphics_atlas_"] = queue.getResult("rush_game_graphics_atlas_");
+    retinalize() {
+        this.stage.width = this.canvas.width;
+        this.stage.height = this.canvas.height;
 
-      this.gameLoaded = true;
+        let ratio = window.devicePixelRatio;
+        if (ratio === undefined) {
+            return;
+        }
+
+        this.canvas.setAttribute('width', Math.round( this.stage.width * ratio ));
+        this.canvas.setAttribute('height', Math.round( this.stage.height * ratio ));
+
+        this.stage.scaleX = this.stage.scaleY = ratio;
+
+        // Set CSS style
+        this.canvas.style.width = this.stage.width + "px";
+        this.canvas.style.height = this.stage.height + "px";
     }
-  }
-  restartGame() {
-    this.stage.removeAllChildren();
-
-    // background
-    this.stage.addChild(new lib.BackgroundGraphic());
-
-    this.world = new World();
-    this.stage.addChild(this.world);
-
-    var hero = this.world.hero;
-    this.stage.on('stagemousedown', function(){
-      hero.jump();
-    });
-  }
-  gameOver() {
-    sceneManager.gameOver();
-  }
-
-  retinalize() {
-    this.stage.width = this.canvas.width;
-    this.stage.height = this.canvas.height;
-
-    let ratio = window.devicePixelRatio;
-    if (ratio === undefined) {
-      return;
-    }
-
-    this.canvas.setAttribute('width', Math.round( this.stage.width * ratio ));
-    this.canvas.setAttribute('height', Math.round( this.stage.height * ratio ));
-
-    this.stage.scaleX = this.stage.scaleY = ratio;
-
-    // Set CSS style
-    this.canvas.style.width = this.stage.width + "px";
-    this.canvas.style.height = this.stage.height + "px";
-  }
 }
 
 // start the game

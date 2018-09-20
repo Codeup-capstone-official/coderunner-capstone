@@ -15,6 +15,16 @@ body {
     background: #e6f2ff;
 }
 
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: #B0D0D8;*/
+  text-align: center;
+
+
 
 
 footer {
