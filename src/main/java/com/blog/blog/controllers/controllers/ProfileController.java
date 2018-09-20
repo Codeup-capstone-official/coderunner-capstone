@@ -27,6 +27,7 @@ public class ProfileController {
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
         model.addAttribute("notValid", false);
+        model.addAttribute("numberOfGames", last10Games.size());
         return "profile";
     }
 
@@ -47,7 +48,8 @@ public class ProfileController {
         model.addAttribute("top10Usernames", top10Usernames);
         model.addAttribute("avgScore", avgScore);
         model.addAttribute("totalScore", totalScore);
-        return "/profile";
+        model.addAttribute("numberOfGames", last10Games.size());
+        return "profile";
     }
 
     @PostMapping("/search")
