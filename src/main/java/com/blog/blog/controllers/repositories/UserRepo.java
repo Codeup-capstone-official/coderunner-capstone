@@ -3,10 +3,12 @@ package com.blog.blog.controllers.repositories;
 
 import com.blog.blog.controllers.models.Score;
 import com.blog.blog.controllers.models.User;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -43,5 +45,28 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT SUM(score) FROM scores JOIN users u on scores.user_id = u.id WHERE username = ?1 GROUP BY user_id;", nativeQuery = true)
     String getTotalPointsByUsername(String username);
 
+    @Transactional
+    @Modifying
+    @Query(value = "INSERT INTO relationships (user_one_id, user_two_id, action_user, status) VALUES (?1, ?2, ?3, 0) ", nativeQuery = true)
+    void sendRequest(long userOne, long userTwo, long actionUser);
+
+    @Query(value = "SELECT username, status, action_user, relationships.id FROM users JOIN relationships ON user_one_id = users.id WHERE user_two_id = ?1 AND status = 0", nativeQuery = true)
+    List<Object[]> getFriendRequests(long currentUserId);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE relationships SET status = 1 WHERE relationships.id = ?1", nativeQuery = true)
+    void addFriend(long idOfRecord);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM relationships WHERE relationships.id = ?1", nativeQuery = true)
+    void declineFriend(long idOfRecord);
+
+    @Query(value = "SELECT username FROM users JOIN relationships ON user_one_id = users.id WHERE user_two_id = ?1 AND status = 1", nativeQuery = true)
+    List<String> getFriendsThatAddedYou(long currentUserId);
+
+    @Query(value = "SELECT users.username FROM users JOIN relationships ON user_two_id = users.id WHERE user_one_id = ?1 AND status = 1", nativeQuery = true)
+    List<String> getFriendsThatYouAdded(long currentUserId);
 
 }

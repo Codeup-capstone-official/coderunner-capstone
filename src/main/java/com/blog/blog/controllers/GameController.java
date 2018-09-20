@@ -3,22 +3,25 @@ package com.blog.blog.controllers;
 
 import com.blog.blog.controllers.models.User;
 import com.blog.blog.controllers.repositories.UserRepo;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Controller
 public class GameController {
-    private UserRepo users;
+    private UserRepo userRepo;
 
-    public GameController(UserRepo users) {
-        this.users = users;
+    public GameController(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
 
     @GetMapping("/game")
-    public String showGame() {
+    public String showGame(Model model) {
         return "index";
     }
 
