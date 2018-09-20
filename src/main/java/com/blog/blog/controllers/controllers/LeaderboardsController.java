@@ -41,6 +41,7 @@ public class LeaderboardsController {
         model.addAttribute("currentUsername", user.getUsername());
         model.addAttribute("players", playerRankings);
         model.addAttribute("friends", friends);
+        model.addAttribute("numOfFriends", friends.size());
         return "/leaderboards/friends";
     }
 }
