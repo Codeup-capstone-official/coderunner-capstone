@@ -75,8 +75,9 @@ var SceneManager = function () {
         key: 'gameOver',
         value: function gameOver() {
             document.getElementById("scoreInput").value = finalScore;
+            document.getElementById("scoreValue").value = finalScore;
             while(submitScore) {
-                document.forms["scoreForm"].submit();
+                // document.forms["scoreForm"].submit();
                 submitScore = false;
             }
             this.startGameSound.pause();
@@ -124,7 +125,7 @@ var SceneManager = function () {
 var LevelData = function LevelData() {
     _classCallCheck(this, LevelData);
 
-    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 0 }, { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
+    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 1 }, { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
 };
 
 var ScoreCalculator = function () {
@@ -236,7 +237,7 @@ var Enemy = function (_MovableGameObject2) {
     function Enemy() {
         _classCallCheck(this, Enemy);
 
-        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic4()));
+        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic2()));
 
         _this4.directionX = -1;
         _this4.speed = 1;
@@ -267,14 +268,14 @@ var Hero = function (_MovableGameObject3) {
     function Hero() {
         _classCallCheck(this, Hero);
 
-        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, new lib.HeroGraphic2()));
+        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, new lib.HeroGraphic()));
     }
 
     _createClass(Hero, [{
         key: 'run',
         value: function run() {
             if (!this.isOnGround) {
-                this.velocity.x = 2;
+                this.velocity.x = 5;
                 this.graphic.gotoAndPlay('run');
                 this.isOnGround = true;
             }
@@ -726,7 +727,7 @@ var Game = function () {
             this.stage2.update();
             // background
             var BG1 = new lib.BackgroundGraphic1();
-            var BG2 = new lib.BackgroundGraphic3();
+            var BG2 = new lib.BackgroundGraphic2();
             this.stage2.addChild(BG1);
 
             this.world = new World();
