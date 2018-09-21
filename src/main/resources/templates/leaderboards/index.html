@@ -3,11 +3,15 @@
 <head th:replace="fragments/head :: head('Scoreboards')"></head>
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
+    <h1>Highest Score Of all Time</h1>
+    <th:block th:each="record : ${recordScore}">
+        <p>Player: <span th:text="${record[1]}"></span>, Score: <span th:text="${record[0]}"></span>, Date: <span th:text="${record[2]}"></span></p>
+    </th:block>
     <h1>Top 10 players</h1>
     <ol>
         <div th:each="user: ${users}">
             <li>
-                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Score: <span th:text="${user[1]}"></span></p>
+                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[1]}"></span></p>
             </li>
         </div>
     </ol>

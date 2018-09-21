@@ -23,6 +23,8 @@ public class ProfileController {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String highscore = userRepo.highscore(user.getUsername());
         List<Object[]> last10Games = userRepo.latest10Games(user.getUsername());
+        String totalPoints = userRepo.getTotalPointsByUsername(user.getUsername());
+        model.addAttribute("totalScore", totalPoints);
         model.addAttribute("last10Games", last10Games);
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);

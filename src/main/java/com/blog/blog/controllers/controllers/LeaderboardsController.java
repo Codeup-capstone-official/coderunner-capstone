@@ -19,6 +19,7 @@ public class LeaderboardsController {
 
     @GetMapping("/leaders")
     public String goToLeaderboards(Model model) {
+        List<Object[]> highScoreOfAllTime = userRepo.getHighestScoreOfAllTime();
         String currDate = userRepo.currentDate();
         String monthFormat = currDate.substring(0, 7) + "%";
         List<Object[]> users = userRepo.usersWithScores();
@@ -27,6 +28,7 @@ public class LeaderboardsController {
         model.addAttribute("top10OfDay", top10OfDay);
         model.addAttribute("top10Month", top10Month);
         model.addAttribute("users", users);
+        model.addAttribute("recordScore", highScoreOfAllTime);
         return "leaderboards/index";
     }
 

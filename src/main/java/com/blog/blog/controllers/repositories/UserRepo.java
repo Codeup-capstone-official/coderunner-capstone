@@ -82,6 +82,9 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT MAX(id) FROM users", nativeQuery = true)
     long getRegisterUserId();
 
+    @Query(value = "SELECT score, username, date_of_game FROM scores JOIN users u on scores.user_id = u.id ORDER BY score DESC LIMIT 1;", nativeQuery = true)
+    List<Object[]> getHighestScoreOfAllTime();
+
 
     @Transactional
     @Modifying
