@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<head th:replace="fragments/head :: head('Scoreboards')"></head>
 <body>
+<div th:replace="fragments/navbar :: navbar"></div>
     <h1>Top 10 players</h1>
     <ol>
         <div th:each="user: ${users}">

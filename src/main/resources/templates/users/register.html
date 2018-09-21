@@ -1,64 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="manifest" href="../manifest.json" />
-    <link rel="apple-touch-icon" href="icons/Icon.png.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="icons/Icon-76.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="icons/Icon-60@2x.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="icons/Icon-76@2x.png" />
-
-    <title>Register Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="styles/game.css" />
-
-    <style>
-        #message {
-            display:none;
-            background: #f1f1f1;
-            color: #000;
-            position: relative;
-            padding: 20px;
-            margin-top: 5px;
-            border-radius: 2em;
-            box-shadow: 0 .3em .7em black;
-
-        }
-        #message p {
-            padding: 10px 35px;
-            font-size: 18px;
-        }
-        /* Add a green text color and a checkmark when the requirements are right */
-        .valid {
-            color: green;
-        }
-        .valid:before {
-            position: relative;
-            left: -35px;
-            content: "✔";
-        }
-        /* Add a red text color and an "x" when the requirements are wrong */
-        .invalid {
-            color: red;
-        }
-        .invalid:before {
-            position: relative;
-            left: -35px;
-            content: "✖";
-        }
-
-        .headingRegister {
-            text-align: center;
-        }
-    </style>
-</head>
+<head th:replace="fragments/head :: head('List of all post')"></head>
 
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-    <div class="container mt-5 pt-5">
+    <div class="container mt-5 pt-4">
         <h1>Register</h1>
         <div class="row">
             <div class="col-md-7">

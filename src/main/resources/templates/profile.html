@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('List of all post')"></head>
 <body>
+<div th:replace="fragments/navbar :: navbar"></div>
     <th:block th:if="${notValid == true}">
         <h1>No results were found</h1>
     </th:block>
