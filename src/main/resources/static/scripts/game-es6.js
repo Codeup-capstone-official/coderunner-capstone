@@ -78,11 +78,14 @@ class LevelData {
 
 class ScoreCalculator {
     constructor() {
-        this.score = 0;
+        this.score += 1;
     }
     increaseScore(level) {
         // Note: level starts at 0. Expotential incremental.
         this.score += (level+1) * (level+1);
+    }
+    increaseScoreByPoints(points) {
+        this.score += points;
     }
 }
 
@@ -228,7 +231,13 @@ class World extends createjs.Container {
         if (hitCoin !== false) {
             this.eatCoin(hitCoin);
             this.scoreCalculator.increaseScore(this.currentLevel);
-            this.hero.velocity.x = 10;
+            sceneManager.setGameScore(this.scoreCalculator.score);
+        }
+
+
+        var hitPlatform = this.targetHitTestObjects(this.hero, this.platforms);
+        if (hitPlatform !== false) {
+            this.scoreCalculator.increaseScoreByPoints(4);
             sceneManager.setGameScore(this.scoreCalculator.score);
         }
 
@@ -262,7 +271,10 @@ class World extends createjs.Container {
                 platform.setClippingWidth( width - Math.random() * level.widthDiff );
 
                 platform.levelNumber = levelNumber;
-
+                if (this.hero.isOnGround) {
+                    this.scoreCalculator.increaseScoreByPoints(1);
+                    sceneManager.setGameScore(this.scoreCalculator.score);
+                }
                 this.platforms.push(platform);
 
                 nextX = platform.x + platform.getBounds().width + Math.random() * level.gapX;
