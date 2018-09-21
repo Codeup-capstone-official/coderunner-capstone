@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('List of all post')"></head>
 <body>
-<th:block th:if="${userExists == true}">
-    <h1 style="color: green">Friend request sent!</h1>
-</th:block>
-<th:block th:if="${userExists == false}">
-    <h1 style="color: red">No user found by that username</h1>
-</th:block>
+<div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container">
+        <th:block th:if="${userExists == true}">
+            <h1 style="color: green">Friend request sent!</h1>
+        </th:block>
+        <th:block th:if="${userExists == false}">
+            <h1 style="color: red">No user found by that username</h1>
+        </th:block>
+    </div>
+
+    <script th:replace="fragments/scripts :: scripts"></script>
+    <footer th:replace="fragments/footer :: footer"></footer>
 
 </body>
 </html>

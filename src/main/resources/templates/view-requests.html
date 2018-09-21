@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-</head>
+<head th:replace="fragments/head :: head('List of all post')"></head>
 <body>
-<h1>You have <span th:text="${numberOfRequests}"></span> friend requests!</h1>
-<div th:each="request : ${requests}">
-    <p><span th:text="${request[0]}"></span> wants to be your friend</p>
-    <form th:action="@{/accept-friend}" th:method="post">
-        <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
-        <button>Accept</button>
-    </form>
-    <form th:action="@{/decline-friend}" th:method="post">
-        <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
-        <button>Decline</button>
-    </form>
-</div>
+<div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container">
+        <h1>You have <span th:text="${numberOfRequests}"></span> friend requests!</h1>
+        <div th:each="request : ${requests}">
+            <p><span th:text="${request[0]}"></span> wants to be your friend</p>
+            <form th:action="@{/accept-friend}" th:method="post">
+                <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
+                <button>Accept</button>
+            </form>
+            <form th:action="@{/decline-friend}" th:method="post">
+                <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
+                <button>Decline</button>
+            </form>
+        </div>
+    </div>
+
+    <script th:replace="fragments/scripts :: scripts"></script>
+    <footer th:replace="fragments/footer :: footer"></footer>
 
 </body>
 </html>
