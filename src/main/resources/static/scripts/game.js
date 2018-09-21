@@ -8,6 +8,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var finalScore = 0;
+var submitScore = true;
+
 var SceneManager = function () {
     function SceneManager() {
         _classCallCheck(this, SceneManager);
@@ -25,6 +28,7 @@ var SceneManager = function () {
         this.gameOverCounter = true;
         this.startGameMusic = true;
         this.startGameSound = new Audio("/Sounds/random silly chip song.ogg");
+        this.finalScore = 0;
 
         this.handlePlayerClick();
     }
@@ -65,10 +69,16 @@ var SceneManager = function () {
         key: 'setGameScore',
         value: function setGameScore(score) {
             this.scoreText.textContent = score;
+            finalScore = score;
         }
     }, {
         key: 'gameOver',
         value: function gameOver() {
+            document.getElementById("scoreInput").value = finalScore;
+            while(submitScore) {
+                document.forms["scoreForm"].submit();
+                submitScore = false;
+            }
             this.startGameSound.pause();
             this.startGameMusic = false;
             while(this.gameOverCounter) {
@@ -155,6 +165,9 @@ var GameObject = function (_createjs$Container) {
 
     return GameObject;
 }(createjs.Container);
+
+
+
 
 var MovableGameObject = function (_GameObject) {
     _inherits(MovableGameObject, _GameObject);
@@ -339,6 +352,7 @@ var World = function (_createjs$Container2) {
             var hitEnemy = this.targetHitTestObjects(this.hero, this.enemies);
             if (hitEnemy !== false) {
                 console.log('hit!', hitEnemy);
+                // console.log("final score: " + finalScore);
                 game.gameOver();
             }
 
@@ -351,6 +365,7 @@ var World = function (_createjs$Container2) {
 
             // is hero falling outside of screen?
             if (this.hero.y > game.stage.height) {
+                // console.log("final score: " + finalScore);
                 game.gameOver();
             }
 
