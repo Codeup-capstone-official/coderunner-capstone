@@ -44,6 +44,9 @@
           </div>
         </div>
     </div>
+    <form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">
+        <input type="hidden" id="scoreInput" name="scoreResult" />
+    </form>
 
     <div class='hr'>
       <hr />
