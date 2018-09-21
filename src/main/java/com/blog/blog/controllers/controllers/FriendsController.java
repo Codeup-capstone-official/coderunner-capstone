@@ -31,15 +31,20 @@ public class FriendsController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long currentUserId = user.getId();
         System.out.println(currentUserId);
-        try {
-            User userToAdd = userRepo.findByUsername(username);
-            System.out.println(userToAdd.getId());
-            long userToAddId = userToAdd.getId();
-            userRepo.sendRequest(currentUserId, userToAddId, currentUserId);
-            model.addAttribute("userExists", true);
-        } catch (NullPointerException e) {
-            model.addAttribute("userExists", false);
+        if (username.equals(user.getUsername())) {
+            model.addAttribute("ownUsername", true);
+        } else {
+            try {
+                User userToAdd = userRepo.findByUsername(username);
+                System.out.println(userToAdd.getId());
+                long userToAddId = userToAdd.getId();
+                userRepo.sendRequest(currentUserId, userToAddId, currentUserId);
+                model.addAttribute("userExists", true);
+            } catch (NullPointerException e) {
+                model.addAttribute("userExists", false);
+            }
         }
+
         return "friendMessage";
     }
 
