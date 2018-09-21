@@ -54,7 +54,7 @@ public class FriendsController {
     @PostMapping("/accept-friend")
     public String acceptFriend(@RequestParam(name = "idOfRecord") long idOfRecord) {
         userRepo.addFriend(idOfRecord);
-        return "redirect:/game";
+        return "redirect:/view-requests";
     }
 
     @PostMapping("/decline-friend")

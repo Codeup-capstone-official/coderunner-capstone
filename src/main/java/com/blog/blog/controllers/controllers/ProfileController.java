@@ -37,7 +37,6 @@ public class ProfileController {
         User user = userRepo.findByUsername(username);
         String highscore = userRepo.highscore(username);
         String topPlayer = userRepo.getTopPlayer();
-        String avgScore = userRepo.getAveragePointsByUsername(username);
         String totalScore = userRepo.getTotalPointsByUsername(username);
         List<Object[]> last10Games = userRepo.latest10Games(username);
         model.addAttribute("notValid", false);
@@ -46,7 +45,6 @@ public class ProfileController {
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
         model.addAttribute("top10Usernames", top10Usernames);
-        model.addAttribute("avgScore", avgScore);
         model.addAttribute("totalScore", totalScore);
         model.addAttribute("numberOfGames", last10Games.size());
         return "profile";
