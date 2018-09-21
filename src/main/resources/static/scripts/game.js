@@ -237,7 +237,7 @@ var Enemy = function (_MovableGameObject2) {
     function Enemy() {
         _classCallCheck(this, Enemy);
 
-        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic2()));
+        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic4()));
 
         _this4.directionX = -1;
         _this4.speed = 1;
@@ -726,8 +726,8 @@ var Game = function () {
             this.stage2.removeAllChildren();
             this.stage2.update();
             // background
-            var BG1 = new lib.BackgroundGraphic1();
-            var BG2 = new lib.BackgroundGraphic2();
+            var BG1 = new lib.BackgroundGraphic4();
+            var BG2 = new lib.BackgroundGraphic4();
             this.stage2.addChild(BG1);
 
             this.world = new World();

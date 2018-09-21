@@ -20,7 +20,7 @@ public class GameController {
         this.userRepo = userRepo;
     }
 
-    @GetMapping("/game")
+    @GetMapping("/")
     public String showGame(Model model) {
         return "index";
     }

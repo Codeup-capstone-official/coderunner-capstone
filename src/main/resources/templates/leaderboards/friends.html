@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="fragments/navbar :: navbar"></div>
     <th:block th:if="${numOfFriends > 0}">
         <h1>Friend Ranking</h1>
         <ol>

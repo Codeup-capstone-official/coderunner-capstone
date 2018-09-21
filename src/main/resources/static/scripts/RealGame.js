@@ -54,205 +54,114 @@ lib.webfontAvailable = function(family) {
 
 
 
-(lib.gamebg = function() {
+(lib.gamebgjpgcopy = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.NewPiskel2 = function() {
+(lib.gameBG1html = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.NewPiskel3 = function() {
+(lib.gamebg2css = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.NewPiskel4 = function() {
+(lib.gamebg2cssj = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.NewPiskel5 = function() {
+(lib.NewPiskel2 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.NewPiskel = function() {
+(lib.NewPiskel4 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.platform1 = function() {
+(lib.NewPiskel5 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.platformtest = function() {
+(lib.NewPiskel = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.powerup = function() {
+(lib.platform1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.spikesmpngcopy = function() {
+(lib.platformtest = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.test_0 = function() {
+(lib.powerup = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.test_1 = function() {
+(lib.salash = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.test_10 = function() {
+(lib.spikesmpngcopy = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.test_11 = function() {
+(lib.Wizard_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.test_12 = function() {
+(lib.Wizard_1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.test_13 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(19);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_14 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(20);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_15 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(21);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_2 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(22);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_3 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(23);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_4 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(24);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_5 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(25);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_6 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(26);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_7 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(27);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_8 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(28);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.test_9 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(29);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.Wizard_0 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(30);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.Wizard_1 = function() {
-	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(31);
-}).prototype = p = new cjs.Sprite();
-
-
-
 (lib.Wizard_2 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
-	this.gotoAndStop(32);
+	this.gotoAndStop(19);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -356,13 +265,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,25,25);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.NewPiskel3();
-	this.instance.setTransform(-8,-12.5,0.5,0.813);
+	this.instance = new lib.salash();
+	this.instance.setTransform(0,0,0.02,0.02);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-8,-12.5,16,26);
+p.nominalBounds = new cjs.Rectangle(0,0,20,20);
 
 
 (lib.ObstacleGraphic2 = function(mode,startPosition,loop) {
@@ -403,59 +312,56 @@ p.nominalBounds = new cjs.Rectangle(-16,-15.5,32,32);
 p.nominalBounds = new cjs.Rectangle(0,0,20,20);
 
 
+(lib.BackgroundGraphic4 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.gamebgjpgcopy();
+	this.instance.setTransform(-499.5,-539.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-499.5,-539.5,1000,1080);
+
+
+(lib.BackgroundGraphic3 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.gamebg2cssj();
+	this.instance.setTransform(0,0,0.606,0.909);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,500,500);
+
+
 (lib.BackgroundGraphic2 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.test_0();
+	this.instance = new lib.gamebg2css();
+	this.instance.setTransform(0,0,0.606,0.909);
 
-	this.instance_1 = new lib.test_1();
-
-	this.instance_2 = new lib.test_2();
-
-	this.instance_3 = new lib.test_3();
-
-	this.instance_4 = new lib.test_4();
-
-	this.instance_5 = new lib.test_5();
-
-	this.instance_6 = new lib.test_6();
-
-	this.instance_7 = new lib.test_7();
-
-	this.instance_8 = new lib.test_8();
-
-	this.instance_9 = new lib.test_9();
-
-	this.instance_10 = new lib.test_10();
-
-	this.instance_11 = new lib.test_11();
-
-	this.instance_12 = new lib.test_12();
-
-	this.instance_13 = new lib.test_13();
-
-	this.instance_14 = new lib.test_14();
-
-	this.instance_15 = new lib.test_15();
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).to({state:[{t:this.instance_4}]},1).to({state:[{t:this.instance_5}]},1).to({state:[{t:this.instance_6}]},1).to({state:[{t:this.instance_7}]},1).to({state:[{t:this.instance_8}]},1).to({state:[{t:this.instance_9}]},1).to({state:[{t:this.instance_10}]},1).to({state:[{t:this.instance_11}]},1).to({state:[{t:this.instance_12}]},1).to({state:[{t:this.instance_13}]},1).to({state:[{t:this.instance_14}]},1).to({state:[{t:this.instance_15}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,500,281);
+p.nominalBounds = new cjs.Rectangle(0,0,500,500);
 
 
 (lib.BackgroundGraphic1 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.gamebg();
-	this.instance.setTransform(0,0,0.45,0.389);
+	this.instance = new lib.gameBG1html();
+	this.instance.setTransform(0,0,0.26,0.463);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,450,420);
+p.nominalBounds = new cjs.Rectangle(0,0,500,500);
 
 
 // stage content:
@@ -463,37 +369,43 @@ p.nominalBounds = new cjs.Rectangle(0,0,450,420);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.ObstacleGraphic2();
-	this.instance.setTransform(369,196,1,1,0,0,0,7.5,7.5);
+	this.instance = new lib.BackgroundGraphic2();
+	this.instance.setTransform(124.1,241.6,0.8,0.8,0,0,0,155.1,302);
 
-	this.instance_1 = new lib.platformtest();
-	this.instance_1.setTransform(129,201);
+	this.instance_1 = new lib.BackgroundGraphic1();
+	this.instance_1.setTransform(250,250,1,1,0,0,0,250,250);
 
-	this.instance_2 = new lib.ObstacleGraphic4();
-	this.instance_2.setTransform(322,150,0.504,0.845,0,0,180,0,0.4);
+	this.instance_2 = new lib.HeroGraphic();
+	this.instance_2.setTransform(234,168,1,1,0,0,0,12.5,12.5);
 
-	this.instance_3 = new lib.powerup();
-	this.instance_3.setTransform(225.1,105);
+	this.instance_3 = new lib.ObstacleGraphic1();
+	this.instance_3.setTransform(312,166.6,1,1,0,0,0,0,0.5);
 
-	this.instance_4 = new lib.NewPiskel();
-	this.instance_4.setTransform(390,169);
+	this.instance_4 = new lib.ObstacleGraphic2();
+	this.instance_4.setTransform(178,175,1,1,0,0,0,7.5,7.5);
 
-	this.instance_5 = new lib.platform1();
-	this.instance_5.setTransform(233,161,0.086,0.096);
+	this.instance_5 = new lib.ObstacleGraphic4();
+	this.instance_5.setTransform(338,175,1,1,0,0,0,10,10);
 
-	this.instance_6 = new lib.HeroGraphic();
-	this.instance_6.setTransform(301,158,1,1,0,0,0,20,20);
+	this.instance_6 = new lib.PowerupGraphic();
+	this.instance_6.setTransform(366,134,1,1,0,0,0,16,16);
 
-	this.instance_7 = new lib.CoinGraphic();
-	this.instance_7.setTransform(331,127,1,1,0,0,0,10,10);
+	this.instance_7 = new lib.PlatformGraphic1();
+	this.instance_7.setTransform(257,188,1,1,0,0,0,100,10);
 
-	this.instance_8 = new lib.BackgroundGraphic1();
-	this.instance_8.setTransform(278,210,1,1,0,0,0,225,210);
+	this.instance_8 = new lib.CoinGraphic();
+	this.instance_8.setTransform(321.9,132,1,1,0,0,0,10,10);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this.instance_9 = new lib.ObstacleGraphic4();
+	this.instance_9.setTransform(322,150,0.504,0.845,0,0,180,0,0.4);
+
+	this.instance_10 = new lib.NewPiskel();
+	this.instance_10.setTransform(390,169);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_10},{t:this.instance_9},{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(328,200,450,420);
+p.nominalBounds = new cjs.Rectangle(275,200,500,500);
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{}, ss = ss||{});
 var lib, images, createjs, ss;
