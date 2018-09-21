@@ -15,4 +15,4 @@ insert into scores(score, date_of_game, user_id) values (40000, '2018-09-20', 4)
 insert into scores(score, date_of_game, user_id) values (400000, '2018-09-20', 5);
 insert into scores(score, date_of_game, user_id) values (500000,  '2018-09-18', 6);
 insert into scores(score, date_of_game, user_id) values (1000000000, '2018-09-20', 7);
-insert into scores(score, date_of_game, user_id) values (602330000, '2018-09-20', 8);
+insert into scores(score, date_of_game, user_id) values (1000, '2018-09-20', 4);
