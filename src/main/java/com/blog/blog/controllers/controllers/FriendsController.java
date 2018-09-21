@@ -6,9 +6,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.swing.*;
 import java.util.List;
 
 @Controller
@@ -72,5 +74,17 @@ public class FriendsController {
         friends.addAll(moreFriends);
         model.addAttribute("friends", friends);
         return "view-friends";
+    }
+
+    @PostMapping("/deleteFriendFromList")
+    public String deleteFriend(@RequestParam(name = "friend") String friend) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long currentUserId = user.getId();
+        System.out.println(currentUserId);
+        User otherUser = userRepo.findByUsername(friend);
+        long otherUserId = otherUser.getId();
+        System.out.println(otherUserId);
+        userRepo.deleteFriendFromRecords(currentUserId, otherUserId);
+        return "redirect:/view-friends";
     }
 }

@@ -9,6 +9,10 @@
 <hr />
 <div th:each="friend : ${friends}">
     <h4><a th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h4>
+    <form th:action="@{/deleteFriendFromList}" th:method="POST">
+        <input type="hidden" name="friend" th:value="${friend}" />
+        <button>Delete Friend</button>
+    </form>
 </div>
 </body>
 </html>

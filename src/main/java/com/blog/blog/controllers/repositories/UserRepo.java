@@ -77,4 +77,9 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT MAX(id) FROM users", nativeQuery = true)
     long getRegisterUserId();
 
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM relationships WHERE (user_one_id = ?1 AND user_two_id = ?2) OR (user_one_id = ?2 AND user_two_id = ?1)", nativeQuery = true)
+    void deleteFriendFromRecords(long currentUserId, long otherId);
 }
