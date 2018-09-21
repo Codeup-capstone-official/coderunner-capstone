@@ -75,8 +75,9 @@ var SceneManager = function () {
         key: 'gameOver',
         value: function gameOver() {
             document.getElementById("scoreInput").value = finalScore;
+            document.getElementById("scoreValue").value = finalScore;
             while(submitScore) {
-                document.forms["scoreForm"].submit();
+                // document.forms["scoreForm"].submit();
                 submitScore = false;
             }
             this.startGameSound.pause();
