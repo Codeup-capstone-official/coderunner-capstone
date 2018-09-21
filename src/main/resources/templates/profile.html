@@ -21,14 +21,21 @@
 
         <h3>Email: <span th:text="${user.email}"></span></h3>
         <h3>Ranking: <span th:text="${user.rank}"></span></h3>
-        <h3>Total Career Points: <span th:text="${totalScore}"></span></h3>
-        <h3>High Score: <span th:text="${highscore}"></span></h3>
-        <h3>Average game score: <span th:text="${avgScore}"></span></h3>
-        <h4>Last 10 games played</h4>
-        <div th:each="game : ${last10Games}" th:if="${numberOfGames > 1}">
-            <h5>Date Played: <span th:text="${game[0]}"></span>, Score: <span th:text="${game[1]}"></span></h5>
-        </div>
-        <h5 th:if="${numberOfGames == 1}">No games played yet</h5>
+        <th:block th:if="${numberOfGames == 0}">
+            <h3>Total Career Points: 0</h3>
+            <h3>High Score: 0</h3>
+            <h3>Average game score: 0</h3>
+        </th:block>
+        <th:block th:if="${numberOfGames > 0}">
+            <h3>Total Career Points: <span th:text="${totalScore}"></span></h3>
+            <h3>High Score: <span th:text="${highscore}"></span></h3>
+            <h3>Average game score: <span th:text="${avgScore}"></span></h3>
+            <h4>Last 10 games played</h4>
+            <div th:each="game : ${last10Games}">
+                <h5>Date Played: <span th:text="${game[0]}"></span>, Score: <span th:text="${game[1]}"></span></h5>
+            </div>
+        </th:block>
+
     </th:block>
 </body>
 </html>
