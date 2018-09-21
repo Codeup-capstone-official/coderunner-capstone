@@ -16,7 +16,7 @@ public class ScoreController {
     }
 
     @PostMapping("/getScore")
-    public void getScore(@RequestParam(name = "scoreResult") String score) {
+    public String getScore(@RequestParam(name = "scoreResult") String score) {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             long finalScore = Long.parseLong(score);
@@ -24,8 +24,9 @@ public class ScoreController {
             long currentUserId = user.getId();
             String currentDate = userRepo.currentDate();
             userRepo.insertGameScore(currentDate, finalScore, currentUserId);
+            return "index";
         } catch (ClassCastException e) {
-
+            return "index";
         }
     }
 }
