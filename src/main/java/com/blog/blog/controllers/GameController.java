@@ -22,6 +22,14 @@ public class GameController {
 
     @GetMapping("/")
     public String showGame(Model model) {
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            long currentUserId = user.getId();
+            List<Object[]> friendRequests = userRepo.getFriendRequests(currentUserId);
+            model.addAttribute("numOfRequests", friendRequests.size());
+        } catch (ClassCastException e) {
+            model.addAttribute("numOfRequests", 0);
+        }
         return "index";
     }
 
