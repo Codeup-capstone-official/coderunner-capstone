@@ -59,9 +59,7 @@ public class FriendsController {
                 model.addAttribute("friends", friendsUpdated);
                 model.addAttribute("bothSent", true);
                 model.addAttribute("userToAdd", username);
-            }
-
-            else {
+            } else {
                 User userToAdd = userRepo.findByUsername(username);
                 System.out.println(userToAdd.getId());
                 long userToAddId = userToAdd.getId();
@@ -95,9 +93,21 @@ public class FriendsController {
     }
 
     @PostMapping("/accept-friend")
-    public String acceptFriend(@RequestParam(name = "idOfRecord") long idOfRecord) {
+    public String acceptFriend(@RequestParam(name = "idOfRecord") long idOfRecord, Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        long currentUserId = user.getId();
         userRepo.addFriend(idOfRecord);
-        return "redirect:/view-friends";
+        List<String> friendsUpdated =  userRepo.getFriendsThatAddedYou(currentUserId);
+        List<String> moreFriendsUpdated = userRepo.getFriendsThatYouAdded(currentUserId);
+        friendsUpdated.addAll(moreFriendsUpdated);
+        List<Object[]> friendRequests2 = userRepo.getFriendRequests(currentUserId);
+        model.addAttribute("numberOfRequests", friendRequests2.size());
+        model.addAttribute("requests", friendRequests2);
+        model.addAttribute("friends", friendsUpdated);
+        String username = userRepo.getUsernameOfWhoSent(idOfRecord);
+        model.addAttribute("acceptedFriend", true);
+        model.addAttribute("userToAdd", username);
+        return "view-friends";
     }
 
     @PostMapping("/decline-friend")
@@ -118,14 +128,22 @@ public class FriendsController {
 //    }
 
     @PostMapping("/deleteFriendFromList")
-    public String deleteFriend(@RequestParam(name = "friend") String friend) {
+    public String deleteFriend(@RequestParam(name = "friend") String friend, Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long currentUserId = user.getId();
-        System.out.println(currentUserId);
         User otherUser = userRepo.findByUsername(friend);
         long otherUserId = otherUser.getId();
-        System.out.println(otherUserId);
         userRepo.deleteFriendFromRecords(currentUserId, otherUserId);
-        return "redirect:/view-friends";
+        List<String> friendsUpdated =  userRepo.getFriendsThatAddedYou(currentUserId);
+        List<String> moreFriendsUpdated = userRepo.getFriendsThatYouAdded(currentUserId);
+        friendsUpdated.addAll(moreFriendsUpdated);
+        List<Object[]> friendRequests2 = userRepo.getFriendRequests(currentUserId);
+        model.addAttribute("numberOfRequests", friendRequests2.size());
+        model.addAttribute("requests", friendRequests2);
+        model.addAttribute("friends", friendsUpdated);
+        model.addAttribute("deletedFriend", true);
+        model.addAttribute("userToAdd", friend);
+
+        return "view-friends";
     }
 }

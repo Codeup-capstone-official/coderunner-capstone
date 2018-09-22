@@ -21,6 +21,12 @@
             <th:block th:if="${bothSent == true}">
                 <h1 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h1>
             </th:block>
+            <th:block th:if="${acceptedFriend == true}">
+                <h1 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h1>
+            </th:block>
+            <th:block th:if="${deletedFriend == true}">
+                <h1 style="color: red">You are no longer friends with <span th:text="${userToAdd}"></span></h1>
+            </th:block>
             <form th:action="@{/add-friend}" th:method="post">
                 <label for="friend">Enter username</label>
                 <input type="text"  id="friend" name="username"/>

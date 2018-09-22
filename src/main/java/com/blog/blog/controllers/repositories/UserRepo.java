@@ -105,6 +105,9 @@ public interface UserRepo extends CrudRepository<User, Long> {
     long getIdOfRelationship(long otherUser, long currentUser);
 
 
+    @Query(value = "SELECT username FROM users JOIN relationships ON relationships.user_one_id = users.id WHERE relationships.id = ?1", nativeQuery = true)
+    String getUsernameOfWhoSent(long relationId);
+
 
 
 
