@@ -24,7 +24,7 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT username, score FROM scores JOIN users u on scores.user_id = u.id  WHERE date_of_game LIKE ?1 AND scores.score > 0 ORDER BY score DESC LIMIT 10;", nativeQuery = true)
     List<Object[]> top10OfMonth(String month);
 
-    @Query(value = "SELECT username, score FROM scores JOIN users u on scores.user_id = u.id  WHERE date_of_game LIKE ?1 AND scores.score > 0 ORDER BY score DESC LIMIT 10;", nativeQuery = true)
+    @Query(value = "SELECT username, score FROM scores JOIN users u on scores.user_id = u.id  WHERE date_of_game = ?1 AND scores.score > 0 ORDER BY score DESC LIMIT 10;", nativeQuery = true)
     List<Object[]> top10OfTheDay(String currentDay);
 
     @Query(value = "SELECT CURRENT_DATE();", nativeQuery = true)
