@@ -194,17 +194,19 @@ ul.how-to-play {
 /* ---------------------- Register Password check ----------------- */
 #message {
     display:none;
-    background: #f1f1f1;
+    background: url(../images/cloud-msg.png) center center no-repeat;
+    background-size: contain;
+
     color: #000;
     position: relative;
     padding: 20px;
     margin-top: 5px;
     border-radius: 2em;
-    box-shadow: 0 .3em .7em black;
+    /*box-shadow: 0 .3em .7em black;*/
 
 }
 #message p {
-    padding: 10px 35px;
+    padding: 15px 40px;
     font-size: 18px;
 }
 /* Add a green text color and a checkmark when the requirements are right */
