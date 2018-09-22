@@ -789,6 +789,50 @@ var Game = function () {
 
 // start the game
 
+var fullscreen = document.getElementById("fullscreenbtn");
+
+
+fullscreen.addEventListener("click", function () {
+
+
+    var gameContainerW = document.getElementById("game-container");
+    var gameContainerH = document.getElementById("game-container");
+
+    gameContainerW.style.width = window.innerWidth + 'px';
+    gameContainerH.style.height = window.innerHeight + 'px';
+
+    var gameH = document.getElementById("game");
+    var gameW = document.getElementById("game");
+
+
+    gameW.style.width = window.innerWidth + 'px';
+    gameH.style.height = window.innerHeight + 'px';
+
+    var gameCanvasW = document.getElementById("game-canvas");
+    var gameCanvasH = document.getElementById("game-canvas");
+
+
+    gameCanvasW.style.width = window.innerWidth + 'px';
+    gameCanvasH.style.height = window.innerHeight + 'px';
+
+    var gameCanvas2W = document.getElementById("game-canvas2");
+    var gameCanvas2H = document.getElementById("game-canvas2");
+
+
+    gameCanvas2W.style.width = window.innerWidth + 'px';
+    gameCanvas2H.style.height = window.innerHeight + 'px';
+
+    gameCanvasH.focus();
+
+    var scoreText1 = document.getElementById("score-text-p");
+    var scoreText2 = document.getElementById("score-text")
+
+    scoreText1.style.fontSize = 60 + 'px';
+    scoreText2.style.fontSize = 60 + 'px';
+
+});
+
+
 
 var game = new Game();
 
