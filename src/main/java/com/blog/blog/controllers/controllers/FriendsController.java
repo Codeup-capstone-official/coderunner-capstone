@@ -48,20 +48,24 @@ public class FriendsController {
         return "friendMessage";
     }
 
-    @GetMapping("/view-requests")
+    @GetMapping("/view-friends")
     public String viewFriendRequests(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         long currentUserId = user.getId();
         List<Object[]> friendRequests = userRepo.getFriendRequests(currentUserId);
+        List<String> friends =  userRepo.getFriendsThatAddedYou(currentUserId);
+        List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
+        friends.addAll(moreFriends);
+        model.addAttribute("friends", friends);
         model.addAttribute("numberOfRequests", friendRequests.size());
         model.addAttribute("requests", friendRequests);
-        return "view-requests";
+        return "view-friends";
     }
 
     @PostMapping("/accept-friend")
     public String acceptFriend(@RequestParam(name = "idOfRecord") long idOfRecord) {
         userRepo.addFriend(idOfRecord);
-        return "redirect:/view-requests";
+        return "redirect:/view-friends";
     }
 
     @PostMapping("/decline-friend")
@@ -70,16 +74,16 @@ public class FriendsController {
         return "redirect:/game";
     }
 
-    @GetMapping("/view-friends")
-    public String viewFriends(Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long currentUserId = user.getId();
-        List<String> friends =  userRepo.getFriendsThatAddedYou(currentUserId);
-        List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
-        friends.addAll(moreFriends);
-        model.addAttribute("friends", friends);
-        return "view-friends";
-    }
+//    @GetMapping("/view-friends")
+//    public String viewFriends(Model model) {
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        long currentUserId = user.getId();
+//        List<String> friends =  userRepo.getFriendsThatAddedYou(currentUserId);
+//        List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
+//        friends.addAll(moreFriends);
+//        model.addAttribute("friends", friends);
+//        return "view-friends";
+//    }
 
     @PostMapping("/deleteFriendFromList")
     public String deleteFriend(@RequestParam(name = "friend") String friend) {
