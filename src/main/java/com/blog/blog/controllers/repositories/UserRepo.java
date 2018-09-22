@@ -94,4 +94,18 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Modifying
     @Query(value = "DELETE FROM relationships WHERE (user_one_id = ?1 AND user_two_id = ?2) OR (user_one_id = ?2 AND user_two_id = ?1)", nativeQuery = true)
     void deleteFriendFromRecords(long currentUserId, long otherId);
+
+    @Query(value = "SELECT user_one_id, user_two_id FROM relationships WHERE user_one_id = ?1 AND user_two_id = ?2", nativeQuery = true)
+    List<Object[]> checkIfRequestWasAlreadySent(long userLoggedInId, long otherUserId);
+
+    @Query(value = "SELECT id, user_one_id, user_two_id FROM relationships WHERE user_one_id = ?1 AND user_two_id = ?2", nativeQuery = true)
+    List<Object[]> checkIfRequestWasAlreadyReceived(long otherUser, long currentUser);
+
+    @Query(value = "SELECT id FROM relationships WHERE user_one_id = ?1 AND user_two_id = ?2", nativeQuery = true)
+    long getIdOfRelationship(long otherUser, long currentUser);
+
+
+
+
+
 }
