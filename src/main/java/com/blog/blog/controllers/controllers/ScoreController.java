@@ -24,9 +24,9 @@ public class ScoreController {
             long currentUserId = user.getId();
             String currentDate = userRepo.currentDate();
             userRepo.insertGameScore(currentDate, finalScore, currentUserId);
-            return "index";
+            return "redirect:/";
         } catch (ClassCastException e) {
-            return "index";
+            return "redirect:/";
         }
     }
 }
