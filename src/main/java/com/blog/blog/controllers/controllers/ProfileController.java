@@ -22,14 +22,11 @@ public class ProfileController {
     public String viewOwnProfile(Model model) {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String highscore = userRepo.highscore(user.getUsername());
-        List<Object[]> last10Games = userRepo.latest10Games(user.getUsername());
         String totalPoints = userRepo.getTotalPointsByUsername(user.getUsername());
         model.addAttribute("totalScore", totalPoints);
-        model.addAttribute("last10Games", last10Games);
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
         model.addAttribute("notValid", false);
-        model.addAttribute("numberOfGames", last10Games.size());
         return "profile";
     }
 
@@ -40,15 +37,12 @@ public class ProfileController {
         String highscore = userRepo.highscore(username);
         String topPlayer = userRepo.getTopPlayer();
         String totalScore = userRepo.getTotalPointsByUsername(username);
-        List<Object[]> last10Games = userRepo.latest10Games(username);
         model.addAttribute("notValid", false);
         model.addAttribute("topPlayer", topPlayer);
-        model.addAttribute("last10Games", last10Games);
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
         model.addAttribute("top10Usernames", top10Usernames);
         model.addAttribute("totalScore", totalScore);
-        model.addAttribute("numberOfGames", last10Games.size());
         return "profile";
     }
 
