@@ -23,29 +23,61 @@ public class FriendsController {
 
     @GetMapping("/add-friend")
     public String showFriendForm() {
-        return "friendForm";
+        return "view-friends";
     }
 
     @PostMapping("/add-friend")
     public String getFriendUsername(@RequestParam(name = "username") String username, Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        long currentUserId = user.getId();
-        System.out.println(currentUserId);
-        if (username.equals(user.getUsername())) {
-            model.addAttribute("ownUsername", true);
-        } else {
-            try {
+        try {
+            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            long currentUserId = user.getId();
+            List<Object[]> friendRequests = userRepo.getFriendRequests(currentUserId);
+            List<String> friends =  userRepo.getFriendsThatAddedYou(currentUserId);
+            List<String> moreFriends = userRepo.getFriendsThatYouAdded(currentUserId);
+            friends.addAll(moreFriends);
+            model.addAttribute("friends", friends);
+            model.addAttribute("numberOfRequests", friendRequests.size());
+            model.addAttribute("requests", friendRequests);
+            User otherUser =userRepo.findByUsername(username);
+            List<Object[]> results = userRepo.checkIfRequestWasAlreadySent(currentUserId, otherUser.getId());
+            List<Object[]> checkWasReceived = userRepo.checkIfRequestWasAlreadyReceived(otherUser.getId(), currentUserId);
+
+            if (username.equals(user.getUsername())) {
+                model.addAttribute("ownUsername", true);
+            } else if (results.size() > 0) {
+                model.addAttribute("alreadySent", true);
+                model.addAttribute("userToAdd", username);
+            } else if (checkWasReceived.size() > 0) {
+                long relationId = userRepo.getIdOfRelationship(otherUser.getId(), currentUserId);
+                userRepo.addFriend(relationId);
+                List<String> friendsUpdated =  userRepo.getFriendsThatAddedYou(currentUserId);
+                List<String> moreFriendsUpdated = userRepo.getFriendsThatYouAdded(currentUserId);
+                friendsUpdated.addAll(moreFriendsUpdated);
+                List<Object[]> friendRequests2 = userRepo.getFriendRequests(currentUserId);
+                model.addAttribute("numberOfRequests", friendRequests2.size());
+                model.addAttribute("requests", friendRequests2);
+                model.addAttribute("friends", friendsUpdated);
+                model.addAttribute("bothSent", true);
+                model.addAttribute("userToAdd", username);
+            }
+
+            else {
                 User userToAdd = userRepo.findByUsername(username);
                 System.out.println(userToAdd.getId());
                 long userToAddId = userToAdd.getId();
                 userRepo.sendRequest(currentUserId, userToAddId, currentUserId);
+                model.addAttribute("userToAdd", username);
                 model.addAttribute("userExists", true);
-            } catch (NullPointerException e) {
-                model.addAttribute("userExists", false);
             }
+            return "view-friends";
+
+        } catch (NullPointerException e) {
+            model.addAttribute("userToAdd", username);
+            model.addAttribute("userExists", false);
+            return "view-friends";
+
         }
 
-        return "friendMessage";
     }
 
     @GetMapping("/view-friends")
@@ -71,7 +103,7 @@ public class FriendsController {
     @PostMapping("/decline-friend")
     public String declineFriend(@RequestParam(name = "idOfRecord") long idOfRecord) {
         userRepo.declineFriend(idOfRecord);
-        return "redirect:/game";
+        return "redirect:/view-friends";
     }
 
 //    @GetMapping("/view-friends")

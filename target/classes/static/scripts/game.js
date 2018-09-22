@@ -830,8 +830,6 @@ fullscreen.addEventListener("click", function () {
     scoreText1.style.fontSize = 60 + 'px';
     scoreText2.style.fontSize = 60 + 'px';
 
-
-
 });
 
 
