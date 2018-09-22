@@ -23,6 +23,8 @@ public class ProfileController {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String highscore = userRepo.highscore(user.getUsername());
         String totalPoints = userRepo.getTotalPointsByUsername(user.getUsername());
+        String highScoreUser = userRepo.getUserWhoHoldHighScore();
+        model.addAttribute("recordHolder", highScoreUser);
         model.addAttribute("totalScore", totalPoints);
         model.addAttribute("highscore", highscore);
         model.addAttribute("user", user);
@@ -37,6 +39,8 @@ public class ProfileController {
         String highscore = userRepo.highscore(username);
         String topPlayer = userRepo.getTopPlayer();
         String totalScore = userRepo.getTotalPointsByUsername(username);
+        String highScoreUser = userRepo.getUserWhoHoldHighScore();
+        model.addAttribute("recordHolder", highScoreUser);
         model.addAttribute("notValid", false);
         model.addAttribute("topPlayer", topPlayer);
         model.addAttribute("highscore", highscore);

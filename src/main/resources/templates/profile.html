@@ -11,10 +11,13 @@
         <th:block th:if="${topPlayer == user.username}">
             <h1 style="color: red;">#1 Ranked In The World!</h1>
         </th:block>
+        <th:block th:if="${recordHolder == user.username}">
+            <h1 style="color: blue;">Holds High Score Record</h1>
+        </th:block>
         <div th:each="username : ${top10Usernames}">
             <th:block th:if="${username == user.username}">
-                <h1 style="color: blue;">Top 10 Player</h1>
-            </th:block>
+            <h1 style="color: blue;">Top 10 Player</h1>
+        </th:block>
         </div>
 
         <h3>Email: <span th:text="${user.email}"></span></h3>
