@@ -14,6 +14,7 @@ import java.util.List;
 @Repository
 public interface UserRepo extends CrudRepository<User, Long> {
     User findByUsername(String username);
+    User findByEmail(String email);
 
     @Query(value = "SELECT username, sum(score) FROM scores JOIN users u on scores.user_id = u.id GROUP BY user_id ORDER BY sum(score) DESC;", nativeQuery = true)
     List<Object[]> getAllPlayersRanking();

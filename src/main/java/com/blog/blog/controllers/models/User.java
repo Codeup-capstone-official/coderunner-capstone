@@ -1,8 +1,11 @@
 package com.blog.blog.controllers.models;
 
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
@@ -13,8 +16,12 @@ public class User {
     @GeneratedValue
     private long id;
     @Column(nullable = false, length = 100, unique = true)
+    @NotBlank(message = "Cannot be blank")
+    @Pattern(regexp = "(?=^.{1,26}$)^[a-zA-Z][a-zA-Z0-9 ]*[._-]?[a-zA-Z0-9 ]+$", message = "Username must be alphanumeric only.")
     private String username;
     @Column(nullable = false, length = 100, unique = true)
+    @NotBlank(message="Cannot be blank")
+    @Email(message="Not valid")
     private String email;
     private String password;
 
