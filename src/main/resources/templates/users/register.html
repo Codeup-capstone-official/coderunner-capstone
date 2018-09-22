@@ -5,10 +5,10 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-    <div class="container mt-5 pt-4">
+    <div class="container my-5">
         <h1>Register</h1>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-lg-7 py-5">
                 <div>
                     <th:block th:if="${canRegister == true}">
                         <h4 style="color: green">Thank you for registering!</h4>
@@ -52,12 +52,12 @@
                 <input value="Sign me up!" class="btn btn-primary" type="submit" />
             </form>
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-5">
                 <div id="message">
-                    <h4>Password must contain the following:</h4>
-                    <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-                    <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-                    <p id="number" class="invalid">A <b>number</b></p>
+                    <h3>Password must contain:</h3>
+                    <p id="letter" class="invalid">1 <b>lowercase</b> letter</p>
+                    <p id="capital" class="invalid">1 <b>uppercase</b> letter</p>
+                    <p id="number" class="invalid">1 <b>number</b></p>
                     <p id="length" class="invalid">Minimum <b>6 characters</b></p>
                 </div>
             </div>

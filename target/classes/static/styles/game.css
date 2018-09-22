@@ -195,18 +195,19 @@ ul.how-to-play {
 #message {
     display:none;
     background: url(../images/cloud-msg.png) center center no-repeat;
-    background-size: contain;
+    background-size: cover;
 
     color: #000;
     position: relative;
-    padding: 20px;
-    margin-top: 5px;
-    border-radius: 2em;
+    padding: 40px;
+    /*margin-top: 5px;*/
+    /*border-radius: 2em;*/
     /*box-shadow: 0 .3em .7em black;*/
 
 }
 #message p {
-    padding: 15px 40px;
+    /*padding: 15px 40px;*/
+    padding: 5px 5px 5px 40px;
     font-size: 18px;
 }
 /* Add a green text color and a checkmark when the requirements are right */
