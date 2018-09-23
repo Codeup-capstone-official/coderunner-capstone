@@ -8,34 +8,28 @@
     <th:block th:each="record : ${recordScore}">
         <p>Player: <span><a th:href="@{'profile/' + ${record[1]}}" th:text="${record[1]}"></a></span>, Score: <span th:text="${record[0]}"></span>, Date: <span th:text="${record[2]}"></span></p>
     </th:block>
-    <h1>Top 10 players</h1>
+    <h1>Top 10 Scores Of The Day</h1>
     <ol>
-        <div th:each="user: ${users}">
-            <li>
-                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[1]}"></span></p>
-            </li>
-        </div>
+        <li th:each="user: ${top10OfDay}">
+            <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Score: <span th:text="${user[1]}"></span></p>
+        </li>
     </ol>
 
     <h1>Top 10 Scores Of The Month</h1>
     <ol>
-        <div th:each="user: ${top10Month}">
-            <li>
+        <li th:each="user: ${top10Month}">
                 <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Score: <span th:text="${user[1]}"></span></p>
-            </li>
-        </div>
+        </li>
     </ol>
-
-    <h1>Top 10 Scores Of The Day</h1>
+    <h1>Top 10 players</h1>
     <ol>
-        <div th:each="user: ${top10OfDay}">
-            <li>
-                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Score: <span th:text="${user[1]}"></span></p>
-            </li>
-        </div>
+        <li th:each="user: ${users}">
+                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[1]}"></span></p>
+        </li>
     </ol>
 
-    <script th:replace="fragments/scripts :: scripts"></script>
+
+<script th:replace="fragments/scripts :: scripts"></script>
     <footer th:replace="fragments/footer :: footer"></footer>
 
 </body>

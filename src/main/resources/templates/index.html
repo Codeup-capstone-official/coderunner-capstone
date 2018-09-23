@@ -4,10 +4,6 @@
 
 <body class="home">
 <div th:replace="fragments/navbar :: navbar"></div>
-    <div class="container">
-        <header>
-            <h1>Code-Runner</h1>
-        </header>
 
         <div sec:authorize="!isAuthenticated()">
             <h4>To save your score, register for an account or log in.</h4>

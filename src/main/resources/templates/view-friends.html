@@ -6,6 +6,27 @@
     <div class="container">
         <div class=" container">
             <h1>Add A Friend</h1>
+            <th:block th:if="${userExists == true}">
+                <h1 style="color: green">Friend request sent to <span th:text="${userToAdd}"></span></h1>
+            </th:block>
+            <th:block th:if="${userExists == false}">
+                <h1 style="color: red"><span th:text="${userToAdd}"></span> does not exists</h1>
+            </th:block>
+            <th:block th:if="${ownUsername == true}">
+                <h1 style="color: red">Cannot add yourself</h1>
+            </th:block>
+            <th:block th:if="${alreadySent == true}">
+                <h1 style="color: red">You have already sent a friend request to <span th:text="${userToAdd}"></span></h1>
+            </th:block>
+            <th:block th:if="${bothSent == true}">
+                <h1 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h1>
+            </th:block>
+            <th:block th:if="${acceptedFriend == true}">
+                <h1 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h1>
+            </th:block>
+            <th:block th:if="${deletedFriend == true}">
+                <h1 style="color: red">You are no longer friends with <span th:text="${userToAdd}"></span></h1>
+            </th:block>
             <form th:action="@{/add-friend}" th:method="post">
                 <label for="friend">Enter username</label>
                 <input type="text"  id="friend" name="username"/>
