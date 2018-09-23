@@ -4,60 +4,59 @@
 
 <body class="home">
 <div th:replace="fragments/navbar :: navbar"></div>
-    <p id="requestMessage" th:if="${numOfRequests > 0}" style="color: red">You have <span th:text="${numOfRequests}"></span> friend requests</p>
-    <header>
-        <h1>Code-Runner</h1>
-    </header>
 
-    <div sec:authorize="!isAuthenticated()">
-        <h4>To save your score, register for an account or log in.</h4>
-    </div>
+        <div sec:authorize="!isAuthenticated()">
+            <h4>To save your score, register for an account or log in.</h4>
+        </div>
 
-    <h4></h4>
+        <div class="game-container" id="game-container">
 
-    <div class="game-container" id="game-container">
+            <img class="game-boi" src="/images/gboy-console.png" alt="Game console" />
+            <div id="game">
+                <canvas id="game-canvas2" class="active scene" width="800" height="550">
+                    This is background for the game.
+                </canvas>
+                <canvas id="game-canvas" class="active scene" width="780" height="530">
+                    This is an interactive game.
+                </canvas>
+                <div id="menu" class="active scene">
+                    <a href="#game-canvas" id="start-game-button">Start Game</a>
+                </div>
+                <div id="gameover" class="scene">
 
-        <img class="game-boi" src="/images/gboy2.1.png" alt="Game console" />
-        <div id="game">
-            <canvas id="game-canvas2" class="active scene" width="550" height="450">
-                This is background for the game.
-            </canvas>
-            <canvas id="game-canvas" class="active scene" width="480" height="320">
-                This is an interactive game.
-            </canvas>
-            <div id="menu" class="active scene">
-                <a href="#game-canvas" id="start-game-button">Start Game</a>
-            </div>
-            <div id="gameover" class="scene">
-
-                <p>Your score was: <input type="text" id="scoreValue" th:readonly="readonly"/></p>
-                <a href="#game-canvas" id="restart-game-button">Restart Game</a>
-                <a href="#menu" id="exit-button">Exit to Menu</a>
-            </div>
-            <div id="hud" class="scene">
-                <p id="score-text-p">Score: <span id="score-text">0</span></p>
+                    <p>Your score was: <input type="text" id="scoreValue" th:readonly="readonly"/></p>
+                    <a href="#game-canvas" id="restart-game-button">Restart Game</a>
+                    <a href="#menu" id="exit-button">Exit to Menu</a>
+                </div>
+                <div id="hud" class="scene">
+                    <p id="score-text-p">Score: <span id="score-text">0</span></p>
+                </div>
             </div>
         </div>
-    </div>
-    <form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">
-        <input type="hidden" id="scoreInput" name="scoreResult" />
-    </form>
+        <form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">
+            <input type="hidden" id="scoreInput" name="scoreResult" />
+        </form>
 
-<div class='hr'>
-    <a href="#game-canvas"><button id="fullscreenbtn">FullScreen</button></a>
-    <hr />
-</div>
-    <section>
-        <h2>How to Play?</h2>
-        <ul class='how-to-play'>
-            <li>Press the screen to jump.</li>
-            <li>Avoid the obstacles.</li>
-            <li>Collect the game coins, get speed boost.</li>
-        </ul>
-    </section>
+        <div class="row under-game">
+            <div class="col-md-4">
+                <div class='hr'>
+                    <a href="#game-canvas"><button id="fullscreenbtn">FullScreen</button></a>
+                    <hr />
+                </div>
+
+                <section>
+                    <h2>How to Play?</h2>
+                    <ul class='how-to-play'>
+                        <li>Press the screen to jump.</li>
+                        <li>Avoid the obstacles.</li>
+                        <li>Collect the game coins, get speed boost.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>  <!--closes container-->
 
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-
 
     <script src="scripts/RealGame.js"></script>
     <script src="scripts/game.js"></script>
