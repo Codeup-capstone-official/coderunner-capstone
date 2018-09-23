@@ -9,18 +9,13 @@ html {
 }
 
 body {
-    background: url(../images/sky-bg.png) top center no-repeat;
+    background: url(../images/sky-bg2.png) top center no-repeat;
     background-size: cover;
     /*border-top: 5px solid #008894;*/
     font-family: 'Press Start 2P';
 }
 
-.scene {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+body.home {
     text-align: center;
 }
 
@@ -66,11 +61,12 @@ nav {
 /* --------------------------- */
 
 #game {
-    width: 480px;
-    height: 320px;
+    width: 780px;
+    height: 530px;
     position: relative;
     overflow: hidden;
 }
+
 .scene {
     position: absolute;
     top: 0;
@@ -110,18 +106,11 @@ nav {
     opacity: 1;
 }
 
-header h1{
-    display: none;
-}
-header h1 {
-    text-indent: 100%;
-    white-space: nowrap;
-}
 
 /* ------------------------------ Game console and canvas --------------------------- */
 #game {
     margin: auto;
-    box-shodaw: 0 6px 3px -5px #000;
+    /*box-shadow: 0 6px 3px -5px #000;*/
     border-style: solid;
     border-width: 2px;
     border-top-color: #C5A578;
@@ -131,26 +120,26 @@ header h1 {
 
 
     z-index: 99;
-    top: 62px;
+    top: 250px;
 }
 
+/* Start button on game menu*/
 #menu {
     background: url(../images/rush-menu-scene.png);
+    background-size: cover;
     padding: 2em;
-    padding-top: 150px;
+    padding-top: 310px;
 }
 #gameover {
     background: url(../images/rush-gameover-scene.png);
     padding-top: 170px;
 }
 
-body.home {
-    text-align: center;
-}
+
 .game-container {
     display:inline-block;
-    width:590px;
-    height:800px;
+    width:780px;
+    height:530px;
     margin: 0 auto;
     /*background: black;*/
     position:relative;
@@ -161,9 +150,10 @@ body.home {
 .game-boi {
     position:absolute;
     z-index:1;
+    width: 1240px;
     /*box-shadow: 0 5px 50px #333;*/
 
-    right: -8px;
+    right: -225px;
 }
 
 #score-text {
@@ -184,11 +174,15 @@ ul.how-to-play {
 }
 
 .hr {
-    background: url(../images/hr.png) center center no-repeat;
+    /*background: url(../images/hr.png) center center no-repeat;*/
     height: 50px;
 }
 .hr hr {
     display: none;
+}
+
+.under-game {
+    margin-top: 800px;
 }
 
 /* ---------------------- Register Password check ----------------- */
