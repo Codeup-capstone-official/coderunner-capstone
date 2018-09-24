@@ -130,11 +130,11 @@ nav {
     padding: 2em;
     padding-top: 310px;
 }
+
 #gameover {
     background: url(../images/rush-gameover-scene.png);
     padding-top: 170px;
 }
-
 
 .game-container {
     display:inline-block;
@@ -228,11 +228,55 @@ ul.how-to-play {
 }
 
 
-@media screen and (max-width: 1200px) {
-    #message {
+@media screen and (max-width: 992px) {
+    #game {
+        width: 360px;
+        height: 300px;
 
+        top: 125px;
     }
 
-    #message p {
+    .game-container {
+        width:360px;
+        height:300px;
+    }
+
+    .game-boi {
+        width: 570px;
+        height: 695px;
+
+        right: -102px;
+    }
+
+    #menu {
+        padding: 2em;
+        padding-top: 30px;
+    }
+
+    .under-game {
+        margin-top: 400px;
+    }
+}
+
+ /* mobile view */
+@media screen and (max-width: 540px) {
+    .game-boi {
+        display: none;
+    }
+
+    #game {
+        width: 100%;
+        min-height: 450px;
+
+        top: 25px;
+    }
+
+    .game-container {
+        width: 100%;
+        min-height: 470px;
+    }
+
+    .under-game {
+        margin-top: 50px;
     }
 }
