@@ -15,12 +15,7 @@ body {
     font-family: 'Press Start 2P';
 }
 
-.scene {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+body.home {
     text-align: center;
 }
 
@@ -45,17 +40,13 @@ nav {
 }
 
 .nav-btn {
-    padding: 5px 20px;
+    padding: 8px;
     background: url(../images/oragne-btn.png) center no-repeat;
     background-size: contain;
-    width: 100%;
 }
 
 .nav-link {
-    margin: 30px 10px;
-    /*padding: 10px 100px;*/
-    /*background: url(../images/oragne-btn.png) center no-repeat;*/
-    /*background-size: contain;*/
+
 }
 
 #navi {
@@ -63,14 +54,19 @@ nav {
     background-size: cover;
 }
 
+#toggle-btn {
+    background: url(../images/duck.png) center no-repeat;
+}
+
 /* --------------------------- */
 
 #game {
-    width: 480px;
-    height: 320px;
+    width: 780px;
+    height: 530px;
     position: relative;
     overflow: hidden;
 }
+
 .scene {
     position: absolute;
     top: 0;
@@ -110,18 +106,11 @@ nav {
     opacity: 1;
 }
 
-header h1{
-    display: none;
-}
-header h1 {
-    text-indent: 100%;
-    white-space: nowrap;
-}
 
 /* ------------------------------ Game console and canvas --------------------------- */
 #game {
     margin: auto;
-    box-shodaw: 0 6px 3px -5px #000;
+    /*box-shadow: 0 6px 3px -5px #000;*/
     border-style: solid;
     border-width: 2px;
     border-top-color: #C5A578;
@@ -131,26 +120,26 @@ header h1 {
 
 
     z-index: 99;
-    top: 62px;
+    top: 250px;
 }
 
+/* Start button on game menu*/
 #menu {
-    background: url(../images/rush-menu-scene.png);
+    background: url(../images/new-canvas.png);
+    background-size: cover;
     padding: 2em;
-    padding-top: 150px;
+    padding-top: 310px;
 }
 #gameover {
     background: url(../images/rush-gameover-scene.png);
     padding-top: 170px;
 }
 
-body.home {
-    text-align: center;
-}
+
 .game-container {
     display:inline-block;
-    width:590px;
-    height:800px;
+    width:780px;
+    height:530px;
     margin: 0 auto;
     /*background: black;*/
     position:relative;
@@ -161,9 +150,10 @@ body.home {
 .game-boi {
     position:absolute;
     z-index:1;
+    width: 1240px;
     /*box-shadow: 0 5px 50px #333;*/
 
-    right: -8px;
+    right: -225px;
 }
 
 #score-text {
@@ -184,11 +174,15 @@ ul.how-to-play {
 }
 
 .hr {
-    background: url(../images/hr.png) center center no-repeat;
+    /*background: url(../images/hr.png) center center no-repeat;*/
     height: 50px;
 }
 .hr hr {
     display: none;
+}
+
+.under-game {
+    margin-top: 800px;
 }
 
 /* ---------------------- Register Password check ----------------- */
@@ -199,15 +193,15 @@ ul.how-to-play {
 
     color: #000;
     position: relative;
-    padding: 40px;
+    padding: 90px 40px;
     /*margin-top: 5px;*/
     /*border-radius: 2em;*/
     /*box-shadow: 0 .3em .7em black;*/
 
 }
 #message p {
-    /*padding: 15px 40px;*/
-    padding: 5px 5px 5px 40px;
+    margin-left: 20%;
+    padding-top: 20px;
     font-size: 18px;
 }
 /* Add a green text color and a checkmark when the requirements are right */
@@ -216,7 +210,7 @@ ul.how-to-play {
 }
 .valid:before {
     position: relative;
-    left: -35px;
+    left: -30px;
     content: "✔";
 }
 /* Add a red text color and an "x" when the requirements are wrong */
@@ -225,10 +219,20 @@ ul.how-to-play {
 }
 .invalid:before {
     position: relative;
-    left: -35px;
+    left: -30px;
     content: "✖";
 }
 
 .headingRegister {
     text-align: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+    #message {
+
+    }
+
+    #message p {
+    }
 }

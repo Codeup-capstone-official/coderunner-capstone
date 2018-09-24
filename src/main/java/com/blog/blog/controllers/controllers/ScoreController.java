@@ -24,7 +24,18 @@ public class ScoreController {
             long currentUserId = user.getId();
             String currentDate = userRepo.currentDate();
             userRepo.insertGameScore(currentDate, finalScore, currentUserId);
-            return "redirect:/";
+            long playersSumScore = Long.parseLong(userRepo.getTotalPointsByUsername(user.getUsername()));
+            System.out.println(playersSumScore);
+            if (playersSumScore > 0 && playersSumScore <= 25000) {
+                userRepo.updateRank("junior", currentUserId);
+            } else if (playersSumScore > 25000 && playersSumScore <= 50000) {
+                userRepo.updateRank("mid", currentUserId);
+            } else if (playersSumScore > 50000 && playersSumScore <= 75000) {
+                userRepo.updateRank("senior", currentUserId);
+            }  else if (playersSumScore > 75000 && playersSumScore <= 100000) {
+                userRepo.updateRank("wizard", currentUserId);
+            }
+                return "redirect:/";
         } catch (ClassCastException e) {
             return "redirect:/";
         }
