@@ -41,6 +41,7 @@ var SceneManager = function () {
             this.startGameMusic = true;
             this.gameOverCounter = true;
             while(this.startGameMusic){
+                finalScore = 0;
                 console.log("startGameMusic");
                 this.startGameSound.loop = true;
                 this.startGameSound.play();
@@ -68,8 +69,9 @@ var SceneManager = function () {
     }, {
         key: 'setGameScore',
         value: function setGameScore(score) {
-            this.scoreText.textContent = score;
-            finalScore = score;
+            finalScore += score;
+            this.scoreText.textContent = finalScore;
+
         }
     }, {
         key: 'gameOver',
@@ -125,7 +127,11 @@ var SceneManager = function () {
 var LevelData = function LevelData() {
     _classCallCheck(this, LevelData);
 
-    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 1 }, { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 }, { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 }, { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 }, { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
+    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 1 },
+        { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 },
+        { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 },
+        { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 },
+        { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
 };
 
 var ScoreCalculator = function () {
@@ -139,7 +145,7 @@ var ScoreCalculator = function () {
         key: 'increaseScore',
         value: function increaseScore(level) {
             // Note: level starts at 0. Expotential incremental.
-            this.score += (level + 1) * (level + 1);
+            this.score = (level + 1) * (level + 1);
         }
     }]);
 
@@ -194,6 +200,7 @@ var MovableGameObject = function (_GameObject) {
             this.y += this.velocity.y;
             this.x += this.velocity.x;
         }
+
     }]);
 
     return MovableGameObject;
@@ -353,7 +360,6 @@ var World = function (_createjs$Container2) {
             var hitEnemy = this.targetHitTestObjects(this.hero, this.enemies);
             if (hitEnemy !== false) {
                 console.log('hit!', hitEnemy);
-                // console.log("final score: " + finalScore);
                 game.gameOver();
             }
 
@@ -366,7 +372,6 @@ var World = function (_createjs$Container2) {
 
             // is hero falling outside of screen?
             if (this.hero.y > game.stage.height) {
-                // console.log("final score: " + finalScore);
                 game.gameOver();
             }
 
@@ -517,6 +522,7 @@ var World = function (_createjs$Container2) {
                 this.currentLevel = platform.levelNumber;
                 object.velocity.y = 0;
                 object.run();
+
             }
         }
     }, {
@@ -684,6 +690,12 @@ var Game = function () {
 
         this.gameLoaded = false;
         this.loadGraphics();
+        setInterval(
+            function scoreCount() {
+                finalScore += 1;
+                document.getElementById('score-text').textContent = finalScore;
+                console.log("score counter working " + finalScore);
+            }, 1000);
     }
 
     _createClass(Game, [{
