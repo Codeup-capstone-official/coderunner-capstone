@@ -27,7 +27,7 @@ public class GameController {
             long currentUserId = user.getId();
             List<Object[]> friendRequests = userRepo.getFriendRequests(currentUserId);
             model.addAttribute("numOfRequests", friendRequests.size());
-            model.addAttribute("user", user.getRank());
+            model.addAttribute("rank", user.getRank());
         } catch (ClassCastException e) {
             model.addAttribute("rank", "junior");
             model.addAttribute("numOfRequests", 0);
