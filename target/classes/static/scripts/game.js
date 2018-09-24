@@ -243,7 +243,7 @@ var Enemy = function (_MovableGameObject2) {
     function Enemy() {
         _classCallCheck(this, Enemy);
 
-        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.ObstacleGraphic4()));
+        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, new lib.EnemyHTML1()));
 
         _this4.directionX = -1;
         _this4.speed = 1;
@@ -281,7 +281,7 @@ var Hero = function (_MovableGameObject3) {
         if (heroSelect == 1) {
             {
                 console.log("Test1");
-                characterChoice = new lib.HeroGraphic();
+                characterChoice = new lib.HeroGraphic1();
             }
         } else if (heroSelect == 2) {
             {
@@ -752,8 +752,8 @@ var Game = function () {
             this.stage2.removeAllChildren();
             this.stage2.update();
             // background
-            var BG1 = new lib.BackgroundGraphic4();
-            var BG2 = new lib.BackgroundGraphic4();
+            var BG1 = new lib.BackgroundGraphic1();
+            var BG2 = new lib.BackgroundGraphic3();
             this.stage2.addChild(BG1);
 
             this.world = new World();
