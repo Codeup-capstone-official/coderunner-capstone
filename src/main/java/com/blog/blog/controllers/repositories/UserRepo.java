@@ -108,6 +108,11 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "SELECT username FROM users JOIN relationships ON relationships.user_one_id = users.id WHERE relationships.id = ?1", nativeQuery = true)
     String getUsernameOfWhoSent(long relationId);
 
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE users SET ranking = ?1 WHERE users.id = ?2", nativeQuery = true)
+    void updateRank(String ranking, long id);
+
 
 
 
