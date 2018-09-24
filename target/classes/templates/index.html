@@ -4,6 +4,7 @@
 
 <body class="home">
 <div th:replace="fragments/navbar :: navbar"></div>
+    <p style="color: red" th:if="${numOfRequests > 0}">You have <span th:text="${numOfRequests}"></span> friend requests!</p>
     <div class="container">
     <!--<header>-->
         <!--<h1>Code-Runner</h1>-->
