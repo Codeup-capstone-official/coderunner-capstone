@@ -60,7 +60,7 @@ public class ProfileController {
             return "redirect:/profile/" + username;
         } catch (NullPointerException e) {
             model.addAttribute("notValid", true);
-            return "/profile";
+            return "profile";
         }
 
     }
