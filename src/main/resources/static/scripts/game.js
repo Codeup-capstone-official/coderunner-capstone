@@ -9,7 +9,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var finalScore = 0;
+var clock;
 var submitScore = true;
+
 
 var SceneManager = function () {
     function SceneManager() {
@@ -76,10 +78,21 @@ var SceneManager = function () {
     }, {
         key: 'gameOver',
         value: function gameOver() {
+            clearInterval(clock)
             document.getElementById("scoreInput").value = finalScore;
             document.getElementById("scoreValue").value = finalScore;
             while(submitScore) {
-                document.forms["scoreForm"].submit();
+                var request = $.ajax({
+                    url: '/getScore/' + finalScore,
+                    method: 'POST',
+                    dataType: 'json',
+                    data: $('#scoreForm').serialize()
+                });
+                request.done(function(html){
+                    $('.container').html(html);
+
+                });
+
                 submitScore = false;
             }
             this.startGameSound.pause();
@@ -669,6 +682,8 @@ var World = function (_createjs$Container2) {
     return World;
 }(createjs.Container);
 
+
+
 var Game = function () {
     function Game() {
         _classCallCheck(this, Game);
@@ -705,7 +720,7 @@ var Game = function () {
 
         this.gameLoaded = false;
         this.loadGraphics();
-        setInterval(
+        clock = setInterval(
             function scoreCount() {
                 finalScore += 1;
                 document.getElementById('score-text').textContent = finalScore;
