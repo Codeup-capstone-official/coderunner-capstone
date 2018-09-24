@@ -58,7 +58,11 @@
 
             </div>
         </div>
-        <select id="selectCharacter">
+        <select id="selectCharacter" th:if="${rank == 'junior'}">
+            <option name="1" value="1">Duck</option>
+            <option name="2" value="2" th:disabled="true">Wizard</option>
+        </select>
+        <select id="selectCharacter" th:if="${rank == 'wizard'}">
             <option name="1" value="1">Duck</option>
             <option name="2" value="2">Wizard</option>
         </select>
