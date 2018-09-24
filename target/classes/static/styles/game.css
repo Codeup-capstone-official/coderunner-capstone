@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background: url(../images/sky-bg2.png) top center no-repeat;
+    background: url(../images/sky-bg.png) top center no-repeat;
     background-size: cover;
     /*border-top: 5px solid #008894;*/
     font-family: 'Press Start 2P';
@@ -40,22 +40,22 @@ nav {
 }
 
 .nav-btn {
-    padding: 5px 20px;
+    padding: 8px;
     background: url(../images/oragne-btn.png) center no-repeat;
     background-size: contain;
-    width: 100%;
 }
 
 .nav-link {
-    margin: 30px 10px;
-    /*padding: 10px 100px;*/
-    /*background: url(../images/oragne-btn.png) center no-repeat;*/
-    /*background-size: contain;*/
+
 }
 
 #navi {
     background: url(../images/navbar.png) center no-repeat;
     background-size: cover;
+}
+
+#toggle-btn {
+    background: url(../images/duck.png) center no-repeat;
 }
 
 /* --------------------------- */
@@ -193,15 +193,15 @@ ul.how-to-play {
 
     color: #000;
     position: relative;
-    padding: 40px;
+    padding: 90px 40px;
     /*margin-top: 5px;*/
     /*border-radius: 2em;*/
     /*box-shadow: 0 .3em .7em black;*/
 
 }
 #message p {
-    /*padding: 15px 40px;*/
-    padding: 5px 5px 5px 40px;
+    margin-left: 20%;
+    padding-top: 20px;
     font-size: 18px;
 }
 /* Add a green text color and a checkmark when the requirements are right */
@@ -210,7 +210,7 @@ ul.how-to-play {
 }
 .valid:before {
     position: relative;
-    left: -35px;
+    left: -30px;
     content: "✔";
 }
 /* Add a red text color and an "x" when the requirements are wrong */
@@ -219,10 +219,20 @@ ul.how-to-play {
 }
 .invalid:before {
     position: relative;
-    left: -35px;
+    left: -30px;
     content: "✖";
 }
 
 .headingRegister {
     text-align: center;
+}
+
+
+@media screen and (max-width: 1200px) {
+    #message {
+
+    }
+
+    #message p {
+    }
 }
