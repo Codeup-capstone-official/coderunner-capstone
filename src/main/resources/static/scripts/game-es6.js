@@ -163,9 +163,14 @@ class Enemy extends MovableGameObject {
     }
 }
 
+
+var selectChoice = document.getElementById("selectCharacter").value;
+var characterDuck = new lib.HeroGraphic();
+var characterWizard = new lib.HeroGraphic2();
+
 class Hero extends MovableGameObject {
     constructor() {
-        super( new lib.HeroGraphic2() );
+        super(characterDuck);
     }
     run() {
         if (!this.isOnGround) {

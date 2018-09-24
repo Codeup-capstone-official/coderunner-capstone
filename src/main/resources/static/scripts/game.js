@@ -262,13 +262,20 @@ var Enemy = function (_MovableGameObject2) {
     return Enemy;
 }(MovableGameObject);
 
+
+var selectChoice = document.getElementById("selectCharacter").value;
+
+
 var Hero = function (_MovableGameObject3) {
     _inherits(Hero, _MovableGameObject3);
 
     function Hero() {
         _classCallCheck(this, Hero);
 
-        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, new lib.HeroGraphic()));
+        var characterDuck = new lib.HeroGraphic();
+        var characterWizard = new lib.HeroGraphic2();
+
+        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, characterWizard));
     }
 
     _createClass(Hero, [{
@@ -825,7 +832,7 @@ fullscreen.addEventListener("click", function () {
     gameCanvasH.focus();
 
     var scoreText1 = document.getElementById("score-text-p");
-    var scoreText2 = document.getElementById("score-text")
+    var scoreText2 = document.getElementById("score-text");
 
     scoreText1.style.fontSize = 60 + 'px';
     scoreText2.style.fontSize = 60 + 'px';
