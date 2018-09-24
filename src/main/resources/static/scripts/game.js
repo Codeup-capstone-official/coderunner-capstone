@@ -10,7 +10,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var finalScore = 0;
 var clock;
-var submitScore = true;
+var submit = true;
+
 
 
 var SceneManager = function () {
@@ -51,6 +52,7 @@ var SceneManager = function () {
             }
             this.showHud();
             this.setGameScore(0);
+            submit = true;
         }
     }, {
         key: 'showMenu',
@@ -78,23 +80,23 @@ var SceneManager = function () {
     }, {
         key: 'gameOver',
         value: function gameOver() {
-            clearInterval(clock)
+            clearInterval(clock);
             document.getElementById("scoreInput").value = finalScore;
             document.getElementById("scoreValue").value = finalScore;
-            while(submitScore) {
-                var request = $.ajax({
-                    url: '/getScore/' + finalScore,
-                    method: 'POST',
-                    dataType: 'json',
-                    data: $('#scoreForm').serialize()
-                });
-                request.done(function(html){
-                    $('.container').html(html);
+                while (submit) {
+                    var request = $.ajax({
+                        url: '/getScore/' + finalScore,
+                        method: 'POST',
+                        dataType: 'json',
+                        data: $('#scoreForm').serialize()
+                    });
+                    request.done(function (html) {
+                        $('.container').html(html);
 
-                });
+                    });
+                    submit = false;
+                }
 
-                submitScore = false;
-            }
             this.startGameSound.pause();
             this.startGameMusic = false;
             while(this.gameOverCounter) {
