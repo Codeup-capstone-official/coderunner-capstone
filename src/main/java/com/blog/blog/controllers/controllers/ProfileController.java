@@ -21,6 +21,7 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewOwnProfile(Model model) {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+       User updatedUser = userRepo.findByUsername(user.getUsername());
         System.out.println(user.getRank());
         String highscore = userRepo.highscore(user.getUsername());
         String totalPoints = userRepo.getTotalPointsByUsername(user.getUsername());
@@ -28,7 +29,7 @@ public class ProfileController {
         model.addAttribute("recordHolder", highScoreUser);
         model.addAttribute("totalScore", totalPoints);
         model.addAttribute("highscore", highscore);
-        model.addAttribute("user", user);
+        model.addAttribute("user", updatedUser);
         model.addAttribute("notValid", false);
         return "profile";
     }
