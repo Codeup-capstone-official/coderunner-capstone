@@ -4,14 +4,14 @@
 
 <body class="home">
 <div th:replace="fragments/navbar :: navbar"></div>
-<div class="container">
-    <header>
-        <h1>Code-Runner</h1>
-    </header>
+    <div class="container">
+    <!--<header>-->
+        <!--<h1>Code-Runner</h1>-->
+    <!--</header>-->
 
-        <div sec:authorize="!isAuthenticated()">
-            <h4>To save your score, register for an account or log in.</h4>
-        </div>
+        <!--<div sec:authorize="!isAuthenticated()">-->
+            <!--<h4>To save your score, register for an account or log in.</h4>-->
+        <!--</div>-->
 
         <div class="game-container" id="game-container">
 
@@ -27,7 +27,6 @@
                     <a href="#game-canvas" id="start-game-button">Start Game</a>
                 </div>
                 <div id="gameover" class="scene">
-
                     <p>Your score was: <input type="text" id="scoreValue" th:readonly="readonly"/></p>
                     <a href="#game-canvas" id="restart-game-button">Restart Game</a>
                     <a href="#menu" id="exit-button">Exit to Menu</a>
