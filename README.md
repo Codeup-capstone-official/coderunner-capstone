@@ -15,17 +15,17 @@ Feature List/TODO:
 
 3-Use what we learned in Codeup to be the obstacles (html tags, javascript tags, etc.)
 
-4-Score is calculated by distance ran and items obtained.
+4-~~Score is calculated by distance ran and items obtained.~~
   * ~~Items~~
-  * Distance.
+  * ~~Distance.
 
 5-~~After certain distance will change to a new level with different background/enemies.~~
 
-6-Getting higher level unlocks different runners to use.
+6-~~Getting higher level unlocks different runners to use.~~
 
-7-Keep score via a High Score board.
+7-~~Keep score via a High Score board.~~
   * ~~High Score Board~~
-  * Transfer scores from game to the board.
+  * ~~Transfer scores from game to the board.~~
 
 8-~~Keep track of daily high score/average high score.~~
 
