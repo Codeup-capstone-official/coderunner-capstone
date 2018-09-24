@@ -21,6 +21,7 @@ public class ProfileController {
     @GetMapping("/profile")
     public String viewOwnProfile(Model model) {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(user.getRank());
         String highscore = userRepo.highscore(user.getUsername());
         String totalPoints = userRepo.getTotalPointsByUsername(user.getUsername());
         String highScoreUser = userRepo.getUserWhoHoldHighScore();
