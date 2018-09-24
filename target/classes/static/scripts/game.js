@@ -262,13 +262,29 @@ var Enemy = function (_MovableGameObject2) {
     return Enemy;
 }(MovableGameObject);
 
+
 var Hero = function (_MovableGameObject3) {
     _inherits(Hero, _MovableGameObject3);
 
     function Hero() {
         _classCallCheck(this, Hero);
+        var heroSelect = document.getElementById("selectCharacter").value;
 
-        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, new lib.HeroGraphic()));
+        var characterChoice;
+            console.log(heroSelect);
+        if (heroSelect == 1) {
+            {
+                console.log("Test1");
+                characterChoice = new lib.HeroGraphic();
+            }
+        } else if (heroSelect == 2) {
+            {
+                console.log("Test2");
+                characterChoice = new lib.HeroGraphic2();
+            }
+        }
+
+        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, characterChoice));
     }
 
     _createClass(Hero, [{
