@@ -17,7 +17,7 @@ Feature List/TODO:
 
 4-~~Score is calculated by distance ran and items obtained.~~
   * ~~Items~~
-  * ~~Distance.
+  * ~~Distance.~~
 
 5-~~After certain distance will change to a new level with different background/enemies.~~
 
