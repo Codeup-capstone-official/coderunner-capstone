@@ -11,7 +11,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var finalScore = 0;
 var clock;
 var submitScore = true;
-var clockRunning = true;
+
 
 var SceneManager = function () {
     function SceneManager() {
@@ -78,10 +78,7 @@ var SceneManager = function () {
     }, {
         key: 'gameOver',
         value: function gameOver() {
-            clockRunning = false;
-            if (clockRunning === false) {
-                clearInterval(clock)
-            }
+            clearInterval(clock)
             document.getElementById("scoreInput").value = finalScore;
             document.getElementById("scoreValue").value = finalScore;
             while(submitScore) {
