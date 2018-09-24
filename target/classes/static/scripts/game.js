@@ -200,7 +200,6 @@ var MovableGameObject = function (_GameObject) {
             this.y += this.velocity.y;
             this.x += this.velocity.x;
         }
-
     }]);
 
     return MovableGameObject;
@@ -710,7 +709,6 @@ var Game = function () {
             function scoreCount() {
                 finalScore += 1;
                 document.getElementById('score-text').textContent = finalScore;
-                console.log("score counter working " + finalScore);
             }, 1000);
     }
 
