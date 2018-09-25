@@ -31,21 +31,13 @@
                 <p style="margin:0">Username<img style="overflow: hidden" src="images/kong-lad-sm.png" alt="Donkey Kong ladder"/><span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Score: <span th:text="${user[1]}"></span></p>
             </li>
         </ol>
-
+        <img src="images/kong-rail.png" alt="Donkey Kong rails"/>
     <h1>Top 10 players</h1>
-    <ol>
+    <ol class="pl-5">
         <li th:each="user: ${users}">
-                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[2]}"></span>, Rank: <span th:text="${user[1]}"></span></p>
+            <p style="margin:0"><img style="overflow: hidden" src="images/kong-lad-sm.png" alt="Donkey Kong ladder"/>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[2]}"></span>, Rank: <span th:text="${user[1]}"></span></p>
         </li>
     </ol>
-
-        <img src="images/kong-rail.png" alt="Donkey Kong rails"/>
-        <h3 class="pt-4">Top 10 players</h3>
-        <ol class="pl-5">
-            <li th:each="user: ${users}">
-                <p style="margin:0"><img style="overflow: hidden" src="images/kong-lad-sm.png" alt="Donkey Kong ladder"/>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[1]}"></span></p>
-            </li>
-        </ol>
     </div>
 
 <script th:replace="fragments/scripts :: scripts"></script>
