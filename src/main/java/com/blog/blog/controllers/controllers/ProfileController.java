@@ -22,10 +22,14 @@ public class ProfileController {
     public String viewOwnProfile(Model model) {
        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
        User updatedUser = userRepo.findByUsername(user.getUsername());
+        List<String> top10Usernames = userRepo.findTop10PlayersUsernames();
+        String topPlayer = userRepo.getTopPlayer();
         System.out.println(user.getRank());
         String highscore = userRepo.highscore(user.getUsername());
         String totalPoints = userRepo.getTotalPointsByUsername(user.getUsername());
         String highScoreUser = userRepo.getUserWhoHoldHighScore();
+        model.addAttribute("topPlayer", topPlayer);
+        model.addAttribute("top10Usernames", top10Usernames);
         model.addAttribute("recordHolder", highScoreUser);
         model.addAttribute("totalScore", totalPoints);
         model.addAttribute("highscore", highscore);

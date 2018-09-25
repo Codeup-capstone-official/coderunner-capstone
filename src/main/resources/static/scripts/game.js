@@ -9,7 +9,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var finalScore = 0;
-var submitScore = true;
+var clock;
+var submit = true;
+var scoreToShow = [];
+
+
 
 var SceneManager = function () {
     function SceneManager() {
@@ -36,6 +40,8 @@ var SceneManager = function () {
     _createClass(SceneManager, [{
         key: 'startGame',
         value: function startGame() {
+            scoreToShow = [];
+            console.log("score starting: " + scoreToShow[0]);
             this.menuScene.classList.remove('active');
             this.gameOverScene.classList.remove('active');
             this.startGameMusic = true;
@@ -49,6 +55,12 @@ var SceneManager = function () {
             }
             this.showHud();
             this.setGameScore(0);
+            clock = setInterval(
+                function scoreCount() {
+                    finalScore += 1;
+                    document.getElementById('score-text').textContent = finalScore;
+                }, 1000);
+            submit = true;
         }
     }, {
         key: 'showMenu',
@@ -76,12 +88,26 @@ var SceneManager = function () {
     }, {
         key: 'gameOver',
         value: function gameOver() {
-            document.getElementById("scoreInput").value = finalScore;
-            document.getElementById("scoreValue").value = finalScore;
-            while(submitScore) {
-                document.forms["scoreForm"].submit();
-                submitScore = false;
-            }
+            scoreToShow.push(finalScore);
+            this.scoreText.textContent = scoreToShow[0];
+            clearInterval(clock);
+            console.log("score ending" + scoreToShow[0]);
+            document.getElementById("scoreInput").value = scoreToShow[0];
+            document.getElementById("scoreValue").value = scoreToShow[0];
+                while (submit) {
+                    var request = $.ajax({
+                        url: '/getScore/' + finalScore,
+                        method: 'POST',
+                        dataType: 'json',
+                        data: $('#scoreForm').serialize()
+                    });
+                    request.done(function (html) {
+                        $('.container').html(html);
+
+                    });
+                    submit = false;
+                }
+
             this.startGameSound.pause();
             this.startGameMusic = false;
             while(this.gameOverCounter) {
@@ -1110,6 +1136,8 @@ var World = function (_createjs$Container2) {
     return World;
 }(createjs.Container);
 
+
+
 var Game = function () {
     function Game() {
         _classCallCheck(this, Game);
@@ -1194,9 +1222,6 @@ var Game = function () {
             scoreText2.style.fontSize = 60 + 'px';
             this.retinalize()
         });
-
-
-
     }
 
     _createClass(Game, [{

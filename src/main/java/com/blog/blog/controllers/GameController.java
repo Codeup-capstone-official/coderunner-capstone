@@ -25,9 +25,14 @@ public class GameController {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             long currentUserId = user.getId();
+            User updatedUser = userRepo.findByUsername(user.getUsername());
             List<Object[]> friendRequests = userRepo.getFriendRequests(currentUserId);
             model.addAttribute("numOfRequests", friendRequests.size());
+            model.addAttribute("user", updatedUser);
         } catch (ClassCastException e) {
+            User user = new User();
+            user.setRank("junior");
+            model.addAttribute("user", user);
             model.addAttribute("numOfRequests", 0);
         }
         return "index";
