@@ -24,7 +24,7 @@
     <h1>Top 10 players</h1>
     <ol>
         <li th:each="user: ${users}">
-                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[1]}"></span></p>
+                <p>Username: <span><a th:href="@{'/profile/' + ${user[0]}}" th:text="${user[0]}"></a></span>, Total Career Points: <span th:text="${user[2]}"></span>, Rank: <span th:text="${user[1]}"></span></p>
         </li>
     </ol>
 
