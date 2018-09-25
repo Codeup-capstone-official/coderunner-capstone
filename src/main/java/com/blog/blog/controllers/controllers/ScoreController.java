@@ -4,6 +4,7 @@ import com.blog.blog.controllers.models.User;
 import com.blog.blog.controllers.repositories.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,8 +16,8 @@ public class ScoreController {
         this.userRepo = userRepo;
     }
 
-    @PostMapping("/getScore")
-    public String getScore(@RequestParam(name = "scoreResult") String score) {
+    @PostMapping("/getScore/{score}")
+    public String getScore(@PathVariable String score) {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             long finalScore = Long.parseLong(score);
@@ -32,12 +33,12 @@ public class ScoreController {
                 userRepo.updateRank("mid", currentUserId);
             } else if (playersSumScore > 50000 && playersSumScore <= 75000) {
                 userRepo.updateRank("senior", currentUserId);
-            }  else if (playersSumScore > 75000 && playersSumScore <= 100000) {
+            }  else if (playersSumScore > 75000) {
                 userRepo.updateRank("wizard", currentUserId);
             }
-                return "redirect:/";
+                return "index";
         } catch (ClassCastException e) {
-            return "redirect:/";
+            return "index";
         }
     }
 }
