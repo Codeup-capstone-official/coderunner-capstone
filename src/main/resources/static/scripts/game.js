@@ -52,6 +52,11 @@ var SceneManager = function () {
             }
             this.showHud();
             this.setGameScore(0);
+            clock = setInterval(
+                function scoreCount() {
+                    finalScore += 1;
+                    document.getElementById('score-text').textContent = finalScore;
+                }, 1000);
             submit = true;
         }
     }, {
@@ -722,11 +727,6 @@ var Game = function () {
 
         this.gameLoaded = false;
         this.loadGraphics();
-        clock = setInterval(
-            function scoreCount() {
-                finalScore += 1;
-                document.getElementById('score-text').textContent = finalScore;
-            }, 1000);
     }
 
     _createClass(Game, [{
