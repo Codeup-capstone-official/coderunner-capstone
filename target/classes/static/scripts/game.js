@@ -295,15 +295,357 @@ var Enemy = function (_MovableGameObject2) {
 }(MovableGameObject);
 
 
-var Hero = function (_MovableGameObject3) {
-    _inherits(Hero, _MovableGameObject3);
+var Enemy2 = function (_MovableGameObject4) {
+    _inherits(Enemy2, _MovableGameObject4);
+
+    function Enemy2() {
+        _classCallCheck(this, Enemy2);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy2.__proto__ || Object.getPrototypeOf(Enemy2)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy2, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy2;
+}(MovableGameObject);
+
+var Enemy3 = function (_MovableGameObject5) {
+    _inherits(Enemy3, _MovableGameObject5);
+
+    function Enemy3() {
+        _classCallCheck(this, Enemy3);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy3.__proto__ || Object.getPrototypeOf(Enemy3)).call(this, new lib.EnemyHTML3()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy3, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy3;
+}(MovableGameObject);
+
+var Enemy4 = function (_MovableGameObject6) {
+    _inherits(Enemy4, _MovableGameObject6);
+
+    function Enemy4() {
+        _classCallCheck(this, Enemy4);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy4.__proto__ || Object.getPrototypeOf(Enemy4)).call(this, new lib.EnemyCSS2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy4, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy4;
+}(MovableGameObject);
+
+var Enemy5 = function (_MovableGameObject7) {
+    _inherits(Enemy5, _MovableGameObject7);
+
+    function Enemy5() {
+        _classCallCheck(this, Enemy5);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy5.__proto__ || Object.getPrototypeOf(Enemy5)).call(this, new lib.EnemyCSS3()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy5, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy5;
+}(MovableGameObject);
+
+var Enemy6 = function (_MovableGameObject8) {
+    _inherits(Enemy6, _MovableGameObject8);
+
+    function Enemy6() {
+        _classCallCheck(this, Enemy6);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy6.__proto__ || Object.getPrototypeOf(Enemy6)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy6, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy6;
+}(MovableGameObject);
+
+var Enemy7 = function (_MovableGameObject9) {
+    _inherits(Enemy7, _MovableGameObject9);
+
+    function Enemy7() {
+        _classCallCheck(this, Enemy7);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy7.__proto__ || Object.getPrototypeOf(Enemy7)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy7, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy7;
+}(MovableGameObject);
+
+var Enemy8 = function (_MovableGameObject10) {
+    _inherits(Enemy8, _MovableGameObject10);
+
+    function Enemy8() {
+        _classCallCheck(this, Enemy8);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy8.__proto__ || Object.getPrototypeOf(Enemy8)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy8, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy8;
+}(MovableGameObject);
+
+var Enemy9 = function (_MovableGameObject11) {
+    _inherits(Enemy9, _MovableGameObject11);
+
+    function Enemy9() {
+        _classCallCheck(this, Enemy9);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy9.__proto__ || Object.getPrototypeOf(Enemy9)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy9, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy9;
+}(MovableGameObject);
+
+var Enemy10 = function (_MovableGameObject12) {
+    _inherits(Enemy10, _MovableGameObject12);
+
+    function Enemy10() {
+        _classCallCheck(this, Enemy10);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy10.__proto__ || Object.getPrototypeOf(Enemy10)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy10, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy10;
+}(MovableGameObject);
+
+var Enemy11 = function (_MovableGameObject13) {
+    _inherits(Enemy11, _MovableGameObject13);
+
+    function Enemy11() {
+        _classCallCheck(this, Enemy11);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy11.__proto__ || Object.getPrototypeOf(Enemy11)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy11, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy11;
+}(MovableGameObject);
+
+var Enemy12 = function (_MovableGameObject14) {
+    _inherits(Enemy12, _MovableGameObject14);
+
+    function Enemy12() {
+        _classCallCheck(this, Enemy12);
+
+        var _this12 = _possibleConstructorReturn(this, (Enemy12.__proto__ || Object.getPrototypeOf(Enemy12)).call(this, new lib.EnemyHTML2()));
+
+        _this12.directionX = -1;
+        _this12.speed = 1;
+        _this12.offsetX = 0;
+        _this12.maxOffset = 1;
+
+        _this12.on('tick', _this12.move);
+        return _this12;
+    }
+
+    _createClass(Enemy12, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.x = this.speed * this.directionX;
+            this.offsetX += this.velocity.x;
+            if (Math.abs(this.offsetX) > this.maxOffset) {
+                this.directionX *= -1;
+            }
+        }
+    }]);
+
+    return Enemy12;
+}(MovableGameObject);
+
+
+var Hero = function (_MovableGameObject15) {
+    _inherits(Hero, _MovableGameObject15);
 
     function Hero() {
         _classCallCheck(this, Hero);
         var heroSelect = document.getElementById("selectCharacter").value;
 
         var characterChoice;
-            console.log(heroSelect);
+        console.log(heroSelect);
         if (heroSelect == 1) {
             {
                 console.log("Test1");
@@ -340,8 +682,39 @@ var Hero = function (_MovableGameObject3) {
             }
         }
     }]);
-
     return Hero;
+}(MovableGameObject);
+
+var Powerup = function (_MovableGameObject16) {
+    _inherits(Powerup, _MovableGameObject16);
+
+    function Powerup() {
+        _classCallCheck(this, Powerup);
+
+        var _this16 = _possibleConstructorReturn(this, (Powerup.__proto__ || Object.getPrototypeOf(Powerup)).call(this, new lib.PowerupGraphic1()));
+
+        _this16.velocity.y = -30;
+        _this16.directionY = -1;
+        _this16.speed = 0.5;
+        _this16.offsetY = 10;
+        _this16.maxOffset = 15;
+
+        _this16.on('tick', _this16.move);
+        return _this16;
+    }
+
+    _createClass(Powerup, [{
+        key: 'move',
+        value: function move() {
+            this.velocity.y = this.speed * this.directionY;
+            this.offsetY += this.velocity.y;
+            if (Math.abs(this.offsetY) > this.maxOffset) {
+                this.directionY *= -1;
+            }
+        }
+    }]);
+
+    return Powerup;
 }(MovableGameObject);
 
 var Platform = function (_GameObject2) {
@@ -380,12 +753,13 @@ var World = function (_createjs$Container2) {
 
         // store all platforms
         _this7.platforms = [];
-
+        _this7.powerups = [];
         _this7.enemies = [];
         _this7.coins = [];
 
         _this7.generatePlatforms();
         _this7.generateEnemies();
+        _this7.generatePowerups();
         _this7.generateCoins();
         _this7.addHero();
         _this7.hero.run();
@@ -410,6 +784,13 @@ var World = function (_createjs$Container2) {
                 this.scoreCalculator.increaseScore(this.currentLevel);
                 sceneManager.setGameScore(this.scoreCalculator.score);
             }
+
+            var hitPowerup = this.targetHitTestObjects(this.hero, this.powerups);
+            if (hitPowerup !== false) {
+                this.eatPowerup(hitPowerup);
+                this.hero.velocity.x = 10;
+            }
+
 
             // is hero falling outside of screen?
             if (this.hero.y > game.stage.height) {
@@ -486,13 +867,61 @@ var World = function (_createjs$Container2) {
                 var levelNumber = platform.levelNumber;
                 var chance = this.levelData.levels[levelNumber].enemyChance;
                 // net every platform needs enemy.
+                var enemy;
                 if (Math.random() < chance) {
-                    var enemy = new Enemy();
+                    var randomEnemy = Math.floor(Math.random() * 3) +1;
+                    switch (randomEnemy){
+                        case 1:
+                            enemy = new Enemy();
+                            break;
+                        case 2:
+                            enemy = new Enemy2();
+                            break;
+                        case 3:
+                            enemy = new Enemy3();
+                            break;
+                        default:
+                            enemy = new Enemy();
+                    }
                     enemy.x = platform.x + platform.getBounds().width / 2;
                     enemy.y = platform.y - enemy.getBounds().height;
 
                     this.addChild(enemy);
                     this.enemies.push(enemy);
+                }
+            }
+        }
+    }, {
+        key: 'generatePowerups',
+        value: function generatePowerups() {
+            var _iteratorNormalCompletion6 = true;
+            var _didIteratorError6 = false;
+            var _iteratorError6 = undefined;
+
+            try {
+                for (var _iterator6 = this.platforms[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                    var platform = _step6.value;
+
+                    if (Math.random() < 0.1) {
+                        var powerup = new Powerup();
+                        powerup.x = platform.x + Math.random() * platform.getBounds().width;
+                        powerup.y = platform.y - powerup.getBounds().height;
+                        this.addChild(powerup);
+                        this.powerups.push(powerup);
+                    }
+                }
+            } catch (err) {
+                _didIteratorError6 = true;
+                _iteratorError6 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                        _iterator6.return();
+                    }
+                } finally {
+                    if (_didIteratorError6) {
+                        throw _iteratorError6;
+                    }
                 }
             }
         }
@@ -532,6 +961,18 @@ var World = function (_createjs$Container2) {
                     }
                 }
             }
+        }
+    }, {
+        key: 'eatPowerup',
+        value: function eatPowerup(powerup) {
+            for (var i = 0; i < this.powerups.length; i++) {
+                if (powerup === this.powerups[i]) {
+                    // var coinSound = new Audio("/Sounds/pickup_item.wav");
+                    // coinSound.play();
+                    this.powerups.splice(i, 1);
+                }
+            }
+            powerup.parent.removeChild(powerup);
         }
     }, {
         key: 'eatCoin',
@@ -733,6 +1174,54 @@ var Game = function () {
 
         this.gameLoaded = false;
         this.loadGraphics();
+        setInterval(
+            function scoreCount() {
+                finalScore += 1;
+                document.getElementById('score-text').textContent = finalScore;
+            }, 1000);
+
+        var fullscreen = document.getElementById("fullscreenbtn");
+
+
+        fullscreen.addEventListener("click", function () {
+
+
+            var gameContainerW = document.getElementById("game-container");
+            var gameContainerH = document.getElementById("game-container");
+
+            gameContainerW.style.width = window.innerWidth + 'px';
+            gameContainerH.style.height = window.innerHeight + 'px';
+
+            var gameH = document.getElementById("game");
+            var gameW = document.getElementById("game");
+
+
+            gameW.style.width = window.innerWidth + 'px';
+            gameH.style.height = window.innerHeight + 'px';
+
+            var gameCanvasW = document.getElementById("game-canvas");
+            var gameCanvasH = document.getElementById("game-canvas");
+
+
+            gameCanvasW.style.width = window.innerWidth + 'px';
+            gameCanvasH.style.height = window.innerHeight + 'px';
+
+            var gameCanvas2W = document.getElementById("game-canvas2");
+            var gameCanvas2H = document.getElementById("game-canvas2");
+
+
+            gameCanvas2W.style.width = window.innerWidth + 'px';
+            gameCanvas2H.style.height = window.innerHeight + 'px';
+
+            gameCanvasH.focus();
+
+            var scoreText1 = document.getElementById("score-text-p");
+            var scoreText2 = document.getElementById("score-text")
+
+            scoreText1.style.fontSize = 60 + 'px';
+            scoreText2.style.fontSize = 60 + 'px';
+            this.retinalize()
+        });
     }
 
     _createClass(Game, [{
@@ -784,10 +1273,8 @@ var Game = function () {
             this.stage.addChild(this.world);
 
             setInterval(function () {
-                console.log(test.world.currentLevel);
 
                 if (test.world.currentLevel == 1) {
-                    console.log("test for current level");
                     test.stage2.removeChild(BG1);
                     test.stage2.addChild(BG2);
                     test.stage2.update();
@@ -837,51 +1324,6 @@ var Game = function () {
 }();
 
 // start the game
-
-var fullscreen = document.getElementById("fullscreenbtn");
-
-
-fullscreen.addEventListener("click", function () {
-
-
-    var gameContainerW = document.getElementById("game-container");
-    var gameContainerH = document.getElementById("game-container");
-
-    gameContainerW.style.width = window.innerWidth + 'px';
-    gameContainerH.style.height = window.innerHeight + 'px';
-
-    var gameH = document.getElementById("game");
-    var gameW = document.getElementById("game");
-
-
-    gameW.style.width = window.innerWidth + 'px';
-    gameH.style.height = window.innerHeight + 'px';
-
-    var gameCanvasW = document.getElementById("game-canvas");
-    var gameCanvasH = document.getElementById("game-canvas");
-
-
-    gameCanvasW.style.width = window.innerWidth + 'px';
-    gameCanvasH.style.height = window.innerHeight + 'px';
-
-    var gameCanvas2W = document.getElementById("game-canvas2");
-    var gameCanvas2H = document.getElementById("game-canvas2");
-
-
-    gameCanvas2W.style.width = window.innerWidth + 'px';
-    gameCanvas2H.style.height = window.innerHeight + 'px';
-
-    gameCanvasH.focus();
-
-    var scoreText1 = document.getElementById("score-text-p");
-    var scoreText2 = document.getElementById("score-text")
-
-    scoreText1.style.fontSize = 60 + 'px';
-    scoreText2.style.fontSize = 60 + 'px';
-
-});
-
-
 
 var game = new Game();
 
