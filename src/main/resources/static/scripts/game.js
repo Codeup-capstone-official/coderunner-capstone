@@ -978,7 +978,7 @@ var World = function (_createjs$Container2) {
                 for (var _iterator6 = this.platforms[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                     var platform = _step6.value;
 
-                    if (Math.random() < 0.1) {
+                    if (Math.random() < 0.01) {
                         var powerup = new Powerup();
                         powerup.x = platform.x + Math.random() * platform.getBounds().width;
                         powerup.y = platform.y - powerup.getBounds().height;
