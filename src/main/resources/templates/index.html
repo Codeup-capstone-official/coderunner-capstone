@@ -4,7 +4,7 @@
 
 <body class="home">
 <div th:replace="fragments/navbar :: navbar"></div>
-    <p style="color: red" th:if="${numOfRequests > 0}">You have <span th:text="${numOfRequests}"></span> friend requests!</p>
+    <p style="color: white; text-align: center; background-color: deeppink; padding: .8em; border-radius: 200em; width: 50%; display: block; margin: .5em auto; box-shadow: 0 .3em black" th:if="${numOfRequests > 0}">You have <span th:text="${numOfRequests}"></span> friend requests!</p>
         <div class="row mt-5">
 
             <div class="col-md-4">
