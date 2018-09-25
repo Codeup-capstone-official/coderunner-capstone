@@ -9,10 +9,19 @@ html {
 }
 
 body {
-    background: url(../images/sky-bg.png) top center no-repeat;
+    background-image: linear-gradient(
+            to left bottom,
+            rgba(154, 179, 189, 0.2),
+            rgba(35, 58, 67, 0.9)),
+    url(../images/sky-bg2.0.png);
     background-size: cover;
-    /*border-top: 5px solid #008894;*/
+    background-position: top;
     font-family: 'Press Start 2P';
+
+    /*background: url(../images/sky-bg2.0.png) top center no-repeat;*/
+    /*background-size: cover;*/
+    /*!*border-top: 5px solid #008894;*!*/
+    /*font-family: 'Press Start 2P';*/
 }
 
 body.home {
@@ -188,8 +197,8 @@ ul.how-to-play {
 /* ---------------------- Register Password check ----------------- */
 #message {
     display:none;
-    background: url(../images/cloud-msg.png) center center no-repeat;
-    background-size: cover;
+    background: url(../images/cloud-msg2.png) center center no-repeat;
+    background-size: 100% 100%;
 
     color: #000;
     position: relative;
@@ -258,6 +267,16 @@ ul.how-to-play {
     }
 }
 
+/* ------------------------ Leaderboards --------------------------- */
+/*ul.leaderBrd {*/
+    /*list-style-image: url(../images/kong-lad-sm.png);*/
+    /*list-style-position: inside;*/
+    /*padding: 0;*/
+    /*margin: 0;*/
+/*}*/
+
+
+
  /* mobile view */
 @media screen and (max-width: 540px) {
     .game-boi {
@@ -269,6 +288,7 @@ ul.how-to-play {
         min-height: 450px;
 
         top: 25px;
+        box-shadow: 0 5px 50px black;
     }
 
     .game-container {
