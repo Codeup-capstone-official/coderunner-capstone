@@ -153,8 +153,8 @@ var SceneManager = function () {
 var LevelData = function LevelData() {
     _classCallCheck(this, LevelData);
 
-    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 5, coinChance: 0.3, enemyChance: 1 },
-        { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0 },
+    this.levels = [{ gapX: 0, gapY: 0, widthDiff: 0, total: 15, coinChance: 0.3, enemyChance: 0.2 },
+        { gapX: 30, gapY: 20, widthDiff: 10, total: 15, coinChance: 0.4, enemyChance: 0.2 },
         { gapX: 20, gapY: 30, widthDiff: 30, total: 25, coinChance: 0.6, enemyChance: 0.3 },
         { gapX: 40, gapY: 40, widthDiff: 50, total: 50, coinChance: 0.7, enemyChance: 0.4 },
         { gapX: 50, gapY: 50, widthDiff: 100, total: 100, coinChance: 0.8, enemyChance: 0.4 }];
@@ -237,7 +237,7 @@ var Coin = function (_MovableGameObject) {
     function Coin() {
         _classCallCheck(this, Coin);
 
-        var _this3 = _possibleConstructorReturn(this, (Coin.__proto__ || Object.getPrototypeOf(Coin)).call(this, new lib.CoinGraphic()));
+        var _this3 = _possibleConstructorReturn(this, (Coin.__proto__ || Object.getPrototypeOf(Coin)).call(this, new lib.GreenCupGraphic()));
 
         _this3.velocity.y = -30;
         _this3.directionY = -1;
@@ -456,24 +456,25 @@ var Enemy7 = function (_MovableGameObject9) {
     function Enemy7() {
         _classCallCheck(this, Enemy7);
 
-        var _this12 = _possibleConstructorReturn(this, (Enemy7.__proto__ || Object.getPrototypeOf(Enemy7)).call(this, new lib.EnemyHTML2()));
+        var _this14 = _possibleConstructorReturn(this, (Enemy7.__proto__ || Object.getPrototypeOf(Enemy7)).call(this, new lib.EnemyHTML2()));
 
-        _this12.directionX = -1;
-        _this12.speed = 1;
-        _this12.offsetX = 0;
-        _this12.maxOffset = 1;
+        _this14.velocity.y = -60;
+        _this14.directionY = -1;
+        _this14.speed = 0.5;
+        _this14.offsetY = 20;
+        _this14.maxOffset = 40;
 
-        _this12.on('tick', _this12.move);
-        return _this12;
+        _this14.on('tick', _this14.move);
+        return _this14;
     }
 
     _createClass(Enemy7, [{
         key: 'move',
         value: function move() {
-            this.velocity.x = this.speed * this.directionX;
-            this.offsetX += this.velocity.x;
-            if (Math.abs(this.offsetX) > this.maxOffset) {
-                this.directionX *= -1;
+            this.velocity.y = this.speed * this.directionY;
+            this.offsetY += this.velocity.y;
+            if (Math.abs(this.offsetY) > this.maxOffset) {
+                this.directionY *= -1;
             }
         }
     }]);
@@ -868,21 +869,96 @@ var World = function (_createjs$Container2) {
                 var chance = this.levelData.levels[levelNumber].enemyChance;
                 // net every platform needs enemy.
                 var enemy;
+                var randomEnemy;
                 if (Math.random() < chance) {
-                    var randomEnemy = Math.floor(Math.random() * 3) +1;
-                    switch (randomEnemy){
+                    switch (levelNumber) {
+                        case 0:
+                            randomEnemy = Math.floor(Math.random() * 3) +1;
+                            switch (randomEnemy){
+                                case 1:
+                                    enemy = new Enemy();
+                                    break;
+                                case 2:
+                                    enemy = new Enemy2();
+                                    break;
+                                case 3:
+                                    enemy = new Enemy3();
+                                    break;
+                                default:
+                                    enemy = new Enemy();
+                                    break;
+                            }
+                            break;
                         case 1:
-                            enemy = new Enemy();
+                            randomEnemy = Math.floor(Math.random() * 3) +1;
+                            switch (randomEnemy){
+                                case 1:
+                                    enemy = new Enemy4();
+                                    break;
+                                case 2:
+                                    enemy = new Enemy5();
+                                    break;
+                                case 3:
+                                    enemy = new Enemy6();
+                                    break;
+                                default:
+                                    enemy = new Enemy4();
+                                    break;
+                            }
                             break;
                         case 2:
-                            enemy = new Enemy2();
+                            randomEnemy = Math.floor(Math.random() * 3) +1;
+                            switch (randomEnemy){
+                                case 1:
+                                    enemy = new Enemy7();
+                                    break;
+                                case 2:
+                                    enemy = new Enemy8();
+                                    break;
+                                case 3:
+                                    enemy = new Enemy9();
+                                    break;
+                                default:
+                                    enemy = new Enemy8();
+                                    break;
+                            }
                             break;
                         case 3:
-                            enemy = new Enemy3();
+                            randomEnemy = Math.floor(Math.random() * 3) +1;
+                            switch (randomEnemy){
+                                case 1:
+                                    enemy = new Enemy10();
+                                    break;
+                                case 2:
+                                    enemy = new Enemy11();
+                                    break;
+                                case 3:
+                                    enemy = new Enemy12();
+                                    break;
+                                default:
+                                    enemy = new Enemy10();
+                                    break;
+                            }
                             break;
-                        default:
-                            enemy = new Enemy();
+                        case 4:
+                            randomEnemy = Math.floor(Math.random() * 3) +1;
+                            switch (randomEnemy){
+                                case 1:
+                                    enemy = new Enemy10();
+                                    break;
+                                case 2:
+                                    enemy = new Enemy11();
+                                    break;
+                                case 3:
+                                    enemy = new Enemy12();
+                                    break;
+                                default:
+                                    enemy = new Enemy12();
+                                    break;
+                            }
+                            break;
                     }
+
                     enemy.x = platform.x + platform.getBounds().width / 2;
                     enemy.y = platform.y - enemy.getBounds().height;
 
