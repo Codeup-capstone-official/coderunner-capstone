@@ -273,8 +273,8 @@ var Enemy = function (_MovableGameObject2) {
 
         _this4.directionX = -1;
         _this4.speed = 1;
-        _this4.offsetX = 0;
-        _this4.maxOffset = 1;
+        _this4.offsetX = 10;
+        _this4.maxOffset = 15;
 
         _this4.on('tick', _this4.move);
         return _this4;
@@ -303,10 +303,10 @@ var Enemy2 = function (_MovableGameObject4) {
 
         var _this12 = _possibleConstructorReturn(this, (Enemy2.__proto__ || Object.getPrototypeOf(Enemy2)).call(this, new lib.EnemyHTML2()));
 
-        _this12.directionX = -1;
-        _this12.speed = 1;
+        _this12.directionX = 0;
+        _this12.speed = 0;
         _this12.offsetX = 0;
-        _this12.maxOffset = 1;
+        _this12.maxOffset = 0;
 
         _this12.on('tick', _this12.move);
         return _this12;
@@ -318,7 +318,7 @@ var Enemy2 = function (_MovableGameObject4) {
             this.velocity.x = this.speed * this.directionX;
             this.offsetX += this.velocity.x;
             if (Math.abs(this.offsetX) > this.maxOffset) {
-                this.directionX *= -1;
+                this.directionX *= 0;
             }
         }
     }]);
@@ -367,8 +367,8 @@ var Enemy4 = function (_MovableGameObject6) {
 
         _this12.directionX = -1;
         _this12.speed = 1;
-        _this12.offsetX = 0;
-        _this12.maxOffset = 1;
+        _this12.offsetX = 5;
+        _this12.maxOffset = 10;
 
         _this12.on('tick', _this12.move);
         return _this12;
@@ -1262,6 +1262,9 @@ var Game = function () {
         fullscreen.addEventListener("click", function () {
 
 
+            var charaterPanel = document.getElementById("character-panel");
+            charaterPanel.style.display = "none";
+
             var gameContainerW = document.getElementById("game-container");
             var gameContainerH = document.getElementById("game-container");
 
@@ -1341,7 +1344,9 @@ var Game = function () {
             this.stage2.update();
             // background
             var BG1 = new lib.BackgroundGraphic1();
-            var BG2 = new lib.BackgroundGraphic3();
+            var BG2 = new lib.BackgroundGraphic2();
+            var BG3 = new lib.BackgroundGraphic3();
+            var BG4 = new lib.BackgroundGraphic4();
             this.stage2.addChild(BG1);
 
             this.world = new World();
@@ -1353,6 +1358,14 @@ var Game = function () {
                 if (test.world.currentLevel == 1) {
                     test.stage2.removeChild(BG1);
                     test.stage2.addChild(BG2);
+                    test.stage2.update();
+                }else if (test.world.currentLevel == 2) {
+                    test.stage2.removeChild(BG2);
+                    test.stage2.addChild(BG3);
+                    test.stage2.update();
+                }else if (test.world.currentLevel == 3) {
+                    test.stage2.removeChild(BG3);
+                    test.stage2.addChild(BG4);
                     test.stage2.update();
                 }
             }, 1000);
