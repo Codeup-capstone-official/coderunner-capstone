@@ -33,7 +33,7 @@ public class ScoreController {
                 userRepo.updateRank("mid", currentUserId);
             } else if (playersSumScore > 50000 && playersSumScore <= 75000) {
                 userRepo.updateRank("senior", currentUserId);
-            }  else if (playersSumScore > 75000 && playersSumScore <= 100000) {
+            }  else if (playersSumScore > 75000) {
                 userRepo.updateRank("wizard", currentUserId);
             }
                 return "index";
