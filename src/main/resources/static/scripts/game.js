@@ -11,6 +11,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var finalScore = 0;
 var clock;
 var submit = true;
+var scoreToShow = [];
 
 
 
@@ -39,6 +40,8 @@ var SceneManager = function () {
     _createClass(SceneManager, [{
         key: 'startGame',
         value: function startGame() {
+            scoreToShow = [];
+            console.log("score starting: " + scoreToShow[0]);
             this.menuScene.classList.remove('active');
             this.gameOverScene.classList.remove('active');
             this.startGameMusic = true;
@@ -85,9 +88,11 @@ var SceneManager = function () {
     }, {
         key: 'gameOver',
         value: function gameOver() {
+            scoreToShow.push(finalScore);
             clearInterval(clock);
-            document.getElementById("scoreInput").value = finalScore;
-            document.getElementById("scoreValue").value = finalScore;
+            console.log("score ending" + scoreToShow[0]);
+            document.getElementById("scoreInput").value = scoreToShow[0];
+            document.getElementById("scoreValue").value = scoreToShow[0];
                 while (submit) {
                     var request = $.ajax({
                         url: '/getScore/' + finalScore,
