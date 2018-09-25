@@ -5,70 +5,93 @@
 <body class="home">
 <div th:replace="fragments/navbar :: navbar"></div>
     <p style="color: red" th:if="${numOfRequests > 0}">You have <span th:text="${numOfRequests}"></span> friend requests!</p>
-    <div class="container">
-    <!--<header>-->
-        <!--<h1>Code-Runner</h1>-->
-    <!--</header>-->
+        <div class="row mt-5">
 
-        <!--<div sec:authorize="!isAuthenticated()">-->
-            <!--<h4>To save your score, register for an account or log in.</h4>-->
-        <!--</div>-->
+            <div class="col-md-4">
+                <div class="container">
+                     <!--<div class="row under-game">-->
+                        <!--<div class="col-sm-12">-->
+                            <h5 class="text-center">How to Play?</h5>
+                            <ul class='how-to-play'>
+                                <li>Press the screen to jump.</li>
+                                <li>Avoid the obstacles.</li>
+                                <li>Collect the game coins, get speed boost.</li>
+                            </ul>
+                        <!--</div>-->
+                     <!--</div>-->
 
-        <div class="game-container" id="game-container">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Duck</a>
+                            <a class="dropdown-item" href="#">Wizard</a>
+                        </div>
+                    </div>
 
-            <img class="game-boi" src="/images/gboy-console.png" alt="Game console" />
-            <div id="game">
-                <canvas id="game-canvas2" class="active scene" width="800" height="550">
-                    This is background for the game.
-                </canvas>
-                <canvas id="game-canvas" class="active scene" width="780" height="530">
-                    This is an interactive game.
-                </canvas>
-                <div id="menu" class="active scene">
-                    <a href="#game-canvas" id="start-game-button">Start Game</a>
+                    <select id="selectCharacter" th:if="${user.rank == 'junior'}">
+                        <option name="1" value="1">Duck</option>
+                        <option name="2" value="2" th:disabled="true">Wizard</option>
+                    </select>
+                    <select id="selectCharacter" th:if="${user.rank == 'wizard'}">
+                        <option name="1" value="1">Duck</option>
+                        <option name="2" value="2">Wizard</option>
+                    </select>
+
+                    <h5 class="text-center py-5">Characters</h5>
+                    <div class="gif-char">
+                        <p style="margin:0" class="text-center">Codey</p>
+                        <img class="mx-auto d-block" style="width:150px" src="images/codey.gif" alt="Duck character gif" />
+                        <img class="mx-auto d-block" src="images/platform.png" alt="Game platform" />
+                    </div>
+                    <div class="gif-char pt-4">
+                        <p style="margin:0" class="text-center">Wizzy</p>
+                        <img class="mx-auto d-block" style="width:150px" src="images/wizzy.gif" alt="Duck character gif" />
+                        <img class="mx-auto d-block" src="images/platform.png" alt="Game platform" />
+                    </div>
+
                 </div>
-                <div id="gameover" class="scene">
-                    <p>Your score was: <input type="text" id="scoreValue" th:readonly="readonly"/></p>
-                    <a href="#game-canvas" id="restart-game-button">Restart Game</a>
-                    <a href="#menu" id="exit-button">Exit to Menu</a>
-                </div>
-                <div id="hud" class="scene">
-                    <p id="score-text-p">Score: <span id="score-text">0</span></p>
-                </div>
-            </div>
-        </div>
-        <form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">
-            <input type="hidden" id="scoreInput" name="scoreResult" />
-        </form>
+            </div> <!-- closes col -->
 
-        <div class="row under-game">
-            <div class="col-sm-12">
+            <div class="col-md-8 text-center">
+                <h3>Code-Runner</h3>
+                <div sec:authorize="!isAuthenticated()">
+                    <p class="px-4">To save your score, register for an account or log in.</p>
+                </div>
+
                 <div class='hr'>
-                    <a href="#game-canvas"><button id="fullscreenbtn">FullScreen</button></a>
+                    <a href="#game-canvas"><button type="button" class="btn btn-secondary" id="fullscreenbtn">FullScreen</button></a>
                     <hr />
                 </div>
 
+                <div class="game-container" id="game-container">
 
-                    <h2>How to Play?</h2>
-                    <ul class='how-to-play'>
-                        <li>Press the screen to jump.</li>
-                        <li>Avoid the obstacles.</li>
-                        <li>Collect the game coins, get speed boost.</li>
-                    </ul>
-
-            </div>
-        </div>
-
-        <select id="selectCharacter" th:if="${user.rank == 'junior'}">
-            <option name="1" value="1">Duck</option>
-            <option name="2" value="2" th:disabled="true">Wizard</option>
-        </select>
-        <select id="selectCharacter" th:if="${user.rank == 'wizard'}">
-            <option name="1" value="1">Duck</option>
-            <option name="2" value="2">Wizard</option>
-        </select>
-
-    </div>  <!--closes container-->
+                    <img class="game-boi" src="/images/gboy-console.png" alt="Game console" />
+                    <div id="game">
+                        <canvas id="game-canvas2" class="active scene" width="605" height="420">
+                            This is background for the game.
+                        </canvas>
+                        <canvas id="game-canvas" class="active scene" width="595" height="410">
+                            This is an interactive game.
+                        </canvas>
+                        <div id="menu" class="active scene">
+                            <a href="#game-canvas" id="start-game-button">Start Game</a>
+                        </div>
+                        <div id="gameover" class="scene">
+                            <p>Your score was: <input type="text" id="scoreValue" th:readonly="readonly"/></p>
+                            <a href="#game-canvas" id="restart-game-button">Restart Game</a>
+                        </div>
+                        <div id="hud" class="scene">
+                            <p id="score-text-p">Score: <span id="score-text">0</span></p>
+                        </div>
+                    </div>
+                </div>
+                <form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">
+                    <input type="hidden" id="scoreInput" name="scoreResult" />
+                </form>
+            </div> <!-- closes col -->
+        </div> <!-- cLoses row -->
 
     <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 

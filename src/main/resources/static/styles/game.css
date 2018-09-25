@@ -9,13 +9,14 @@ html {
 }
 
 body {
-    background-image: linear-gradient(
-            to left bottom,
-            rgba(154, 179, 189, 0.2),
-            rgba(35, 58, 67, 0.9)),
-    url(../images/sky-bg2.0.png);
-    background-size: cover;
-    background-position: top;
+    background-color: aliceblue;
+    /*background-image: linear-gradient(*/
+            /*to left bottom,*/
+            /*rgba(154, 179, 189, 0.2),*/
+            /*rgba(35, 58, 67, 0.9)),*/
+    /*url(../images/sky-bg2.0.png);*/
+    /*background-size: cover;*/
+    /*background-position: top;*/
     font-family: 'Press Start 2P';
 
     /*background: url(../images/sky-bg2.0.png) top center no-repeat;*/
@@ -25,7 +26,7 @@ body {
 }
 
 body.home {
-    text-align: center;
+    /*text-align: center;*/
 }
 
 footer {
@@ -69,13 +70,6 @@ nav {
 
 /* --------------------------- */
 
-#game {
-    width: 780px;
-    height: 530px;
-    position: relative;
-    overflow: hidden;
-}
-
 .scene {
     position: absolute;
     top: 0;
@@ -117,7 +111,22 @@ nav {
 
 
 /* ------------------------------ Game console and canvas --------------------------- */
+.game-boi {
+    position:absolute;
+    z-index:1;
+    width: 920px;
+    height: 965px;
+    /*box-shadow: 0 5px 50px #333;*/
+
+    right: -127px;
+}
+
 #game {
+    width: 595px;
+    height: 410px;
+    position: relative;
+    overflow: hidden;
+
     margin: auto;
     /*box-shadow: 0 6px 3px -5px #000;*/
     border-style: solid;
@@ -127,9 +136,8 @@ nav {
     border-right-color: #977E5A;
     border-bottom-color: #7C6749;
 
-
     z-index: 99;
-    top: 250px;
+    top: 179px;
 }
 
 /* Start button on game menu*/
@@ -137,7 +145,7 @@ nav {
     background: url(../images/new-canvas.png);
     background-size: cover;
     padding: 2em;
-    padding-top: 310px;
+    padding-top: 175px;
 }
 
 #gameover {
@@ -147,22 +155,14 @@ nav {
 
 .game-container {
     display:inline-block;
-    width:780px;
-    height:530px;
+    width: 655px;
+    height: 681px;
     margin: 0 auto;
     /*background: black;*/
     position:relative;
     /*border:5px solid black;*/
     /*border-radius: 10px;*/
     /*box-shadow: 0 5px 50px #333;*/
-}
-.game-boi {
-    position:absolute;
-    z-index:1;
-    width: 1240px;
-    /*box-shadow: 0 5px 50px #333;*/
-
-    right: -225px;
 }
 
 #score-text {
@@ -191,7 +191,7 @@ ul.how-to-play {
 }
 
 .under-game {
-    margin-top: 800px;
+    /*margin-top: 800px;*/
 }
 
 /* ---------------------- Register Password check ----------------- */
@@ -237,7 +237,7 @@ ul.how-to-play {
 }
 
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1100px) {
     #game {
         width: 360px;
         height: 300px;
@@ -263,7 +263,7 @@ ul.how-to-play {
     }
 
     .under-game {
-        margin-top: 400px;
+        /*margin-top: 400px;*/
     }
 }
 
@@ -296,7 +296,4 @@ ul.how-to-play {
         min-height: 470px;
     }
 
-    .under-game {
-        margin-top: 50px;
-    }
 }
