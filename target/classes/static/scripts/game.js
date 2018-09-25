@@ -89,6 +89,7 @@ var SceneManager = function () {
         key: 'gameOver',
         value: function gameOver() {
             scoreToShow.push(finalScore);
+            this.scoreText.textContent = scoreToShow[0];
             clearInterval(clock);
             console.log("score ending" + scoreToShow[0]);
             document.getElementById("scoreInput").value = scoreToShow[0];
