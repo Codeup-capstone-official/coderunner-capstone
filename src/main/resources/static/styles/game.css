@@ -5,24 +5,28 @@
 }
 
 html {
+    min-height: 100%;
     /*background: #FCF8FC url(../images/noise-bg.png);*/
 }
 
 body {
-    background-color: aliceblue;
+    min-height: 100vh;
     /*background-image: linear-gradient(*/
             /*to left bottom,*/
             /*rgba(154, 179, 189, 0.2),*/
             /*rgba(35, 58, 67, 0.9)),*/
-    /*url(../images/sky-bg2.0.png);*/
+    /*url(../images/dark-blue-bg.png);*/
     /*background-size: cover;*/
     /*background-position: top;*/
-    font-family: 'Press Start 2P';
-
-    /*background: url(../images/sky-bg2.0.png) top center no-repeat;*/
-    /*background-size: cover;*/
-    /*!*border-top: 5px solid #008894;*!*/
     /*font-family: 'Press Start 2P';*/
+
+    background: url(../images/dark-blue-bg.png) top center no-repeat;
+    background-size: cover;
+    /*border-top: 5px solid #008894;*/
+    font-family: 'Roboto Mono';
+    color: white;
+
+    overflow-x: hidden;
 }
 
 body.home {
@@ -33,7 +37,7 @@ footer {
     text-align: center;
     color: #999;
     font-size: 0.8em;
-    margin-bottom: 3em;
+    margin: 80px 0;
 }
 footer a {
     text-decoration: none;
@@ -51,8 +55,8 @@ nav {
 
 .nav-btn {
     padding: 8px;
-    background: url(../images/oragne-btn.png) center no-repeat;
-    background-size: contain;
+    /*background: url(../images/oragne-btn.png) center no-repeat;*/
+    /*background-size: contain;*/
 }
 
 .nav-link {
@@ -60,8 +64,8 @@ nav {
 }
 
 #navi {
-    background: url(../images/navbar.png) center no-repeat;
-    background-size: cover;
+    /*background: url(../images/navbar.png) center no-repeat;*/
+    /*background-size: cover;*/
 }
 
 #toggle-btn {
@@ -158,11 +162,10 @@ nav {
     width: 655px;
     height: 681px;
     margin: 0 auto;
-    /*background: black;*/
+
     position:relative;
-    /*border:5px solid black;*/
-    /*border-radius: 10px;*/
-    /*box-shadow: 0 5px 50px #333;*/
+
+    height: 100%;
 }
 
 #score-text {
@@ -296,6 +299,12 @@ ul.how-to-play {
         min-height: 470px;
     }
 
+}
+
+@media (max-width:768px) and (min-width:540px) {
+    footer {
+        margin-top: 400px;
+    }
 }
 
 table {
