@@ -688,7 +688,7 @@ var Hero = function (_MovableGameObject15) {
         var characterChoice;
         if (heroSelect == 1) {
             {
-                characterChoice = new lib.HeroGraphic4();
+                characterChoice = new lib.HeroGraphic1();
             }
         } else if (heroSelect == 2) {
             {
