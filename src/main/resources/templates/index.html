@@ -3,11 +3,11 @@
 <head th:replace="fragments/head :: head('Code Runner')"></head>
 
 <body class="home">
-<div th:replace="fragments/navbar :: navbar"></div>
-    <p style="color: white; text-align: center; background-color: deeppink; padding: .8em; border-radius: 200em; width: 50%; display: block; margin: .5em auto; box-shadow: 0 .3em black" th:if="${numOfRequests > 0}">You have <span th:text="${numOfRequests}"></span> friend requests!</p>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <p style="color: white; text-align: center; background-color: deeppink; padding: .8em; border-radius: 200em; width: 50%; display: block; margin: .5em auto; box-shadow: 0 .3em black" th:if="${numOfRequests > 0}"><a th:href="@{'/view-friends'}">You have <span th:text="${numOfRequests}"></span> friend requests!</a></p>
         <div class="row mt-5">
 
-            <div id="character-panel" class="col-md-4">
+            <div id="character-panel" class="col-md-4" style="margin-bottom: 200px">
                 <div class="container">
                      <!--<div class="row under-game">-->
                         <!--<div class="col-sm-12">-->
@@ -54,7 +54,7 @@
                 </div>
             </div> <!-- closes col -->
 
-            <div class="col-md-8 text-center">
+            <div class="col-md-8 text-center" >
                 <h3>Code-Runner</h3>
                 <div sec:authorize="!isAuthenticated()">
                     <p class="px-4">To save your score, register for an account or log in.</p>
@@ -98,6 +98,14 @@
 
     <script src="scripts/RealGame.js"></script>
     <script src="scripts/jquery-2.2.4.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
     <script src="scripts/game.js"></script>
-  </body>
+
+    <footer class="sticky-bottom text-success" style="margin-top: 100px;">
+        <p>footer</p>
+    </footer>
+</body>
 </html>
