@@ -314,3 +314,17 @@ table {
     content: counter(tableCount);
     counter-increment: tableCount;
 }
+
+/* --------------------------- form fields - table ------------------------------*/
+.input-fld {
+    /*background-image: linear-gradient(bottom, #FFFFFF 50%, #DEDEDE 100%) !important;*/
+    border: 2px solid #3fabaf !important;
+    background: #eff8f8;
+
+}
+
+.title-img {
+    background: url(../images/title.png) center center no-repeat;
+    background-size: 100% 100%;
+    padding: 10px 0;
+}

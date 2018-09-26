@@ -19,8 +19,8 @@
                 </div>
             <form th:action="@{/register}" th:method="POST" th:object="${user}">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input id="username" type="text" class="form-control" th:field="*{username}" />
+                    <label class="title-img px-5" for="username">Username</label>
+                        <input id="username" type="text" class="form-control input-fld" th:field="*{username}" />
                     <div
                             th:if="${#fields.hasErrors('username')}"
                             class="alert alert-danger alert-dismissible"
@@ -31,9 +31,11 @@
                         <!--<i class="fas fa-exclamation-triangle"></i>-->
                         <span th:errors="*{username}"/>
                     </div>
+                </div>
 
-                    <label for="email">Email</label>
-                    <input id="email" type="text" class="form-control" th:field="*{email}" />
+                <div class="form-group">
+                    <label class="title-img px-5" for="email">Email</label>
+                        <input id="email" type="text" class="form-control input-fld" th:field="*{email}" />
                     <!--validation:-->
                     <div
                             th:if="${#fields.hasErrors('email')}"
@@ -45,11 +47,13 @@
                         <!--<i class="fas fa-exclamation-triangle"></i>-->
                         <span th:errors="*{email}"/>
                     </div>
-
-                    <label for="password">Password</label>
-                    <input id="password" class="form-control registerInput" type="password" th:field="*{password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" />
                 </div>
-                <input value="Sign me up!" class="btn btn-primary" type="submit" />
+
+                <div class="form-group">
+                    <label class="title-img px-5" for="password">Password</label>
+                        <input id="password" class="form-control registerInput input-fld" type="password" th:field="*{password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" />
+                </div>
+                <input value="Sign me up!" class="btn btn-success" type="submit" />
             </form>
             </div>
             <div class="col-md-5">
