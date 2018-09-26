@@ -28,6 +28,7 @@ public class ScoreController {
             if (finalScore > 4999) {
                 userRepo.wipeScores(currentUserId);
             } else {
+
                 userRepo.insertGameScore(currentDate, finalScore, currentUserId);
             }
             long playersSumScore = Long.parseLong(userRepo.getTotalPointsByUsername(user.getUsername()));
