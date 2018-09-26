@@ -3,29 +3,30 @@
 <head th:replace="fragments/head :: head('List of all post')"></head>
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
-    <th:block th:if="${notValid == true}">
-        <h1>No results were found</h1>
-    </th:block>
-    <th:block th:if="${notValid == false}">
-        <h1>Now viewing <span th:text="${user.username}"></span> profile</h1>
-        <th:block th:if="${topPlayer == user.username}">
-            <h1 style="color: red;">#1 Ranked In The World!</h1>
+    <div class="container pt-5">
+        <th:block th:if="${notValid == true}">
+            <h1>No results were found</h1>
         </th:block>
-        <th:block th:if="${recordHolder == user.username}">
-            <h1 style="color: blue;">Holds High Score Record</h1>
-        </th:block>
-        <div th:each="username : ${top10Usernames}">
-            <th:block th:if="${username == user.username}">
-            <h1 style="color: blue;">Top 10 Player</h1>
-        </th:block>
-        </div>
+        <th:block th:if="${notValid == false}">
+            <h4>Now viewing <span th:text="${user.username}"></span> profile</h4>
+            <th:block th:if="${topPlayer == user.username}">
+                <h4 style="color: red;">#1 Ranked In The World!</h4>
+            </th:block>
+            <th:block th:if="${recordHolder == user.username}">
+                <h4 style="color: blue;">Holds High Score Record</h4>
+            </th:block>
+            <div th:each="username : ${top10Usernames}">
+                <th:block th:if="${username == user.username}">
+                <h4 style="color: blue;">Top 10 Player</h4>
+            </th:block>
+            </div>
 
-        <h3>Email: <span th:text="${user.email}"></span></h3>
-        <h3>Rank: <span th:text="${user.rank}"></span></h3>
-            <h3>Total Career Points: <span th:text="${totalScore}"></span></h3>
-            <h3>High Score: <span th:text="${highscore}"></span></h3>
-    </th:block>
-
+            <h5>Email: <span th:text="${user.email}"></span></h5>
+            <h5>Rank: <span th:text="${user.rank}"></span></h5>
+                <h5>Total Career Points: <span th:text="${totalScore}"></span></h5>
+                <h5>High Score: <span th:text="${highscore}"></span></h5>
+        </th:block>
+    </div>
     <script th:replace="fragments/scripts :: scripts"></script>
     <footer th:replace="fragments/footer :: footer"></footer>
 
