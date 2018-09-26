@@ -9,17 +9,38 @@
     <a th:href="@{'/leaders'}">View Global Rankings</a>
     <th:block th:if="${numOfFriends > 0}">
         <h1>Friend Ranking</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Player</th>
+                <th scope="col">Total Points</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="player : ${players}">
+                <tr>
+                    <th:block th:each="friend : ${friends}">
+                        <td th:if="${player[0] == friend}">
+                            <a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a>, Total Points: <span th:text="${player[1]}"></span>
+                        </td>
+                    </th:block>
+                    <td th:if="${player[0] == currentUsername}">
+                        <a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a>, Total Points: <span th:text="${player[1]}"></span>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+
+
+
         <ol>
             <div th:each="player: ${players}">
-                <div th:each="friend : ${friends}">
-                    <li th:if="${player[0] == friend}">
-                        <h3><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a>, Total Points: <span th:text="${player[1]}"></span></h3>
 
-                    </li>
-                </div>
-                <li th:if="${player[0] == currentUsername}">
-                    <h3><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a>, Total Points: <span th:text="${player[1]}"></span></h3>
-                </li>
             </div>
         </ol>
     </th:block>
