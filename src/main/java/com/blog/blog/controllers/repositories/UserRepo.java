@@ -113,6 +113,12 @@ public interface UserRepo extends CrudRepository<User, Long> {
     @Query(value = "UPDATE users SET ranking = ?1 WHERE users.id = ?2", nativeQuery = true)
     void updateRank(String ranking, long id);
 
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE scores SET score = 0 WHERE users.id = ?1", nativeQuery = true)
+    void wipeScores(long userId);
+
+
 
 
 
