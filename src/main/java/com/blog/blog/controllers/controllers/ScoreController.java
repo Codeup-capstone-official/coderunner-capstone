@@ -25,7 +25,7 @@ public class ScoreController {
             System.out.println(finalScore);
             long currentUserId = user.getId();
             String currentDate = userRepo.currentDate();
-            if (finalScore > 2500) {
+            if (finalScore > 4999) {
                 userRepo.wipeScores(currentUserId);
             } else {
                 userRepo.insertGameScore(currentDate, finalScore, currentUserId);
