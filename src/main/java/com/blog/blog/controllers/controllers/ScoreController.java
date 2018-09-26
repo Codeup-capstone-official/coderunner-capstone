@@ -21,10 +21,15 @@ public class ScoreController {
         try {
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             long finalScore = Long.parseLong(score);
+
             System.out.println(finalScore);
             long currentUserId = user.getId();
             String currentDate = userRepo.currentDate();
-            userRepo.insertGameScore(currentDate, finalScore, currentUserId);
+            if (finalScore > 2500) {
+                userRepo.wipeScores(currentUserId);
+            } else {
+                userRepo.insertGameScore(currentDate, finalScore, currentUserId);
+            }
             long playersSumScore = Long.parseLong(userRepo.getTotalPointsByUsername(user.getUsername()));
             System.out.println(playersSumScore);
             if (playersSumScore > 0 && playersSumScore <= 25000) {
