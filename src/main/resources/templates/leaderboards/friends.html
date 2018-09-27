@@ -32,6 +32,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Player</th>
                 <th scope="col">Total Points</th>
+                <th scope="col">Rank</th>
 
 
             </tr>
@@ -44,6 +45,8 @@
                             <td class="counterCell"></td>
                             <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
                             <td th:text="${player[1]}"></td>
+                            <td th:text="${player[2]}"></td>
+
                         </th:block>
 
                     </th:block>
@@ -51,6 +54,7 @@
                         <td class="counterCell"></td>
                         <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
                         <td th:text="${player[1]}"></td>
+                        <td th:text="${player[2]}"></td>
                     </th:block>
                 </tr>
 
