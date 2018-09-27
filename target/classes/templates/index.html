@@ -90,9 +90,13 @@
                         </div>
                     </div>
                 </div>
+                <!--<form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">-->
+                    <!--<input type="hidden" id="scoreInput" name="scoreResult" />-->
+                <!--</form>-->
                 <form name="scoreForm" id="scoreForm" th:action="@{/getScore}" th:method="POST">
-                    <input type="hidden" id="scoreInput" name="scoreResult" />
+                <input type="hidden" id="scoreInput" name="${_csrf.parameterName}" value="${_csrf.token}" />
                 </form>
+
             </div> <!-- closes col -->
         </div> <!-- cLoses row -->
 
