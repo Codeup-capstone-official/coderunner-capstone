@@ -29,6 +29,11 @@ public class UserController {
             return "users/register";
     }
 
+    @GetMapping("/about-us")
+    public String aboutUs(){
+        return "/about-us";
+    }
+
     @PostMapping("/register")
     public String saveUser(@Valid User user, Errors validation, Model model){
         User existingEmail = users.findByEmail(user.getEmail());
