@@ -702,6 +702,10 @@ var Hero = function (_MovableGameObject15) {
             {
                 characterChoice = new lib.HeroGraphic4();
             }
+        }else if (heroSelect == 5) {
+            {
+                characterChoice = new lib.HeroGraphic5();
+            }
         }
 
         return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, characterChoice));
@@ -779,7 +783,7 @@ var EndingItem = function (_MovableGameObject17) {
     function EndingItem() {
         _classCallCheck(this, EndingItem);
 
-        var _this16 = _possibleConstructorReturn(this, (EndingItem.__proto__ || Object.getPrototypeOf(EndingItem)).call(this, new lib.PowerupGraphic1()));
+        var _this16 = _possibleConstructorReturn(this, (EndingItem.__proto__ || Object.getPrototypeOf(EndingItem)).call(this, new lib.EndItem()));
 
         _this16.velocity.y = 0;
         _this16.directionY = 0;

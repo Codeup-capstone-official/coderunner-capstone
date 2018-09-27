@@ -1,5 +1,7 @@
 
-  "name": "Rush",
+{
+  "short_name": "Code-Run",
+  "name": "Code-Runner",
   "icons": [
     {
       "src": "icons/launcher-icon-0-75x.png",
