@@ -333,7 +333,10 @@ table {
 
 
 .aboutus-imgs {
-    margin: 2rem;
+    padding: 4rem;
 
+}
 
+.aboutus-names {
+    margin-left: 6rem;
 }
