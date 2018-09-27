@@ -28,12 +28,12 @@
         <th:block th:if="${notValid == false}">
 
             <div class="card text-center">
-                <div class="card-header" style="color: black"><h1 th:text="${user.username}"></h1></div>
+                <div class="card-header" style="color: #53A551; text-shadow: 1px 2px black;"><h1 th:text="${user.username}"></h1></div>
                 <div class="card-body">
-                    <h5 class="card-title" th:if="${topPlayer == user.username}" style="color: deepskyblue">#1 Ranked</h5>
-                    <h5 class="card-title" th:if="${recordHolder == user.username}" style="color: deepskyblue;">Holds High Score Record</h5>
+                    <h5 class="card-title" th:if="${topPlayer == user.username}" style="color: #53A551;">#1 Ranked</h5>
+                    <h5 class="card-title" th:if="${recordHolder == user.username}" style="color: #53A551;">Holds High Score Record</h5>
                     <th:block th:each="username: ${top10Usernames}">
-                        <h5 class="card-title" th:if="${username == user.username}" style="color: deepskyblue;">Top 10 Player</h5>
+                        <h5 class="card-title" th:if="${username == user.username}" style="color: #53A551;">Top 10 Player</h5>
                     </th:block>
                     <h5 class="card-title" style="color: black;">Rank: <span style="color: black" th:text="${user.rank}"></span> </h5>
                     <h5 class="card-title" style="color: black;">High Score: <span style="color: black" th:text="${highscore}"></span> </h5>

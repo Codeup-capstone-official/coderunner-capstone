@@ -34,28 +34,39 @@
             </form>
         </div>
         <hr />
-        <div class="container">
             <h1 th:if="${numberOfRequests > 0}">You have <span th:text="${numberOfRequests}"></span> friend requests!</h1>
-            <div th:each="request : ${requests}">
-                <p><span th:text="${request[0]}"></span> wants to be your friend</p>
-                <form th:action="@{/accept-friend}" th:method="post">
-                    <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
-                    <button>Accept</button>
-                </form>
-                <form th:action="@{/decline-friend}" th:method="post">
-                    <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
-                    <button>Decline</button>
-                </form>
+            <div class="row">
+            <div th:each="request : ${requests}" class="card col-12 col-lg-4">
+                    <div class="card-body">
+                        <h2><a  style="color: #53A551; text-shadow: 1px 2px black;" th:href="@{'/profile/' + ${request[0]}}" th:text="${request[0]}"></a> wants to be your friend</h2>
+                        <form th:action="@{/accept-friend}" th:method="post">
+                            <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
+                            <button>Accept</button>
+                        </form>
+                        <form th:action="@{/decline-friend}" th:method="post">
+                            <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
+                            <button>Decline</button>
+                        </form>
+
+
+
+                    </div>
+            </div>
             </div>
             <hr />
-        </div>
         <h1>Friends list</h1>
+        <div class="row"></div>
         <div th:each="friend : ${friends}">
-            <h4><a th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h4>
-            <form th:action="@{/deleteFriendFromList}" th:method="POST">
-                <input type="hidden" name="friend" th:value="${friend}" />
-                <button>Delete Friend</button>
-            </form>
+            <div class="card  col-lg-4">
+                <div class="card-body">
+                    <h2><a style="color: #53A551; text-shadow: 1px 2px black;" th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h2>
+                    <form th:action="@{/deleteFriendFromList}" th:method="POST">
+                        <input type="hidden" name="friend" th:value="${friend}" />
+                        <button>Delete Friend</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 
