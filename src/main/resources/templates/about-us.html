@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('About Us')"></head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src="images/zack.png" class="aboutus-imgs" style="border-radius: 50%; height: 40%;"/>
+            <p>Zackry Neagley</p>
+        </div>
+        <div class="col-3">
+            <img src="images/christian.png" class="aboutus-imgs" style="border-radius: 50%; height: 40%;"/>
+
+            <p>Christian Kenny</p>
+
+        </div>
+        <div class="col-3">
+            <img src="images/chris.png" class="aboutus-imgs" style="border-radius: 50%; height: 40%;"/>
+
+            <p>Chris Mosqueda</p>
+
+        </div>
+        <div class="col-3">
+            <img src="images/matt2.png" class="aboutus-imgs" style="border-radius: 50%; height: 40%;"/>
+
+            <p>Matthew Rich</p>
+
+        </div>
+    </div>
+</div>
+
+<script th:replace="fragments/scripts :: scripts"></script>
+
+</body>
+</html>

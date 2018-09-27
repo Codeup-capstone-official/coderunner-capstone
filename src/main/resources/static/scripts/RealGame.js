@@ -82,527 +82,541 @@ lib.webfontAvailable = function(family) {
 
 
 
-(lib.ducky_0 = function() {
+(lib.dimFace = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.ducky_1 = function() {
+(lib.ducky_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.ducky_2 = function() {
+(lib.ducky_1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(10);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.ferFace = function() {
+(lib.ducky_2 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(11);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.gameBG1html = function() {
+(lib.ferFace = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.gamebg2css = function() {
+(lib.gameBG1html = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(13);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.greencup1 = function() {
+(lib.gamebg2css = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(14);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.greencup = function() {
+(lib.greencup1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.html = function() {
+(lib.greencup = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib._if = function() {
+(lib.html = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.justinFace = function() {
+(lib._if = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.margin = function() {
+(lib.jobOffer = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(19);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_0 = function() {
+(lib.justinFace = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(20);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_1 = function() {
+(lib.margin = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(21);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_10 = function() {
+(lib.night_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(22);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_11 = function() {
+(lib.night_1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(23);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_12 = function() {
+(lib.night_10 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(24);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_13 = function() {
+(lib.night_11 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(25);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_14 = function() {
+(lib.night_12 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(26);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_15 = function() {
+(lib.night_13 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(27);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_16 = function() {
+(lib.night_14 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(28);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_17 = function() {
+(lib.night_15 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(29);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_18 = function() {
+(lib.night_16 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(30);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_19 = function() {
+(lib.night_17 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(31);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_2 = function() {
+(lib.night_18 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(32);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_20 = function() {
+(lib.night_19 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(33);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_21 = function() {
+(lib.night_2 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(34);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_22 = function() {
+(lib.night_20 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(35);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_23 = function() {
+(lib.night_21 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(36);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_24 = function() {
+(lib.night_22 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(37);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_25 = function() {
+(lib.night_23 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(38);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_26 = function() {
+(lib.night_24 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(39);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_27 = function() {
+(lib.night_25 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(40);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_28 = function() {
+(lib.night_26 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(41);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_29 = function() {
+(lib.night_27 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(42);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_3 = function() {
+(lib.night_28 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(43);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_30 = function() {
+(lib.night_29 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(44);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_31 = function() {
+(lib.night_3 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(45);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_32 = function() {
+(lib.night_30 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(46);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_33 = function() {
+(lib.night_31 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(47);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_34 = function() {
+(lib.night_32 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(48);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_35 = function() {
+(lib.night_33 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(49);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_36 = function() {
+(lib.night_34 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(50);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_37 = function() {
+(lib.night_35 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(51);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_38 = function() {
+(lib.night_36 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(52);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_39 = function() {
+(lib.night_37 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(53);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_4 = function() {
+(lib.night_38 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(54);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_40 = function() {
+(lib.night_39 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(55);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_41 = function() {
+(lib.night_4 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(56);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_42 = function() {
+(lib.night_40 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(57);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_43 = function() {
+(lib.night_41 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(58);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_44 = function() {
+(lib.night_42 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(59);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_45 = function() {
+(lib.night_43 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(60);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_46 = function() {
+(lib.night_44 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(61);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_47 = function() {
+(lib.night_45 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(62);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_5 = function() {
+(lib.night_46 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(63);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_6 = function() {
+(lib.night_47 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(64);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_7 = function() {
+(lib.night_5 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(65);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_8 = function() {
+(lib.night_6 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(66);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.night_9 = function() {
+(lib.night_7 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(67);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.p = function() {
+(lib.night_8 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(68);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.platform1 = function() {
+(lib.night_9 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(69);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.powerup = function() {
+(lib.p = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(70);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runner_0 = function() {
+(lib.platform1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(71);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runner_1 = function() {
+(lib.powerup = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(72);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runner_2 = function() {
+(lib.runnerBody_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(73);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runner_3 = function() {
+(lib.runnerBody_1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(74);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.scipt = function() {
+(lib.runnerBody_2 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(75);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.servlet = function() {
+(lib.runnerBody_3 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(76);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.spring = function() {
+(lib.scipt = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(77);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.varX = function() {
+(lib.servlet = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(78);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.width = function() {
+(lib.spring = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(79);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Wizard_0 = function() {
+(lib.varX = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(80);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Wizard_1 = function() {
+(lib.width = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(81);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.Wizard_2 = function() {
+(lib.Wizard_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(82);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.Wizard_1 = function() {
+	this.spriteSheet = ss["RealGame_atlas_"];
+	this.gotoAndStop(83);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.Wizard_2 = function() {
+	this.spriteSheet = ss["RealGame_atlas_"];
+	this.gotoAndStop(84);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -645,25 +659,54 @@ p.nominalBounds = new cjs.Rectangle(0,0,32,32);
 p.nominalBounds = new cjs.Rectangle(0,0,200,20);
 
 
+(lib.HeroGraphic5 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.dimFace();
+	this.instance.setTransform(2.5,14.5,0.4,0.368);
+
+	this.instance_1 = new lib.runnerBody_0();
+	this.instance_1.setTransform(4.5,25);
+
+	this.instance_2 = new lib.runnerBody_1();
+	this.instance_2.setTransform(4.5,25);
+
+	this.instance_3 = new lib.runnerBody_2();
+	this.instance_3.setTransform(4.5,25);
+
+	this.instance_4 = new lib.runnerBody_3();
+	this.instance_4.setTransform(4.5,25);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_2},{t:this.instance}]},2).to({state:[{t:this.instance_3},{t:this.instance}]},2).to({state:[{t:this.instance_4},{t:this.instance}]},2).wait(2));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(2.5,14.5,20,43.5);
+
+
 (lib.HeroGraphic4 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
 	this.instance = new lib.justinFace();
-	this.instance.setTransform(0,-9,0.085,0.069);
+	this.instance.setTransform(2,2,0.085,0.083);
 
-	this.instance_1 = new lib.runner_0();
+	this.instance_1 = new lib.runnerBody_0();
+	this.instance_1.setTransform(2.5,14.5);
 
-	this.instance_2 = new lib.runner_1();
+	this.instance_2 = new lib.runnerBody_1();
+	this.instance_2.setTransform(2.5,14.5);
 
-	this.instance_3 = new lib.runner_2();
+	this.instance_3 = new lib.runnerBody_2();
+	this.instance_3.setTransform(2.5,14.5);
 
-	this.instance_4 = new lib.runner_3();
+	this.instance_4 = new lib.runnerBody_3();
+	this.instance_4.setTransform(2.5,14.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance,p:{x:0,y:-9}}]}).to({state:[{t:this.instance_2},{t:this.instance,p:{x:-0.3,y:-8.7}}]},3).to({state:[{t:this.instance_3},{t:this.instance,p:{x:0.2,y:-9.2}}]},3).to({state:[{t:this.instance_4},{t:this.instance,p:{x:-0.3,y:-8.2}}]},3).wait(3));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance,p:{x:2}}]}).to({state:[{t:this.instance_2},{t:this.instance,p:{x:2}}]},2).to({state:[{t:this.instance_3},{t:this.instance,p:{x:3.5}}]},2).to({state:[{t:this.instance_4},{t:this.instance,p:{x:2}}]},2).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,-9,20,42);
+p.nominalBounds = new cjs.Rectangle(2,2,20,45.5);
 
 
 (lib.HeroGraphic3 = function(mode,startPosition,loop) {
@@ -671,20 +714,24 @@ p.nominalBounds = new cjs.Rectangle(0,-9,20,42);
 
 	// Layer 1
 	this.instance = new lib.ferFace();
-	this.instance.setTransform(-1,-10,0.075,0.048);
+	this.instance.setTransform(0,0,0.075,0.073);
 
-	this.instance_1 = new lib.runner_0();
+	this.instance_1 = new lib.runnerBody_0();
+	this.instance_1.setTransform(2.5,14.5);
 
-	this.instance_2 = new lib.runner_1();
+	this.instance_2 = new lib.runnerBody_1();
+	this.instance_2.setTransform(2.5,14.5);
 
-	this.instance_3 = new lib.runner_2();
+	this.instance_3 = new lib.runnerBody_2();
+	this.instance_3.setTransform(2.5,14.5);
 
-	this.instance_4 = new lib.runner_3();
+	this.instance_4 = new lib.runnerBody_3();
+	this.instance_4.setTransform(2.5,14.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_2},{t:this.instance}]},3).to({state:[{t:this.instance_3},{t:this.instance}]},3).to({state:[{t:this.instance_4},{t:this.instance}]},3).wait(3));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_2},{t:this.instance}]},2).to({state:[{t:this.instance_3},{t:this.instance}]},2).to({state:[{t:this.instance_4},{t:this.instance}]},2).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-1,-10,20,43);
+p.nominalBounds = new cjs.Rectangle(0,0,20.5,47.5);
 
 
 (lib.HeroGraphic2 = function(mode,startPosition,loop) {
@@ -753,12 +800,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,40,18);
 
 	// Layer 1
 	this.instance = new lib.servlet();
-	this.instance.setTransform(0,0,0.424,0.377);
+	this.instance.setTransform(0,0,0.203,0.377);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,125,20);
+p.nominalBounds = new cjs.Rectangle(0,0,60,20);
 
 
 (lib.EnemyJava1 = function(mode,startPosition,loop) {
@@ -766,12 +813,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,125,20);
 
 	// Layer 1
 	this.instance = new lib._class();
-	this.instance.setTransform(0,0,0.288,0.333);
+	this.instance.setTransform(0,0,0.288,0.378);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,40,15);
+p.nominalBounds = new cjs.Rectangle(0,0,40,17);
 
 
 (lib.EnemyJS3 = function(mode,startPosition,loop) {
@@ -779,12 +826,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,40,15);
 
 	// Layer 1
 	this.instance = new lib._if();
-	this.instance.setTransform(0,0,0.294,0.288);
+	this.instance.setTransform(0,0,0.294,0.346);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,25,15);
+p.nominalBounds = new cjs.Rectangle(0,0,25,18);
 
 
 (lib.EnemyJS2 = function(mode,startPosition,loop) {
@@ -792,12 +839,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,25,15);
 
 	// Layer 1
 	this.instance = new lib.varX();
-	this.instance.setTransform(0,0,0.263,0.293);
+	this.instance.setTransform(0,0,0.263,0.415);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,40,12);
+p.nominalBounds = new cjs.Rectangle(0,0,40,17);
 
 
 (lib.EnemyJS1 = function(mode,startPosition,loop) {
@@ -805,12 +852,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,40,12);
 
 	// Layer 1
 	this.instance = new lib.scipt();
-	this.instance.setTransform(0,0,0.201,0.385);
+	this.instance.setTransform(0,0,0.201,0.327);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,45,20);
+p.nominalBounds = new cjs.Rectangle(0,0,45,17);
 
 
 (lib.EnemyCSS3 = function(mode,startPosition,loop) {
@@ -818,12 +865,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,45,20);
 
 	// Layer 1
 	this.instance = new lib.color();
-	this.instance.setTransform(0,0,0.272,0.366);
+	this.instance.setTransform(0,0,0.272,0.439);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,40,15);
+p.nominalBounds = new cjs.Rectangle(0,0,40,18);
 
 
 (lib.EnemyCSS2 = function(mode,startPosition,loop) {
@@ -831,12 +878,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,40,15);
 
 	// Layer 1
 	this.instance = new lib.margin();
-	this.instance.setTransform(0,0,0.251,0.3);
+	this.instance.setTransform(0,0,0.251,0.4);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,50,15);
+p.nominalBounds = new cjs.Rectangle(0,0,50,20);
 
 
 (lib.EnemyCSS1 = function(mode,startPosition,loop) {
@@ -844,12 +891,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,50,15);
 
 	// Layer 1
 	this.instance = new lib.width();
-	this.instance.setTransform(0,0,0.273,0.476);
+	this.instance.setTransform(0,0,0.273,0.405);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,45,20);
+p.nominalBounds = new cjs.Rectangle(0,0,45,17);
 
 
 (lib.EnemyHTML3 = function(mode,startPosition,loop) {
@@ -870,12 +917,12 @@ p.nominalBounds = new cjs.Rectangle(0,0,45,20);
 
 	// Layer 1
 	this.instance = new lib.html();
-	this.instance.setTransform(0,0,0.228,0.357);
+	this.instance.setTransform(0,0,0.228,0.714);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,45,15);
+p.nominalBounds = new cjs.Rectangle(0,0,45,30);
 
 
 (lib.EnemyHTML1 = function(mode,startPosition,loop) {
@@ -889,6 +936,19 @@ p.nominalBounds = new cjs.Rectangle(0,0,45,15);
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(0,0,40,20);
+
+
+(lib.EndItem = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer 1
+	this.instance = new lib.jobOffer();
+	this.instance.setTransform(0,0,0.042,0.042);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(3));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(0,0,50,50);
 
 
 (lib.CoinGraphic = function(mode,startPosition,loop) {
@@ -1183,22 +1243,34 @@ p.nominalBounds = new cjs.Rectangle(0,0,800,560);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.PlatformGraphic1();
-	this.instance.setTransform(405,318.5,1,1,0,0,0,100,10);
+	this.instance = new lib.EnemyJava2();
+	this.instance.setTransform(496.1,244.4,1,1,0,0,0,30,10);
 
-	this.instance_1 = new lib.HeroGraphic1();
-	this.instance_1.setTransform(487.5,291,1,1,0,0,0,17.5,17.5);
+	this.instance_1 = new lib.CoinGraphic();
+	this.instance_1.setTransform(451.1,224.4,1,1,0,0,0,15,15);
 
-	this.instance_2 = new lib.HeroGraphic3();
-	this.instance_2.setTransform(324.5,287,1,1,0,0,0,9,11.5);
+	this.instance_2 = new lib.EndItem();
+	this.instance_2.setTransform(545.8,279.4,1,1,0,0,0,25,25);
 
-	this.instance_3 = new lib.HeroGraphic4();
-	this.instance_3.setTransform(396.9,287.5,1,1,0,0,0,10,12);
+	this.instance_3 = new lib.HeroGraphic5();
+	this.instance_3.setTransform(447.2,263.7,1,1,0,0,0,8,13.2);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this.instance_4 = new lib.HeroGraphic4();
+	this.instance_4.setTransform(409,274.5,1,1,0,0,0,9,13.5);
+
+	this.instance_5 = new lib.HeroGraphic3();
+	this.instance_5.setTransform(345.6,272.2,1,1,0,0,0,7.8,11.2);
+
+	this.instance_6 = new lib.PlatformGraphic1();
+	this.instance_6.setTransform(405,318.5,1,1,0,0,0,100,10);
+
+	this.instance_7 = new lib.HeroGraphic1();
+	this.instance_7.setTransform(487.5,291,1,1,0,0,0,17.5,17.5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(705,545.5,200,63);
+p.nominalBounds = new cjs.Rectangle(705,489.4,265.8,119.1);
 
 })(lib = lib||{}, images = images||{}, createjs = createjs||{}, ss = ss||{});
 var lib, images, createjs, ss;
