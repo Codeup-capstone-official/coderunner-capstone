@@ -96,14 +96,14 @@ var SceneManager = function () {
                     var request = $.ajax({
                         url: '/getScore/' + finalScore,
                         method: 'POST',
-                        dataType: 'json'
-                        // data: $('#scoreForm').serialize()
+                        dataType: 'json',
+                        data: $('#scoreForm').serialize()
                     });
 
-                    // request.done(function (html) {
-                    //     $('.container').html(html);
+                    request.done(function (html) {
+                        $('.container').html(html);
 
-                    // });
+                    });
                     submit = false;
                 }
 
