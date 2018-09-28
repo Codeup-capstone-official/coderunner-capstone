@@ -20,7 +20,7 @@
             <form th:action="@{/register}" th:method="POST" th:object="${user}">
                 <div class="form-group">
                     <label class="title-img px-5" for="username">Username</label>
-                        <input id="username" type="text" class="form-control input-fld" th:field="*{username}" />
+                        <input id="username" type="text" class="form-control input-fld ml-3" th:field="*{username}" />
                     <div
                             th:if="${#fields.hasErrors('username')}"
                             class="alert alert-danger alert-dismissible"
@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <label class="title-img px-5" for="email">Email</label>
-                        <input id="email" type="text" class="form-control input-fld" th:field="*{email}" />
+                        <input id="email" type="text" class="form-control input-fld ml-3" th:field="*{email}" />
                     <!--validation:-->
                     <div
                             th:if="${#fields.hasErrors('email')}"
@@ -51,9 +51,9 @@
 
                 <div class="form-group">
                     <label class="title-img px-5" for="password">Password</label>
-                        <input id="password" class="form-control registerInput input-fld" type="password" th:field="*{password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" />
+                        <input id="password" class="form-control registerInput input-fld ml-3" type="password" th:field="*{password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" />
                 </div>
-                <input value="Sign me up!" class="btn btn-success" type="submit" />
+                <input value="Sign me up!" class="btn btn-success ml-4" type="submit" />
             </form>
             </div>
             <div class="col-md-5">
