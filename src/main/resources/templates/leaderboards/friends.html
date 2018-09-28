@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/styles/game.css" />
 </head>
 <body>
-<div th:replace="fragments/navbar :: navbar"></div>
+<!--<div th:replace="fragments/navbar :: navbar"></div>-->
 <div class="container-fluid">
     <a th:href="@{'/leaders'}">View Global Rankings</a>
     <th:block th:if="${numOfFriends > 0}">
@@ -43,7 +43,7 @@
                     <th:block th:each="friend : ${friends}">
                         <th:block th:if="${player[0] == friend}">
                             <td class="counterCell"></td>
-                            <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
+                            <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: yellowgreen"></a></td>
                             <td th:text="${player[1]}"></td>
                             <td th:text="${player[2]}"></td>
 
@@ -52,7 +52,7 @@
                     </th:block>
                     <th:block th:if="${player[0] == currentUsername}">
                         <td class="counterCell"></td>
-                        <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
+                        <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: aqua"></a></td>
                         <td th:text="${player[1]}"></td>
                         <td th:text="${player[2]}"></td>
                     </th:block>
