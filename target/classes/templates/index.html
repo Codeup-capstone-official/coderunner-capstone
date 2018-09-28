@@ -14,26 +14,29 @@
                             <h5 class="text-center">How to Play?</h5>
                             <ul class='how-to-play'>
                                 <li>Press the screen to jump.</li>
-                                <li>Avoid the obstacles.</li>
-                                <li>Collect the game coins, get speed boost.</li>
+                                <li>Avoid the code tags.</li>
+                                <li>Collect the Green Cups for points</li>
+                                <li>Collect the Coins to get double points!</li>
+                                <li>Green Orbs give speed boost!</li>
                             </ul>
                         <!--</div>-->
                      <!--</div>-->
 
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Select Character
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Duck</a>
-                            <a class="dropdown-item" href="#">Wizard</a>
-                        </div>
-                    </div>
+                    <!--<div class="dropdown">-->
+                        <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+                           <!--Select Character-->
+                        <!--</button>-->
+                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+                            <!--<a class="dropdown-item" href="#">Duck</a>-->
+                            <!--<a class="dropdown-item" href="#">Wizard</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
                     <select id="selectCharacter" th:if="${user.rank == 'junior'}">
                         <option name="1" value="1">Duck</option>
                         <option name="3" value="3">Fer</option>
                         <option name="4" value="4">Justin</option>
+                        <option name="5" value="5">Dimitri</option>
                         <option name="2" value="2" th:disabled="true">Wizard</option>
                     </select>
                     <select id="selectCharacter" th:if="${user.rank == 'wizard'}">

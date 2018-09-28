@@ -703,6 +703,10 @@ var Hero = function (_MovableGameObject15) {
             {
                 characterChoice = new lib.HeroGraphic4();
             }
+        }else if (heroSelect == 5) {
+            {
+                characterChoice = new lib.HeroGraphic5();
+            }
         }
 
         return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).call(this, characterChoice));
