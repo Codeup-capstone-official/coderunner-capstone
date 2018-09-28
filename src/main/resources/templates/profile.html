@@ -27,46 +27,65 @@
         </th:block>
         <th:block th:if="${notValid == false}">
 
-            <div class="card text-center">
-                <div class="card-header" style="color: #53A551; text-shadow: 1px 2px black;"><h1 th:text="${user.username}"></h1></div>
-                <div class="card-body">
-                    <h5 class="card-title" th:if="${topPlayer == user.username}" style="color: #53A551;">#1 Ranked</h5>
-                    <h5 class="card-title" th:if="${recordHolder == user.username}" style="color: #53A551;">Holds High Score Record</h5>
-                    <th:block th:each="username: ${top10Usernames}">
-                        <h5 class="card-title" th:if="${username == user.username}" style="color: #53A551;">Top 10 Player</h5>
-                    </th:block>
-                    <h5 class="card-title" style="color: black;">Rank: <span style="color: black" th:text="${user.rank}"></span> </h5>
-                    <h5 class="card-title" style="color: black;">High Score: <span style="color: black" th:text="${highscore}"></span> </h5>
-                    <h5 class="card-title" style="color: black;">Toal Career Points: <span style="color: black" th:text="${totalScore}"></span> </h5>
-
-
-
-
-
-                </div>
-            </div>
-
-
-
-
-
-            <!--<h4>Now viewing <span th:text="${user.username}"></span> profile</h4>-->
-            <!--<th:block th:if="${topPlayer == user.username}">-->
-                <!--<h4 style="color: red;">#1 Ranked In The World!</h4>-->
-            <!--</th:block>-->
-            <!--<th:block th:if="${recordHolder == user.username}">-->
-                <!--<h4 style="color: blue;">Holds High Score Record</h4>-->
-            <!--</th:block>-->
-            <!--<div th:each="username : ${top10Usernames}">-->
-                <!--<th:block th:if="${username == user.username}">-->
-                <!--<h4 style="color: blue;">Top 10 Player</h4>-->
-            <!--</th:block>-->
+            <!--<div class="card text-center">-->
+                <!--<div class="card-header" style="color: #53A551; text-shadow: 1px 2px black;"><h1 th:text="${user.username}"></h1></div>-->
+                <!--<div class="card-body">-->
+                    <!--<h5 class="card-title" th:if="${topPlayer == user.username}" style="color: #53A551;">#1 Ranked</h5>-->
+                    <!--<h5 class="card-title" th:if="${recordHolder == user.username}" style="color: #53A551;">Holds High Score Record</h5>-->
+                    <!--<th:block th:each="username: ${top10Usernames}">-->
+                        <!--<h5 class="card-title" th:if="${username == user.username}" style="color: #53A551;">Top 10 Player</h5>-->
+                    <!--</th:block>-->
+                    <!--<h5 class="card-title" style="color: black;">Rank: <span style="color: black" th:text="${user.rank}"></span> </h5>-->
+                    <!--<h5 class="card-title" style="color: black;">High Score: <span style="color: black" th:text="${highscore}"></span> </h5>-->
+                    <!--<h5 class="card-title" style="color: black;">Toal Career Points: <span style="color: black" th:text="${totalScore}"></span> </h5>-->
+                <!--</div>-->
             <!--</div>-->
 
-            <!--<h5>Email: <span th:text="${user.email}"></span></h5>-->
-            <!--<h5>Rank: <span th:text="${user.rank}"></span></h5>-->
-                <!--<h5>Total Career Points: <span th:text="${totalScore}"></span></h5>-->
-                <!--<h5>High Score: <span th:text="${highscore}"></span></h5>-->
+            <h4 class="title-img px-5">Now viewing <span th:text="${user.username}"></span> profile</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="ml-5 prof-stat">
+                        <th:block th:if="${topPlayer == user.username}">
+                            <h4 class="border-bottom" style="color: lime;">#1 Ranked In The World!</h4>
+                        </th:block>
+                        <th:block th:if="${recordHolder == user.username}">
+                            <h4 class="border-bottom" style="color: cyan;">Holds High Score Record</h4>
+                        </th:block>
+                        <div th:each="username : ${top10Usernames}">
+                            <th:block th:if="${username == user.username}">
+                            <h4 class="border-bottom" style="color: cyan;">Top 10 Player</h4>
+                        </th:block>
+                        </div>
+
+                        <h5>Email: <span th:text="${user.email}"></span></h5>
+                        <h5>Rank: <span th:text="${user.rank}"></span></h5>
+                        <h5>Total Career Points: <span th:text="${totalScore}"></span></h5>
+                        <h5>High Score: <span th:text="${highscore}"></span></h5>
+
+                        <div class="static-stats pt-5">
+                            <p>Velocity: 6km/h north 38&#176;</p>
+                            <p>Hit count: 89 hits per min</p>
+                            <p>Distance traveled: 38.5 km</p>
+                            <p>Power ups: </p>
+                            <p>Coins found: </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <img style="width:100%" src="images/runner.png" alt="3D-runner"/>
+                </div>
+
+                <div class="col-md-2">
+                    <p>another col</p>
+                    <p>another col</p>
+                    <p>another col</p>
+                    <p>another col</p>
+                    <p>another col</p>
+                    <p>another col</p>
+
+                </div>
+            </div> <!-- closes row -->
         </th:block>
     </div>
     <script th:replace="fragments/scripts :: scripts"></script>

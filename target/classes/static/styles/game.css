@@ -6,20 +6,10 @@
 
 html {
     min-height: 100%;
-    /*background: #FCF8FC url(../images/noise-bg.png);*/
 }
 
 body {
     min-height: 100vh;
-    /*background-image: linear-gradient(*/
-            /*to left bottom,*/
-            /*rgba(154, 179, 189, 0.2),*/
-            /*rgba(35, 58, 67, 0.9)),*/
-    /*url(../images/dark-blue-bg.png);*/
-    /*background-size: cover;*/
-    /*background-position: top;*/
-    /*font-family: 'Press Start 2P';*/
-
     background: url(../images/dark-blue-bg.png) top center no-repeat;
     background-size: cover;
     /*border-top: 5px solid #008894;*/
@@ -71,48 +61,6 @@ nav {
 #toggle-btn {
     background: url(../images/duck.png) center no-repeat;
 }
-
-/* --------------------------- */
-
-.scene {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-
-    /* see .active.scene */
-    transform: translate3d(0, 100%, 0);
-    transition: transform 0.3s ease-out;
-}
-.scene.active {
-    transform: translate3d(0, 0, 0);
-}
-
-.scene a {
-    padding: 1em;
-    background: #619391;
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-}
-.scene a:hover {
-  background: #466B6A;
-}
-
-/* Game Score */
-#hud.scene {
-    opacity: 0;
-    transform: none;
-    background: none;
-    transition: opacity 0.3s ease-out;
-    pointer-events: none;
-}
-#hud.active.scene {
-    opacity: 1;
-}
-
 
 /* ------------------------------ Game console and canvas --------------------------- */
 .game-boi {
@@ -172,13 +120,48 @@ nav {
   color: yellow;
 }
 
-/* ----------------------- */
+/* ------- Scenes ------- */
+.scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 
-section {
-    width: 480px;
-    margin: auto;
+    /* see .active.scene */
+    transform: translate3d(0, 100%, 0);
+    transition: transform 0.3s ease-out;
 }
 
+.scene.active {
+    transform: translate3d(0, 0, 0);
+}
+
+.scene a {
+    padding: 1em;
+    background: #619391;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+.scene a:hover {
+    background: #466B6A;
+}
+
+/* Game Score */
+#hud.scene {
+    opacity: 0;
+    transform: none;
+    background: none;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+}
+#hud.active.scene {
+    opacity: 1;
+}
+
+/* ----------------------- */
 ul.how-to-play {
     list-style-image: url(../images/duck.png);
     list-style-position: inside;
@@ -193,11 +176,7 @@ ul.how-to-play {
     display: none;
 }
 
-.under-game {
-    /*margin-top: 800px;*/
-}
-
-/* ---------------------- Register Password check ----------------- */
+/* ------------------------ Register Password check --------------------- */
 #message {
     display:none;
     background: url(../images/cloud-msg2.png) center center no-repeat;
@@ -239,7 +218,7 @@ ul.how-to-play {
     text-align: center;
 }
 
-
+/* ------------------------------------------------ mobile view ------------------------------------------------*/
 @media screen and (max-width: 1100px) {
     #game {
         width: 360px;
@@ -270,17 +249,6 @@ ul.how-to-play {
     }
 }
 
-/* ------------------------ Leaderboards --------------------------- */
-/*ul.leaderBrd {*/
-    /*list-style-image: url(../images/kong-lad-sm.png);*/
-    /*list-style-position: inside;*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-/*}*/
-
-
-
- /* mobile view */
 @media screen and (max-width: 540px) {
     .game-boi {
         display: none;
@@ -307,20 +275,28 @@ ul.how-to-play {
     }
 }
 
+/* ------------------------ Leaderboards --------------------------- */
 table {
     counter-reset: tableCount;
+    background: url(../images/table-bg.png) center center no-repeat;
+    background-size: 100% 100%;
+    margin: 0 5%;
 }
 .counterCell:before {
     content: counter(tableCount);
     counter-increment: tableCount;
 }
 
-/* --------------------------- form fields - table ------------------------------*/
+table>tbody>tr>td {
+    padding-left: 25px !important;
+}
+
+/* ------------------------- form fields -----------------------------*/
 .input-fld {
     /*background-image: linear-gradient(bottom, #FFFFFF 50%, #DEDEDE 100%) !important;*/
     border: 2px solid #3fabaf !important;
+    transform: skew(15deg) !important;
     background: #eff8f8;
-
 }
 
 .title-img {
@@ -330,8 +306,6 @@ table {
 }
 
 /* --------------------------- About us section ------------------------------*/
-
-
 .aboutus-imgs {
     padding: 4rem;
 
@@ -339,4 +313,18 @@ table {
 
 .aboutus-names {
     margin-left: 6rem;
+}
+/* -------------------------------- Profile ----------------------------------*/
+.prof-stat {
+    min-height: 300px;
+    background: url(../images/table-bg.png) center center no-repeat;
+    background-size: 100% 100%;
+    padding: 8% 15%;
+}
+
+.static-stats>p {
+    line-height: 1;
+    font-size: 11px;
+    margin: 0 !important;
+    color: greenyellow;
 }
