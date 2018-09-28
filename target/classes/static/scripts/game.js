@@ -1492,7 +1492,11 @@ var Game = function () {
         createjs.Ticker.on("tick", this.stage2);
 
         this.gameLoaded = false;
+
+
+
         this.loadGraphics();
+
         setInterval(
             function scoreCount() {
                 finalScore += 1;
@@ -1574,7 +1578,8 @@ var Game = function () {
                 var queue = evt.target;
                 ss["RealGame_atlas_"] = queue.getResult("RealGame_atlas_");
 
-                this.gameLoaded = true;
+                var startbtn =  document.getElementById("start-game-button");
+                startbtn.style.display = "block";
             }
         }
     }, {
@@ -1662,8 +1667,13 @@ var Game = function () {
     return Game;
 }();
 
+
+
 // start the game
 
-var game = new Game();
 
-var sceneManager = new SceneManager();
+
+    var game = new Game();
+
+    var sceneManager = new SceneManager();
+
