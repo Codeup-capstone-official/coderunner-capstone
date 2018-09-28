@@ -5,66 +5,69 @@
 <body class="home">
     <div th:replace="fragments/navbar :: navbar"></div>
     <p style="color: white; text-align: center; background-color: deeppink; padding: .8em; border-radius: 200em; width: 50%; display: block; margin: .5em auto; box-shadow: 0 .3em black" th:if="${numOfRequests > 0}"><a th:href="@{'/view-friends'}">You have <span th:text="${numOfRequests}"></span> friend requests!</a></p>
-        <div class="row mt-5">
+        <div class="row mt-3">
 
             <div id="character-panel" class="col-md-4" style="margin-bottom: 200px">
                 <div class="container">
-                     <!--<div class="row under-game">-->
-                        <!--<div class="col-sm-12">-->
-                            <h5 class="text-center">How to Play?</h5>
-                            <ul class='how-to-play'>
-                                <li>Press the screen to jump.</li>
-                                <li>Avoid the code tags.</li>
-                                <li>Collect the Green Cups for points</li>
-                                <li>Collect the Coins to get double points!</li>
-                                <li>Green Orbs give speed boost!</li>
-                            </ul>
-                        <!--</div>-->
-                     <!--</div>-->
+                    <h3 class="text-center">Code-Runner</h3>
+                    <div sec:authorize="!isAuthenticated()">
+                        <p class="px-4">To save your score, register for an account or log in.</p>
+                    </div>
 
-                    <!--<div class="dropdown">-->
-                        <!--<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                           <!--Select Character-->
-                        <!--</button>-->
-                        <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-                            <!--<a class="dropdown-item" href="#">Duck</a>-->
-                            <!--<a class="dropdown-item" href="#">Wizard</a>-->
-                        <!--</div>-->
-                    <!--</div>-->
+                    <h5 class="text-center">How to Play?</h5>
+                    <ul class='how-to-play'>
+                        <li>Press the screen to jump.</li>
+                        <li>Avoid the code tags.</li>
+                        <li>Collect the Green Cups for points</li>
+                        <li>Collect the Coins to get double points!</li>
+                        <li>Green Orbs give speed boost!</li>
+                    </ul>
 
-                    <select id="selectCharacter" th:if="${user.rank == 'junior'}">
+                    <h5 class="text-center">Characters</h5>
+                    <select class="mx-auto d-block" id="selectCharacter" th:if="${user.rank == 'junior'}">
                         <option name="1" value="1">Duck</option>
                         <option name="3" value="3">Fer</option>
                         <option name="4" value="4">Justin</option>
                         <option name="5" value="5">Dimitri</option>
                         <option name="2" value="2" th:disabled="true">Wizard</option>
                     </select>
-                    <select id="selectCharacter" th:if="${user.rank == 'wizard'}">
+                    <select class="mx-auto d-block" id="selectCharacter" th:if="${user.rank == 'wizard'}">
                         <option name="1" value="1">Duck</option>
                         <option name="2" value="2">Wizard</option>
                     </select>
 
-                    <h5 class="text-center py-5">Characters</h5>
-                    <div class="gif-char">
-                        <p style="margin:0" class="text-center">Codey</p>
-                        <img class="mx-auto d-block" style="width:150px" src="images/codey.gif" alt="Duck character gif" />
-                        <img class="mx-auto d-block" src="images/platform.png" alt="Game platform" />
-                    </div>
-                    <div class="gif-char pt-4">
-                        <p style="margin:0" class="text-center">Wizzy</p>
-                        <img class="mx-auto d-block" style="width:150px" src="images/wizzy.gif" alt="Duck character gif" />
-                        <img class="mx-auto d-block" src="images/platform.png" alt="Game platform" />
-                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="gif-char">
+                                <p style="margin:0" class="text-center">Codey</p>
+                                <img class="mx-auto d-block" style="width:100px" src="images/codey.gif" alt="Duck character gif" />
+                                <img class="mx-auto d-block pb-3" style="width:130px" src="images/platform.png" alt="Game platform" />
+                            </div>
+                            <div class="gif-char pt-4">
+                                <p style="margin:0" class="text-center">Wizzy</p>
+                                <img class="mx-auto d-block" style="width:100px" src="images/wizzy.gif" alt="Duck character gif" />
+                                <img class="mx-auto d-block pb-3" style="width:130px" src="images/platform.png" alt="Game platform" />
+                            </div>
+                        </div>
 
-                </div>
+                        <div class="col-sm-6">
+                            <div class="gif-char">
+                                <p style="margin:0" class="text-center">Codey</p>
+                                <img class="mx-auto d-block" style="width:100px" src="images/codey.gif" alt="Duck character gif" />
+                                <img class="mx-auto d-block pb-3" style="width:130px" src="images/platform.png" alt="Game platform" />
+                            </div>
+                            <div class="gif-char pt-4">
+                                <p style="margin:0" class="text-center">Wizzy</p>
+                                <img class="mx-auto d-block" style="width:100px" src="images/wizzy.gif" alt="Duck character gif" />
+                                <img class="mx-auto d-block" style="width:130px" src="images/platform.png" alt="Game platform" />
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- closes container -->
+
             </div> <!-- closes col -->
 
             <div class="col-md-8 text-center" >
-                <h3>Code-Runner</h3>
-                <div sec:authorize="!isAuthenticated()">
-                    <p class="px-4">To save your score, register for an account or log in.</p>
-                </div>
-
                 <div class='hr'>
                     <a href="#game-canvas"><button type="button" class="btn btn-secondary" id="fullscreenbtn">FullScreen</button></a>
                     <hr />
@@ -81,6 +84,7 @@
                             This is an interactive game.
                         </canvas>
                         <div id="menu" class="active scene">
+                            <h1 id="loader"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i> Loading...</h1>
                             <a href="#game-canvas" id="start-game-button">Start Game</a>
                         </div>
                         <div id="gameover" class="scene">
