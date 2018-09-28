@@ -1578,8 +1578,11 @@ var Game = function () {
                 var queue = evt.target;
                 ss["RealGame_atlas_"] = queue.getResult("RealGame_atlas_");
 
+                var displayLoader =  document.getElementById("loader");
+                displayLoader.style.display = "none";
+
                 var startbtn =  document.getElementById("start-game-button");
-                startbtn.style.display = "block";
+                startbtn.style.display = "inline-block";
             }
         }
     }, {
