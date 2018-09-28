@@ -530,56 +530,56 @@ lib.webfontAvailable = function(family) {
 
 
 
-(lib.powerup = function() {
+(lib.runnerBody_0 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(72);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runnerBody_0 = function() {
+(lib.runnerBody_1 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(73);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runnerBody_1 = function() {
+(lib.runnerBody_2 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(74);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runnerBody_2 = function() {
+(lib.runnerBody_3 = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(75);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.runnerBody_3 = function() {
+(lib.scipt = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(76);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.scipt = function() {
+(lib.servlet = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(77);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.servlet = function() {
+(lib.spring = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(78);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.spring = function() {
+(lib.stackLogo = function() {
 	this.spriteSheet = ss["RealGame_atlas_"];
 	this.gotoAndStop(79);
 }).prototype = p = new cjs.Sprite();
@@ -638,12 +638,13 @@ p.nominalBounds = new cjs.Rectangle(0,0,22,25);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.powerup();
+	this.instance = new lib.stackLogo();
+	this.instance.setTransform(0,0,0.25,0.195);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,32,32);
+p.nominalBounds = new cjs.Rectangle(0,0,25,25);
 
 
 (lib.PlatformGraphic1 = function(mode,startPosition,loop) {
@@ -664,24 +665,24 @@ p.nominalBounds = new cjs.Rectangle(0,0,200,20);
 
 	// Layer 1
 	this.instance = new lib.dimFace();
-	this.instance.setTransform(2.5,14.5,0.4,0.368);
+	this.instance.setTransform(2,2,0.4,0.368);
 
 	this.instance_1 = new lib.runnerBody_0();
-	this.instance_1.setTransform(4.5,25);
+	this.instance_1.setTransform(2.5,14.5);
 
 	this.instance_2 = new lib.runnerBody_1();
-	this.instance_2.setTransform(4.5,25);
+	this.instance_2.setTransform(2,14.5);
 
 	this.instance_3 = new lib.runnerBody_2();
-	this.instance_3.setTransform(4.5,25);
+	this.instance_3.setTransform(2,14.5);
 
 	this.instance_4 = new lib.runnerBody_3();
-	this.instance_4.setTransform(4.5,25);
+	this.instance_4.setTransform(2,14.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_2},{t:this.instance}]},2).to({state:[{t:this.instance_3},{t:this.instance}]},2).to({state:[{t:this.instance_4},{t:this.instance}]},2).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(2.5,14.5,20,43.5);
+p.nominalBounds = new cjs.Rectangle(2,2,20,45.5);
 
 
 (lib.HeroGraphic4 = function(mode,startPosition,loop) {
@@ -703,7 +704,7 @@ p.nominalBounds = new cjs.Rectangle(2.5,14.5,20,43.5);
 	this.instance_4 = new lib.runnerBody_3();
 	this.instance_4.setTransform(2.5,14.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance,p:{x:2}}]}).to({state:[{t:this.instance_2},{t:this.instance,p:{x:2}}]},2).to({state:[{t:this.instance_3},{t:this.instance,p:{x:3.5}}]},2).to({state:[{t:this.instance_4},{t:this.instance,p:{x:2}}]},2).wait(2));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).to({state:[{t:this.instance_2},{t:this.instance}]},2).to({state:[{t:this.instance_3},{t:this.instance}]},2).to({state:[{t:this.instance_4},{t:this.instance}]},2).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(2,2,20,45.5);
@@ -1243,31 +1244,34 @@ p.nominalBounds = new cjs.Rectangle(0,0,800,560);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer 1
-	this.instance = new lib.EnemyJava2();
-	this.instance.setTransform(496.1,244.4,1,1,0,0,0,30,10);
+	this.instance = new lib.PowerupGraphic1();
+	this.instance.setTransform(369.6,232.6,1,1,0,0,0,20,10);
 
-	this.instance_1 = new lib.CoinGraphic();
-	this.instance_1.setTransform(451.1,224.4,1,1,0,0,0,15,15);
+	this.instance_1 = new lib.EnemyJava2();
+	this.instance_1.setTransform(496.1,244.4,1,1,0,0,0,30,10);
 
-	this.instance_2 = new lib.EndItem();
-	this.instance_2.setTransform(545.8,279.4,1,1,0,0,0,25,25);
+	this.instance_2 = new lib.CoinGraphic();
+	this.instance_2.setTransform(451.1,224.4,1,1,0,0,0,15,15);
 
-	this.instance_3 = new lib.HeroGraphic5();
-	this.instance_3.setTransform(447.2,263.7,1,1,0,0,0,8,13.2);
+	this.instance_3 = new lib.EndItem();
+	this.instance_3.setTransform(545.8,279.4,1,1,0,0,0,25,25);
 
-	this.instance_4 = new lib.HeroGraphic4();
-	this.instance_4.setTransform(409,274.5,1,1,0,0,0,9,13.5);
+	this.instance_4 = new lib.HeroGraphic5();
+	this.instance_4.setTransform(447.2,263.7,1,1,0,0,0,8,13.2);
 
-	this.instance_5 = new lib.HeroGraphic3();
-	this.instance_5.setTransform(345.6,272.2,1,1,0,0,0,7.8,11.2);
+	this.instance_5 = new lib.HeroGraphic4();
+	this.instance_5.setTransform(409,274.5,1,1,0,0,0,9,13.5);
 
-	this.instance_6 = new lib.PlatformGraphic1();
-	this.instance_6.setTransform(405,318.5,1,1,0,0,0,100,10);
+	this.instance_6 = new lib.HeroGraphic3();
+	this.instance_6.setTransform(345.6,272.2,1,1,0,0,0,7.8,11.2);
 
-	this.instance_7 = new lib.HeroGraphic1();
-	this.instance_7.setTransform(487.5,291,1,1,0,0,0,17.5,17.5);
+	this.instance_7 = new lib.PlatformGraphic1();
+	this.instance_7.setTransform(405,318.5,1,1,0,0,0,100,10);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
+	this.instance_8 = new lib.HeroGraphic1();
+	this.instance_8.setTransform(487.5,291,1,1,0,0,0,17.5,17.5);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_8},{t:this.instance_7},{t:this.instance_6},{t:this.instance_5},{t:this.instance_4},{t:this.instance_3},{t:this.instance_2},{t:this.instance_1},{t:this.instance}]}).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(705,489.4,265.8,119.1);
