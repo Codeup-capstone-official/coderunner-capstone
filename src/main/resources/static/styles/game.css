@@ -45,17 +45,10 @@ nav {
 
 .nav-btn {
     padding: 8px;
-    /*background: url(../images/oragne-btn.png) center no-repeat;*/
-    /*background-size: contain;*/
 }
 
 .nav-link {
 
-}
-
-#navi {
-    /*background: url(../images/navbar.png) center no-repeat;*/
-    /*background-size: cover;*/
 }
 
 #toggle-btn {
@@ -95,18 +88,21 @@ nav {
 /* Start button on game menu*/
 #start-game-button {
     display: none;
+    box-shadow: 10px 5px 5px black;
 }
 
 #menu {
-    background: url(../images/new-canvas.png);
+    background: url(../images/new-game-bg.png);
     background-size: cover;
     padding: 2em;
-    padding-top: 175px;
+    padding-top: 80px;
 }
 
 #gameover {
-    background: url(../images/rush-gameover-scene.png);
-    padding-top: 170px;
+    background: url(../images/gameover.png) center center no-repeat;
+    background-size: cover;
+    padding-top: 100px;
+    padding-left: 225px;
 }
 
 .game-container {
@@ -143,11 +139,12 @@ nav {
 }
 
 .scene a {
-    padding: 1em;
-    background: #619391;
+    padding: 16px 25px;
+    background: darkslategray;
     color: white;
     text-decoration: none;
     display: inline-block;
+    border: 3px solid white;
 }
 .scene a:hover {
     background: #466B6A;
@@ -166,18 +163,19 @@ nav {
 }
 
 /* ----------------------- */
-ul.how-to-play {
-    list-style-image: url(../images/duck.png);
-    list-style-position: inside;
-    padding: 0;
-}
+/*ul.how-to-play {*/
+    /*list-style-type: none;*/
+    /*list-style-image: url(../images/duck.png);*/
+    /*list-style-position: inside;*/
+    /*padding: 0;*/
+/*}*/
 
-.hr {
-    /*background: url(../images/hr.png) center center no-repeat;*/
-    height: 50px;
-}
-.hr hr {
-    display: none;
+.blue-bg {
+    list-style-type: none;
+    background: url(../images/table-bg.png);
+    background-size: 100% 100%;
+    margin: 0 5%;
+    padding: 15px 15px;
 }
 
 /* ------------------------ Register Password check --------------------- */
@@ -189,10 +187,6 @@ ul.how-to-play {
     color: #000;
     position: relative;
     padding: 90px 40px;
-    /*margin-top: 5px;*/
-    /*border-radius: 2em;*/
-    /*box-shadow: 0 .3em .7em black;*/
-
 }
 #message p {
     margin-left: 20%;
@@ -227,8 +221,12 @@ ul.how-to-play {
     #game {
         width: 360px;
         height: 300px;
-
         top: 125px;
+    }
+
+    #gameover {
+        padding-top: 85px;
+        padding-left: 110px;
     }
 
     .game-container {
@@ -273,6 +271,10 @@ ul.how-to-play {
 
 }
 
+@media (max-width: 768px) {
+
+}
+
 @media (max-width:768px) and (min-width:540px) {
     footer {
         margin-top: 400px;
@@ -297,7 +299,6 @@ table>tbody>tr>td {
 
 /* ------------------------- form fields -----------------------------*/
 .input-fld {
-    /*background-image: linear-gradient(bottom, #FFFFFF 50%, #DEDEDE 100%) !important;*/
     border: 2px solid #3fabaf !important;
     transform: skew(15deg) !important;
     background: #eff8f8;
@@ -312,7 +313,6 @@ table>tbody>tr>td {
 /* --------------------------- About us section ------------------------------*/
 .aboutus-imgs {
     padding: 4rem;
-
 }
 
 .aboutus-names {
