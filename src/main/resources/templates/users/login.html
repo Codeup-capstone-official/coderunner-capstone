@@ -3,13 +3,13 @@
 <head th:replace="fragments/head :: head('Login')"></head>
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
-    <div class="container mt-5 pt-4">
+    <div class="container my-5">
         <h1>Login Page</h1>
         <div th:if="${param.error}">
             Invalid Username and Password.
         </div>
 
-        <div class="container">
+        <div class="container py-5">
             <form th:action="@{/login}" method="post">
                 <div class="form-group">
                     <label class="title-img px-5" for="username">Username</label>
