@@ -4,7 +4,7 @@
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
 
-    <div class="container">
+    <div class="container py-4">
         <div class="row">
             <div class="col-12">
                 <div align="center">
@@ -26,16 +26,14 @@
                     <tr class="px-4">
                         <th:block th:each="record : ${recordScore}">
                             <td class="counterCell"></td>
-                            <td><a th:href="@{'/profile/' + ${record[1]}}" th:text="${record[1]}" style="color: yellowgreen"></a></td>
+                            <td><a th:href="@{'/profile/' + ${record[1]}}" th:text="${record[1]}"></a></td>
                             <td th:text="${record[0]}"></td>
                             <td th:text="${record[2]}"></td>
-
                         </th:block>
                     </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
 
         <div class="row">
@@ -53,7 +51,7 @@
                     <th:block th:each="user : ${top10OfDay}">
                         <tr>
                             <td class="counterCell"></td>
-                            <td><a th:href="${'profile/' + user[0]}" th:text="${user[0]}" style="color: yellowgreen"></a></td>
+                            <td><a th:href="${'profile/' + user[0]}" th:text="${user[0]}"></a></td>
                             <td th:text="${user[1]}"></td>
                         </tr>
                     </th:block>
@@ -75,7 +73,7 @@
                     <th:block th:each="user : ${top10Month}">
                         <tr>
                             <td class="counterCell"></td>
-                            <td><a th:href="${'profile/' + user[0]}" th:text="${user[0]}" style="color: yellowgreen"></a></td>
+                            <td><a th:href="${'profile/' + user[0]}" th:text="${user[0]}"></a></td>
                             <td th:text="${user[1]}"></td>
                         </tr>
                     </th:block>
@@ -88,7 +86,7 @@
                 <table class="table table-borderless table-hover">
                     <thead class="border-bottom">
                     <tr>
-                        <th scope="col">#</th>
+                        <th class="" scope="col">#</th>
                         <th scope="col">Player</th>
                         <th scope="col">Total pnts</th>
                         <!--<th scope="col">Rank</th>-->
@@ -98,7 +96,7 @@
                     <th:block th:each="user : ${users}">
                         <tr>
                             <td class="counterCell"></td>
-                            <td><a th:href="${'profile/' + user[0]}" th:text="${user[0]}" style="color: yellowgreen"></a></td>
+                            <td><a th:href="${'profile/' + user[0]}" th:text="${user[0]}"></a></td>
                             <td th:text="${user[2]}"></td>
                             <!--<td th:text="${user[1]}"></td>-->
                         </tr>

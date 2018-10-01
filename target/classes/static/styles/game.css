@@ -23,6 +23,15 @@ body.home {
     /*text-align: center;*/
 }
 
+a:link, a:visited {
+    color: greenyellow;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: cyan !important;
+}
+
 footer {
     text-align: center;
     color: #999;
@@ -45,10 +54,6 @@ nav {
 
 .nav-btn {
     padding: 8px;
-}
-
-.nav-link {
-
 }
 
 #toggle-btn {
@@ -181,12 +186,12 @@ nav {
 /* ------------------------ Register Password check --------------------- */
 #message {
     display:none;
-    background: url(../images/cloud-msg2.png) center center no-repeat;
+    background: url(../images/table-bg.png) center center no-repeat;
     background-size: 100% 100%;
 
-    color: #000;
+    margin: 50px;
     position: relative;
-    padding: 90px 40px;
+    padding: 40px 25px;
 }
 #message p {
     margin-left: 20%;
@@ -195,7 +200,7 @@ nav {
 }
 /* Add a green text color and a checkmark when the requirements are right */
 .valid {
-    color: green;
+    color: yellowgreen;
 }
 .valid:before {
     position: relative;
@@ -293,7 +298,8 @@ table {
     counter-increment: tableCount;
 }
 
-table>tbody>tr>td {
+table>tbody>tr>td,
+table>thead>tr>th:not(:last-child) {
     padding-left: 25px !important;
 }
 
@@ -331,4 +337,10 @@ table>tbody>tr>td {
     font-size: 11px;
     margin: 0 !important;
     color: greenyellow;
+}
+
+/* -------------------------------- Friends ---------------------------------- */
+.card {
+    background: url(../images/table-bg.png) center center no-repeat;
+    background-size: 100% 100%;
 }
