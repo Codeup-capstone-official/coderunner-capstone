@@ -4,7 +4,7 @@
 
 <body class="home">
     <div th:replace="fragments/navbar :: navbar"></div>
-    <p style="color: white; text-align: center; background-color: deeppink; padding: .8em; border-radius: 200em; width: 50%; display: block; margin: .5em auto; box-shadow: 0 .3em black" th:if="${numOfRequests > 0}"><a th:href="@{'/view-friends'}">You have <span th:text="${numOfRequests}"></span> friend requests!</a></p>
+    <p style="color: white; text-align: center; background-color: #03ff3dad; padding: .8em; border-radius: 200em; width: 50%; display: block; margin: .5em auto; box-shadow: 0 .3em black" th:if="${numOfRequests > 0}"><a th:href="@{'/view-friends'}">You have <span th:text="${numOfRequests}"></span> friend requests!</a></p>
         <div class="row mt-3">
 
             <div id="character-panel" class="col-md-4" style="margin-bottom: 200px">
@@ -20,7 +20,7 @@
                         <li>-- Avoid the code tags.</li>
                         <li>-- Collect Green Cups for points.</li>
                         <li>-- Collect Coins for 2X points!</li>
-                        <li>-- Stack overflow logo give speed boost!</li>
+                        <li>-- Stack overflow logos give speed boost!</li>
                     </ul>
 
                     <h5 class="title-img text-center">Characters</h5>
