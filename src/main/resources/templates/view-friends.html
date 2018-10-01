@@ -3,66 +3,64 @@
 <head th:replace="fragments/head :: head('View Friends')"></head>
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
-    <div class="container">
-        <div class=" container">
-            <h1>Add A Friend</h1>
-            <th:block th:if="${userExists == true}">
-                <h1 style="color: green">Friend request sent to <span th:text="${userToAdd}"></span></h1>
-            </th:block>
-            <th:block th:if="${userExists == false}">
-                <h1 style="color: red"><span th:text="${userToAdd}"></span> does not exists</h1>
-            </th:block>
-            <th:block th:if="${ownUsername == true}">
-                <h1 style="color: red">Cannot add yourself</h1>
-            </th:block>
-            <th:block th:if="${alreadySent == true}">
-                <h1 style="color: red">You have already sent a friend request to <span th:text="${userToAdd}"></span></h1>
-            </th:block>
-            <th:block th:if="${bothSent == true}">
-                <h1 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h1>
-            </th:block>
-            <th:block th:if="${acceptedFriend == true}">
-                <h1 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h1>
-            </th:block>
-            <th:block th:if="${deletedFriend == true}">
-                <h1 style="color: red">You are no longer friends with <span th:text="${userToAdd}"></span></h1>
-            </th:block>
-            <form th:action="@{/add-friend}" th:method="post">
-                <label for="friend">Enter username</label>
-                <input type="text"  id="friend" name="username"/>
-                <button>Submit</button>
-            </form>
-        </div>
-        <hr />
-            <h1 th:if="${numberOfRequests > 0}">You have <span th:text="${numberOfRequests}"></span> friend requests!</h1>
-            <div class="row">
+    <div class="container my-5">
+        <h1>Add A Friend</h1>
+        <th:block th:if="${userExists == true}">
+            <h2 style="color: green">Friend request sent to <span th:text="${userToAdd}"></span></h2>
+        </th:block>
+        <th:block th:if="${userExists == false}">
+            <h2 style="color: red"><span th:text="${userToAdd}"></span> does not exist</h2>
+        </th:block>
+        <th:block th:if="${ownUsername == true}">
+            <h2 style="color: red">Cannot add yourself</h2>
+        </th:block>
+        <th:block th:if="${alreadySent == true}">
+            <h2 style="color: red">You have already sent a friend request to <span th:text="${userToAdd}"></span></h2>
+        </th:block>
+        <th:block th:if="${bothSent == true}">
+            <h2 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h2>
+        </th:block>
+        <th:block th:if="${acceptedFriend == true}">
+            <h2 style="color: green">You are now friends with <span th:text="${userToAdd}"></span></h2>
+        </th:block>
+        <th:block th:if="${deletedFriend == true}">
+            <h2 style="color: red">You are no longer friends with <span th:text="${userToAdd}"></span></h2>
+        </th:block>
+        <form class="py-5" th:action="@{/add-friend}" th:method="post">
+            <div class="form-group">
+                <label class="title-img px-5" for="friend">Enter username</label>
+                <input class="form-control input-fld ml-3" type="text" id="friend" name="username"/>
+            </div>
+            <input type="submit" class="btn btn-success ml-4" value="Submit" />
+            <!--<button type="submit" class="btn btn-success ml-4">Submit</button>-->
+        </form>
+
+        <h1 th:if="${numberOfRequests > 0}">-- You have <span th:text="${numberOfRequests}"></span> friend requests! --</h1>
+        <!--<div class="row pb-5">-->
             <div th:each="request : ${requests}" class="card col-12 col-lg-4">
-                    <div class="card-body">
-                        <h2><a  style="color: #53A551; text-shadow: 1px 2px black;" th:href="@{'/profile/' + ${request[0]}}" th:text="${request[0]}"></a> wants to be your friend</h2>
-                        <form th:action="@{/accept-friend}" th:method="post">
-                            <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
-                            <button>Accept</button>
-                        </form>
-                        <form th:action="@{/decline-friend}" th:method="post">
-                            <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
-                            <button>Decline</button>
-                        </form>
-
-
-
-                    </div>
-            </div>
-            </div>
-            <hr />
-        <h1>Friends list</h1>
-        <div class="row"></div>
-        <div th:each="friend : ${friends}">
-            <div class="card  col-lg-4">
                 <div class="card-body">
-                    <h2><a style="color: #53A551; text-shadow: 1px 2px black;" th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h2>
+                    <h5><a  style="color: #53A551; text-shadow: 1px 2px black;" th:href="@{'/profile/' + ${request[0]}}" th:text="${request[0]}"></a> wants to be your friend</h5>
+                    <form th:action="@{/accept-friend}" th:method="post">
+                        <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
+                        <button type="submit" class="btn btn-success float-left">Accept</button>
+                    </form>
+
+                    <form th:action="@{/decline-friend}" th:method="post">
+                        <input type="hidden" th:value="${request[3]}" name="idOfRecord" />
+                        <button type="submit" class="btn btn-danger float-right">Decline</button>
+                    </form>
+                </div>
+            </div>
+        <!--</div>-->
+
+        <h1 class="pt-5">Friends list</h1>
+        <div th:each="friend : ${friends}">
+            <div class="card col-lg-4">
+                <div class="card-body">
+                    <h3><a th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h3>
                     <form th:action="@{/deleteFriendFromList}" th:method="POST">
                         <input type="hidden" name="friend" th:value="${friend}" />
-                        <button>Delete Friend</button>
+                        <button type="submit" class="btn btn-success">Delete Friend</button>
                     </form>
                 </div>
             </div>

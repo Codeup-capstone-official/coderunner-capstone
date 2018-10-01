@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
-
     <meta charset="UTF-8" />
     <!--<title th:text="${title}"></title>-->
     <!--<th:block th:replace="fragments/styles :: styles"></th:block>-->
@@ -21,55 +20,54 @@
     <link rel="stylesheet" href="/styles/game.css" />
 </head>
 <body>
-<!--<div th:replace="fragments/navbar :: navbar"></div>-->
-<div class="container-fluid">
-    <a th:href="@{'/leaders'}">View Global Rankings</a>
-    <th:block th:if="${numOfFriends > 0}">
-        <h1>Friend Ranking</h1>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Player</th>
-                <th scope="col">Total Points</th>
-                <th scope="col">Rank</th>
+<div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container my-5">
+        <div align="center">
+            <a th:href="@{'/leaders'}">View Global Rankings</a>
+        </div>
+        <br />
 
-
-            </tr>
-            </thead>
-            <tbody>
-            <th:block th:each="player : ${players}">
+        <th:block th:if="${numOfFriends > 0}">
+            <h5 class="title-img" align="center">Friend Ranking</h5>
+            <table class="table table-borderless table-hover">
+                <thead class="border-bottom">
                 <tr>
-                    <th:block th:each="friend : ${friends}">
-                        <th:block th:if="${player[0] == friend}">
-                            <td class="counterCell"></td>
-                            <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: yellowgreen"></a></td>
-                            <td th:text="${player[1]}"></td>
-                            <td th:text="${player[2]}"></td>
-
+                    <th scope="col">#</th>
+                    <th scope="col">Player</th>
+                    <th scope="col">Total Points</th>
+                    <th scope="col">Rank</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="player : ${players}">
+                    <tr>
+                        <th:block th:each="friend : ${friends}">
+                            <th:block th:if="${player[0] == friend}">
+                                <td class="counterCell"></td>
+                                <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
+                                <td th:text="${player[1]}"></td>
+                                <td th:text="${player[2]}"></td>
+                            </th:block>
                         </th:block>
 
-                    </th:block>
-                    <th:block th:if="${player[0] == currentUsername}">
-                        <td class="counterCell"></td>
-                        <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: aqua"></a></td>
-                        <td th:text="${player[1]}"></td>
-                        <td th:text="${player[2]}"></td>
-                    </th:block>
-                </tr>
+                        <th:block th:if="${player[0] == currentUsername}">
+                            <td class="counterCell"></td>
+                            <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: aqua"></a></td>
+                            <td th:text="${player[1]}"></td>
+                            <td th:text="${player[2]}"></td>
+                        </th:block>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+        </th:block>
 
-            </th:block>
-            </tbody>
-        </table>
-    </th:block>
-<th:block th:if="${numOfFriends == 0}">
-    <h1>You don't have any friends added yet</h1>
-</th:block>
+        <th:block th:if="${numOfFriends == 0}">
+            <h1 class="text-center">You don't have any friends added yet</h1>
+        </th:block>
     </div>
-<!--<script th:replace="fragments/scripts :: scripts"></script>-->
 
-
-
+    <script th:replace="fragments/scripts :: scripts"></script>
 
 </body>
 </html>
