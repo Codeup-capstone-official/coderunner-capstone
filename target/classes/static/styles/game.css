@@ -60,6 +60,10 @@ nav {
     background: url(../images/duck.png) center no-repeat;
 }
 
+.nav-logo-sm {
+    display: none;
+}
+
 /* ------------------------------ Game console and canvas --------------------------- */
 .game-boi {
     position:absolute;
@@ -277,12 +281,24 @@ nav {
 }
 
 @media (max-width: 768px) {
-
+    .nav-logo-sm {
+        display: inline-block;
+    }
+    .nav-logo-big {
+        display: none;
+    }
 }
 
 @media (max-width:768px) and (min-width:540px) {
     footer {
         margin-top: 400px;
+    }
+}
+
+@media (max-width:922px) {
+    #nav-logo {
+        background: url(../images/mobile-logo.png) center center no-repeat;
+        background-size: 100% 100%;
     }
 }
 
