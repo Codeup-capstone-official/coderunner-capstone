@@ -6,7 +6,7 @@
     <a class="navbar-brand text-success nav-logo-sm" href="/"><img style="max-height: 120px;" src="/images/mobile-logo.png" alt="Code-runner logo" /></a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span id="toggle-btn" class="navbar-toggler-icon"></span>
+        <span id="toggle-btn" class="navbar-toggler-icon"><i class="fa fa-angle-double-down"></i></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
@@ -17,7 +17,7 @@
                 <a class="nav-link" href="/profile">Profile</a>
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link" href="/view-friends">FRIENDS</a>
+                <a class="nav-link" href="/view-friends">Friends</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" th:method="POST" th:action="@{/search}">

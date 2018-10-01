@@ -33,10 +33,13 @@ a:hover, a:active {
 }
 
 footer {
+    border: 1px solid black;
+    box-shadow: 0px 0px 33px 16px rgba(0,0,0,0.7);
+    background: rgba(19,82,91,0.8);
     text-align: center;
-    color: #999;
-    font-size: 0.8em;
-    margin: 80px 0;
+    color: white;
+    font-weight: 900;
+    margin: 40px 0;
 }
 footer a {
     text-decoration: none;
@@ -57,12 +60,17 @@ nav li a {
     padding: 8px;
 }
 
-#toggle-btn {
-    background: url(../images/duck.png) center no-repeat;
-}
+/*#toggle-btn {*/
+    /*background: url(../images/duck.png) center no-repeat;*/
+/*}*/
 
 .nav-logo-sm {
     display: none;
+}
+
+.fa-angle-double-down {
+    font-size: 50px;
+    color: yellowgreen;
 }
 
 /* ------------------------------ Game console and canvas --------------------------- */
@@ -357,7 +365,11 @@ table>thead>tr>th:not(:last-child) {
 }
 
 /* -------------------------------- Friends ---------------------------------- */
-.card {
+.card, .character-gif{
     background: url(../images/table-bg.png) center center no-repeat;
     background-size: 100% 100%;
+}
+
+.character-gif {
+    margin-bottom: 100px;
 }
