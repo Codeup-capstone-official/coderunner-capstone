@@ -48,8 +48,9 @@ footer a:hover {
 }
 
 /*---------------------- Nav bar -----------------------*/
-nav {
-    font-size: 15px;
+nav li a {
+    color: yellowgreen !important;
+    font-size: 20px;
 }
 
 .nav-btn {
@@ -316,7 +317,7 @@ table {
 
 table>tbody>tr>td,
 table>thead>tr>th:not(:last-child) {
-    padding-left: 25px !important;
+    padding: 10px 0 15px 35px !important;
 }
 
 /* ------------------------- form fields -----------------------------*/
