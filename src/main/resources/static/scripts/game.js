@@ -1504,6 +1504,7 @@ var Game = function () {
             }, 1000);
 
         var fullscreen = document.getElementById("fullscreenbtn");
+        var gameSetting = this;
 
 
         fullscreen.addEventListener("click", function () {
@@ -1545,11 +1546,10 @@ var Game = function () {
             var scoreText2 = document.getElementById("score-text");
 
             var closeFullScreen = document.getElementById("close-fullscreen");
-            closeFullScreen.style.display = "block";
+            closeFullScreen.style.display = "inline-block";
 
             scoreText1.style.fontSize = 60 + 'px';
             scoreText2.style.fontSize = 60 + 'px';
-            this.retinalize()
         });
     }
 

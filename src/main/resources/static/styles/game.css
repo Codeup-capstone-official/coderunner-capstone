@@ -109,6 +109,8 @@ nav li a {
 /* Start button on game menu*/
 #start-game-button {
     display: none;
+    position: relative;
+    top: 1rem;
     box-shadow: 10px 5px 5px black;
 }
 
