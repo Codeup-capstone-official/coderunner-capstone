@@ -784,7 +784,7 @@ var EndingItem = function (_MovableGameObject17) {
     function EndingItem() {
         _classCallCheck(this, EndingItem);
 
-        var _this16 = _possibleConstructorReturn(this, (EndingItem.__proto__ || Object.getPrototypeOf(EndingItem)).call(this, new lib.PowerupGraphic1()));
+        var _this16 = _possibleConstructorReturn(this, (EndingItem.__proto__ || Object.getPrototypeOf(EndingItem)).call(this, new lib.EndItem()));
 
         _this16.velocity.y = 0;
         _this16.directionY = 0;
@@ -1611,11 +1611,11 @@ var Game = function () {
                     test.stage2.removeChild(BG1);
                     test.stage2.addChild(BG2);
                     test.stage2.update();
-                }else if (test.world.currentLevel == 2) {
+                } else if (test.world.currentLevel == 2) {
                     test.stage2.removeChild(BG2);
                     test.stage2.addChild(BG3);
                     test.stage2.update();
-                }else if (test.world.currentLevel == 3) {
+                } else if (test.world.currentLevel == 3) {
                     test.stage2.removeChild(BG3);
                     test.stage2.addChild(BG4);
                     test.stage2.update();
@@ -1625,13 +1625,16 @@ var Game = function () {
             var hero = this.world.hero;
             this.stage.on('stagemousedown', function () {
                 if (!gameover)
-                hero.jump();
-            });
-
-            this.stage.on('stagemousedown', function () {
-                if (!gameover)
                     hero.jump();
             });
+
+            document.documentElement.addEventListener('keydown', function (e) {
+                if ( ( e.keycode || e.which ) == 32) {
+                    e.preventDefault();
+                    if (!gameover)
+                        hero.jump();
+                }
+            }, false);
         }
     }, {
         key: 'gameOver',
