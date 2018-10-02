@@ -1542,7 +1542,10 @@ var Game = function () {
             gameCanvasH.focus();
 
             var scoreText1 = document.getElementById("score-text-p");
-            var scoreText2 = document.getElementById("score-text")
+            var scoreText2 = document.getElementById("score-text");
+
+            var closeFullScreen = document.getElementById("close-fullscreen");
+            closeFullScreen.style.display = "block";
 
             scoreText1.style.fontSize = 60 + 'px';
             scoreText2.style.fontSize = 60 + 'px';
