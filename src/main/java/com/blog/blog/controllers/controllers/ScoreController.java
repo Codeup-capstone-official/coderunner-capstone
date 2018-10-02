@@ -27,7 +27,7 @@ public class ScoreController {
             String currentDate = userRepo.currentDate();
             if (finalScore > 3000) {
                 userRepo.wipeScores(currentUserId);
-                userRepo.updateRank("YOU CHEATED.. SCORE RESET:D", currentUserId);
+                userRepo.updateRank("PLAYER CHEATED.. SCORE RESET:D", currentUserId);
             } else {
 
                 userRepo.insertGameScore(currentDate, finalScore, currentUserId);
