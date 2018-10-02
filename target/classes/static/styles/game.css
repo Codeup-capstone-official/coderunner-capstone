@@ -40,6 +40,8 @@ footer {
     color: white;
     font-weight: 900;
     margin: 40px 0;
+
+    z-index: 99;
 }
 footer a {
     text-decoration: none;
@@ -71,6 +73,7 @@ nav li a {
 .fa-angle-double-down {
     font-size: 50px;
     color: yellowgreen;
+    z-index: 999;
 }
 
 /* ------------------------------ Game console and canvas --------------------------- */
@@ -289,22 +292,34 @@ nav li a {
 
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .nav-logo-sm {
         display: inline-block;
     }
     .nav-logo-big {
         display: none;
     }
+    .no-results {
+        margin-bottom: 300px !important;
+    }
+    div.prof-footer {
+        margin-top: 80px !important;
+    }
 }
 
-@media (max-width:768px) and (min-width:540px) {
+@media screen and (max-width: 1024px) and (min-width:769px){
+    .no-results {
+        margin-bottom: 500px !important;
+    }
+}
+
+@media screen and (max-width:768px) and (min-width:540px) {
     footer {
         margin-top: 400px;
     }
 }
 
-@media (max-width:922px) {
+@media screen and (max-width:922px) {
     #nav-logo {
         background: url(../images/mobile-logo.png) center center no-repeat;
         background-size: 100% 100%;
@@ -362,6 +377,14 @@ table>thead>tr>th:not(:last-child) {
     font-size: 11px;
     margin: 0 !important;
     color: greenyellow;
+}
+
+.no-results {
+    margin-bottom: 550px;
+}
+
+div.prof-footer {
+    margin-top: 180px;
 }
 
 /* -------------------------------- Friends ---------------------------------- */
