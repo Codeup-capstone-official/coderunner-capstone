@@ -31,7 +31,7 @@ public class UserController {
 
     @GetMapping("/about-us")
     public String aboutUs(){
-        return "/about-us";
+        return "about-us";
     }
 
     @PostMapping("/register")
