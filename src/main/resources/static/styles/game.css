@@ -12,15 +12,9 @@ body {
     min-height: 100vh;
     background: url(../images/dark-blue-bg.png) top center no-repeat;
     background-size: cover;
-    /*border-top: 5px solid #008894;*/
     font-family: 'Roboto Mono';
     color: white;
-
     overflow-x: hidden;
-}
-
-body.home {
-    /*text-align: center;*/
 }
 
 a:link, a:visited {
@@ -40,7 +34,6 @@ footer {
     color: white;
     font-weight: 900;
     margin: 40px 0;
-
     z-index: 99;
 }
 footer a {
@@ -62,10 +55,6 @@ nav li a {
     padding: 8px;
 }
 
-/*#toggle-btn {*/
-    /*background: url(../images/duck.png) center no-repeat;*/
-/*}*/
-
 .nav-logo-sm {
     display: none;
 }
@@ -76,14 +65,18 @@ nav li a {
     z-index: 999;
 }
 
+#fullscreenbtn {
+    border: 3px solid white;
+    color: yellow;
+    background-color: darkslategray !important;
+}
+
 /* ------------------------------ Game console and canvas --------------------------- */
 .game-boi {
     position:absolute;
     z-index:1;
     width: 920px;
     height: 965px;
-    /*box-shadow: 0 5px 50px #333;*/
-
     right: -127px;
 }
 
@@ -92,7 +85,6 @@ nav li a {
     height: 410px;
     position: relative;
     overflow: hidden;
-
     margin: auto;
     /*box-shadow: 0 6px 3px -5px #000;*/
     border-style: solid;
@@ -133,9 +125,7 @@ nav li a {
     width: 655px;
     height: 681px;
     margin: 0 auto;
-
     position:relative;
-
     height: 100%;
 }
 
@@ -164,7 +154,7 @@ nav li a {
 .scene a {
     padding: 16px 25px;
     background: darkslategray;
-    color: white;
+    color: yellow;
     text-decoration: none;
     display: inline-block;
     border: 3px solid white;
@@ -186,12 +176,6 @@ nav li a {
 }
 
 /* ----------------------- */
-/*ul.how-to-play {*/
-    /*list-style-type: none;*/
-    /*list-style-image: url(../images/duck.png);*/
-    /*list-style-position: inside;*/
-    /*padding: 0;*/
-/*}*/
 
 .blue-bg {
     list-style-type: none;
@@ -206,7 +190,6 @@ nav li a {
     display:none;
     background: url(../images/table-bg.png) center center no-repeat;
     background-size: 100% 100%;
-
     margin: 50px;
     position: relative;
     padding: 40px 25px;
@@ -237,95 +220,6 @@ nav li a {
 
 .headingRegister {
     text-align: center;
-}
-
-/* ------------------------------------------------ mobile view ------------------------------------------------*/
-@media screen and (max-width: 1100px) {
-    #game {
-        width: 360px;
-        height: 300px;
-        top: 125px;
-    }
-
-    #gameover {
-        padding-top: 85px;
-        padding-left: 110px;
-    }
-
-    .game-container {
-        width:360px;
-        height:300px;
-    }
-
-    .game-boi {
-        width: 570px;
-        height: 695px;
-
-        right: -102px;
-    }
-
-    #menu {
-        padding: 2em;
-        padding-top: 30px;
-    }
-
-    .under-game {
-        /*margin-top: 400px;*/
-    }
-}
-
-@media screen and (max-width: 540px) {
-    .game-boi {
-        display: none;
-    }
-
-    #game {
-        width: 100%;
-        min-height: 450px;
-
-        top: 25px;
-        box-shadow: 0 5px 50px black;
-    }
-
-    .game-container {
-        width: 100%;
-        min-height: 470px;
-    }
-
-}
-
-@media screen and (max-width: 768px) {
-    .nav-logo-sm {
-        display: inline-block;
-    }
-    .nav-logo-big {
-        display: none;
-    }
-    .no-results {
-        margin-bottom: 300px !important;
-    }
-    div.prof-footer {
-        margin-top: 80px !important;
-    }
-}
-
-@media screen and (max-width: 1024px) and (min-width:769px){
-    .no-results {
-        margin-bottom: 500px !important;
-    }
-}
-
-@media screen and (max-width:768px) and (min-width:540px) {
-    footer {
-        margin-top: 400px;
-    }
-}
-
-@media screen and (max-width:922px) {
-    #nav-logo {
-        background: url(../images/mobile-logo.png) center center no-repeat;
-        background-size: 100% 100%;
-    }
 }
 
 /* ------------------------ Leaderboards --------------------------- */
@@ -397,4 +291,102 @@ div.prof-footer {
 
 .character-gif {
     margin-bottom: 100px;
+}
+
+/* ------------------------------------------------ mobile view ------------------------------------------------*/
+@media screen and (max-width: 1100px) {
+    #game {
+        width: 360px;
+        height: 300px;
+        top: 125px;
+    }
+
+    #gameover {
+        padding-top: 85px;
+        padding-left: 110px;
+    }
+
+    .game-container {
+        width:360px;
+        height:300px;
+    }
+
+    .game-boi {
+        width: 570px;
+        height: 695px;
+
+        right: -102px;
+    }
+
+    #menu {
+        padding: 2em;
+        padding-top: 30px;
+    }
+
+    .under-game {
+        /*margin-top: 400px;*/
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .game-boi {
+        display: none;
+    }
+
+    #game {
+        width: 100%;
+        min-height: 450px;
+
+        top: 25px;
+        box-shadow: 0 5px 50px black;
+    }
+
+    .game-container {
+        width: 100%;
+        min-height: 470px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .duck-level {
+        padding-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-logo-sm {
+        display: inline-block;
+    }
+    .nav-logo-big {
+        display: none;
+    }
+    .no-results {
+        margin-bottom: 300px !important;
+    }
+    div.prof-footer {
+        margin-top: 80px !important;
+    }
+    .full-scr-btn {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width:769px){
+    .no-results {
+        margin-bottom: 500px !important;
+    }
+}
+
+@media screen and (max-width:768px) and (min-width:540px) {
+    .home-footer {
+        margin-top: 400px;
+    }
+}
+
+@media screen and (max-width:922px) {
+    #nav-logo {
+        background: url(../images/mobile-logo.png) center center no-repeat;
+        background-size: 100% 100%;
+    }
 }

@@ -32,7 +32,7 @@
             <table class="table table-borderless table-hover">
                 <thead class="border-bottom">
                 <tr>
-                    <th scope="col">#</th>
+                    <th class="pl-5" scope="col">#</th>
                     <th scope="col">Player</th>
                     <th scope="col">Total Points</th>
                     <th scope="col">Rank</th>
@@ -43,7 +43,7 @@
                     <tr>
                         <th:block th:each="friend : ${friends}">
                             <th:block th:if="${player[0] == friend}">
-                                <td class="counterCell"></td>
+                                <td class="counterCell pl-5 pb-4"></td>
                                 <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
                                 <td th:text="${player[1]}"></td>
                                 <td th:text="${player[2]}"></td>
@@ -51,7 +51,7 @@
                         </th:block>
 
                         <th:block th:if="${player[0] == currentUsername}">
-                            <td class="counterCell"></td>
+                            <td class="counterCell pl-5 pb-4"></td>
                             <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: aqua"></a></td>
                             <td th:text="${player[1]}"></td>
                             <td th:text="${player[2]}"></td>
@@ -67,11 +67,7 @@
         </th:block>
     </div>
 
-<footer style="position: absolute; width: 100%; bottom: 0; margin: 0;">
-    <div align="center">
-        <p class="my-2">Codeup Capstone project - Code-runner. Created by Zackry Neagley, Christian Kenney, Chris Mosqueda, Matthew Rich <a href="/about-us">ABOUT US</a></p>
-    </div>
-</footer>
+    <footer th:replace="fragments/footer :: footer"></footer>
     <script th:replace="fragments/scripts :: scripts"></script>
 </body>
 </html>
