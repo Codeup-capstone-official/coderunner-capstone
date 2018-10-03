@@ -27,40 +27,42 @@
         </div>
         <br />
 
-        <th:block th:if="${numOfFriends > 0}">
-            <h5 class="title-img" align="center">Friend Ranking</h5>
-            <table class="table table-borderless table-hover">
-                <thead class="border-bottom">
-                <tr>
-                    <th class="pl-5" scope="col">#</th>
-                    <th scope="col">Player</th>
-                    <th scope="col">Total Points</th>
-                    <th scope="col">Rank</th>
-                </tr>
-                </thead>
-                <tbody>
-                <th:block th:each="player : ${players}">
+        <div class="mb-5 pb-5">
+            <th:block th:if="${numOfFriends > 0}">
+                <h5 class="title-img" align="center">Friend Ranking</h5>
+                <table class="table table-borderless table-hover">
+                    <thead class="border-bottom">
                     <tr>
-                        <th:block th:each="friend : ${friends}">
-                            <th:block th:if="${player[0] == friend}">
+                        <th class="pl-5" scope="col">#</th>
+                        <th scope="col">Player</th>
+                        <th scope="col">Total Points</th>
+                        <th scope="col">Rank</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <th:block th:each="player : ${players}">
+                        <tr>
+                            <th:block th:each="friend : ${friends}">
+                                <th:block th:if="${player[0] == friend}">
+                                    <td class="counterCell pl-5 pb-4"></td>
+                                    <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
+                                    <td th:text="${player[1]}"></td>
+                                    <td th:text="${player[2]}"></td>
+                                </th:block>
+                            </th:block>
+
+                            <th:block th:if="${player[0] == currentUsername}">
                                 <td class="counterCell pl-5 pb-4"></td>
-                                <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}"></a></td>
+                                <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: aqua"></a></td>
                                 <td th:text="${player[1]}"></td>
                                 <td th:text="${player[2]}"></td>
                             </th:block>
-                        </th:block>
-
-                        <th:block th:if="${player[0] == currentUsername}">
-                            <td class="counterCell pl-5 pb-4"></td>
-                            <td><a th:href="@{'/profile/' + ${player[0]}}" th:text="${player[0]}" style="color: aqua"></a></td>
-                            <td th:text="${player[1]}"></td>
-                            <td th:text="${player[2]}"></td>
-                        </th:block>
-                    </tr>
-                </th:block>
-                </tbody>
-            </table>
-        </th:block>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </th:block>
+        </div>
 
         <th:block th:if="${numOfFriends == 0}">
             <h1 class="text-center">You don't have any friends added yet</h1>

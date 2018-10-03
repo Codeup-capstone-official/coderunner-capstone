@@ -45,6 +45,12 @@ footer a:hover {
     color: #000;
 }
 
+#selectCharacter {
+    background-color: #239CA3 !important;
+    color: white;
+    font-size: 25px;
+}
+
 /*---------------------- Nav bar -----------------------*/
 nav li a {
     color: yellowgreen !important;
