@@ -20,7 +20,7 @@
                         <li><img src="images/iconCode.png" />-- Avoid the <span style="color: red;">red</span> code tags.</li>
                         <li><img src="images/iconCup.png" />-- Collect Green Cups for points.</li>
                         <li><img src="images/iconCoin.png" />-- Collect Coins for 2X points!</li>
-                        <li><img src="images/iconLogo.png" />-- Stack overflow logos give speed boost!</li>
+                        <li><img src="images/iconLogo.png" />-- Stack Overflow logos give speed boost!</li>
                     </ul>
 
                     <h5 class="title-img text-center">Characters</h5>
@@ -50,6 +50,7 @@
                             <div class="gif-char pt-4">
                                 <p style="margin:0" class="text-center">Wizzy</p>
                                 <img th:if="${user.rank == 'junior' || user.rank == 'mid' || user.rank == 'senior' || user.rank == 'PLAYER CHEATED.. SCORE RESET:D'}" class="mx-auto d-block" style="width:172px; height: 179px;" src="images/WizardLocked.gif" alt="Duck character gif" />
+                                <img th:if=“${user.rank == ‘wizard’}” class=“mx-auto d-block” style=“width:172px; height: 179px;” src=“/images/wizzy.gif” alt=“Duck character gif” />
                                 <img class="mx-auto d-block pb-3" style="width:130px" src="images/platform.png" alt="Game platform" />
                             </div>
                         </div>
@@ -125,6 +126,5 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
     <script src="scripts/game.js"></script>
-
 </body>
 </html>
