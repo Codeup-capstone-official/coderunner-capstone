@@ -252,7 +252,7 @@ nav li a {
 }
 
 #score-text {
-  color: yellow;
+    color: yellow;
 }
 
 /* ------- Scenes ------- */
@@ -377,8 +377,10 @@ table>thead>tr>th:not(:last-child) {
 /* --------------------------- About us section ------------------------------*/
 
 .aboutus-row {
+    border: 1px solid cyan;
     background: rgba(48, 170, 175, 0.3);
-    box-shadow: 4px 4px whitesmoke;
+    box-shadow: 0 0 30px whitesmoke;
+    padding: 2rem;
 }
 
 .aboutus-imgs {

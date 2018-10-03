@@ -54,17 +54,18 @@
         <!--</div>-->
 
         <h1 class="pt-5">Friends list</h1>
-        <div th:each="friend : ${friends}">
-            <div class="card col-lg-4">
-                <div class="card-body">
-                    <h3><a th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h3>
-                    <form th:action="@{/deleteFriendFromList}" th:method="POST">
-                        <input type="hidden" name="friend" th:value="${friend}" />
-                        <button type="submit" class="btn btn-success">Delete Friend</button>
-                    </form>
+        <div class="row" style="margin-bottom: 7rem;">
+            <div class="col-md-4" th:each="friend : ${friends}">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h3><a th:href="@{'/profile/' + ${friend}}" th:text="${friend}"></a></h3>
+                        <form th:action="@{/deleteFriendFromList}" th:method="POST">
+                            <input type="hidden" name="friend" th:value="${friend}" />
+                            <button type="submit" class="btn btn-success">Delete Friend</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
 
